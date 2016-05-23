@@ -2,7 +2,7 @@
 layout: post
 title:  "那么，我也来丢一下人，写一写博客吧"
 date:   2016-05-23 21:00:10 +0530
-categories: default
+categories: jekyll update
 ---
 最终还是忍不住开始写博客了。能坚持多久也不知道，毕竟不摸鱼实在有点说不过去:p。
 
