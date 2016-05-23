@@ -1,19 +1,9 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+name: Solar Theme
+url: http://example.org
+description: A stylish blog using the Solarized color palette
 
-# Site settings
-title: IsaacXen's Blog
-email: blackoutxen@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  WE SEE THINGS AS WE ARE.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-twitter_username: IsaacXen
-github_username:  IsaacXen
+permalink: /:year/:month/:day/:title/
+paginate: 10
 
-# Build settings
-markdown: kramdown
+gems: [jekyll-paginate]
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
