@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Another Hello World Post"
-date:   2016-01-02 18:23:10 +0530
-categories: jekyll update
+title:  "Yet Another Hello World Post"
+date:   2016-05-23 21:00:10 +0530
+categories: blog
 ---
 最终还是忍不住开始写博客了。能坚持多久也不知道，毕竟不摸鱼实在有点说不过去:p。
 
