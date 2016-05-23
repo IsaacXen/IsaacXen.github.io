@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "那么，我也来丢一下人，写一写博客吧"
+title:  "So I Cant Write Chinese In Title?"
 date:   2016-05-23 21:00:10 +0530
 categories: jekyll update
 ---
