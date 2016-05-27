@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Solar Markdown Test"
-date:   2016-05-27 23:46:25
+title:  "Welcome to test"
+date:   2013-06-05 17:06:25
 categories: jekyll update
 ---
 
@@ -173,4 +173,3 @@ To use this feature, first, please enable it in `Preference` Panel -> `Markdown`
 To trigger inline preview for inline math: input “$”, then press `ESC` key, then input TeX command, a preview tooltip will be visible like below:
 
 $\lim_{x \to \infty} \exp(-x) = 0$
-
