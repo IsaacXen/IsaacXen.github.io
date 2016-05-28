@@ -23,16 +23,17 @@ blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
 }
+/*
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
+}*/
 
 
 
 /*** Basics ***/
 body {
-	font-family: Verdana, serif;
+	font-family: Verdana, PingFang SC, serif;
 	font-size: 13px;
 	line-height: 1.7;
 }
