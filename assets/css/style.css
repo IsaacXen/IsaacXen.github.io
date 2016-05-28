@@ -23,12 +23,66 @@ blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
 }
-/*
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}*/
 
+.highlight table {
+	border: none;
+	margin-bottom: 0;
+}
+.highlight table tr td {
+    border-top: none;
+}
+
+.highlight pre {
+	border: none;
+	margin-bottom: 0;
+}
+
+figure {
+	margin-bottom: 15px;
+}
+
+table pre {
+	margin-bottom: 15px;
+}
+
+pre code {
+	background-color: none;
+	border: none;
+	border-radius: 0;
+    padding: 0;
+}
+
+table {
+	/*border-collapse: collapse;*/
+	border-spacing: 0;
+}
+
+table {
+    padding: 0;
+}
+table tr {
+    margin: 0;
+    padding: 0;
+}
+table tr th {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    padding: 2px 13px;
+}
+table tr td {
+    text-align: left;
+    margin: 0;
+    padding: 0px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    /*margin-top: 0;*/
+}
+table tr th:last-child,
+table tr td:last-child {
+    /*margin-bottom: 0;*/
+}
 
 
 /*** Basics ***/
@@ -59,6 +113,8 @@ sub { vertical-align: sub; font-size: 0.85em; }
 
 code {
     font: 0.85em Monaco, Courier, Monospace;
+    border-radius: 3px 3px 3px 3px;
+    padding: 1px 3px;
 }
 
 blockquote {
