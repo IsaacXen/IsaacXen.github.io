@@ -46,7 +46,7 @@ table pre {
 }
 
 pre code {
-	background-color: none;
+	background-color: transparent;
 	border: none;
 	border-radius: 0;
     padding: 0;
