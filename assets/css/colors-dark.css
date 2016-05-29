@@ -12,7 +12,7 @@ html {
 	background-image: url('/images/background.jpg');
     background-repeat: no-repeat;
     background-position-x: 45%;
-    background-position-y: -0.6%;
+    background-position-y: -46%;
     background-size: 1000px auto;
 /*    background-attachment: fixed;*/
 }
@@ -125,6 +125,9 @@ figure code {
     overflow: auto;
     padding: 6px 10px;
 }
+
+
+
 /*.highlight .c  { color: #586E75 } */
 /*.highlight .err { color: #93A1A1 } */
 /*.highlight .g  { color: #93A1A1 } */
