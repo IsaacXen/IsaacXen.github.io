@@ -5,6 +5,13 @@
 html, body {
 	background-color: #2c2846;
 	color: #9088b1;
+	background-image: url('/images/background.jpg');
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    /*background-position: center top;*/
+    background-position-x: 45%;
+    background-position-y: -.6%;
+    background-size: 800px auto;
 }
 
 a, a:visited, a:active {
@@ -18,8 +25,16 @@ a:hover {
 	color: #B388FF;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
 	color: #9575CD;
+}
+
+h1, h2 {
+	border-bottom: 1px solid #3E3471;
+}
+
+h5 {
+	border-left: 2px solid #9575CD;
 }
 
 h1 a, h1 a:visited, h1 a:active {
@@ -37,6 +52,7 @@ article h1 a.anchor {
 
 blockquote {
 	border-color: #9575CD;
+	/*background-color: #221F3D;*/
 }
 
 #sidebar a:hover {

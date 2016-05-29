@@ -134,19 +134,35 @@ acronym, abbr {
 
 
 h1 {
-	font-size: 17px;
+	font-size: 22px;
 	margin: 0 0 10px 0;
 }
 h2 {
-	font-size: 15px;
+	font-size: 19px;
 	margin: 0 0 10px 0;
 }
 h3 {
+	font-size: 17px;
+	margin: 0 0 10px 0;
+}
+h4 {
+	font-size: 15px;
+	margin: 0 0 10px 0;
+}
+
+h5 {
+	padding-left: 8px;
+	/*font-weight: bold;*/
 	font-size: 14px;
 	margin: 0 0 10px 0;
 }
 
-
+h6 {
+	font-style: italic;
+	/*text-align: center;*/
+	font-size: 12px;
+	margin: 0 0 10px 0;
+}
 
 /*** Useful Classes ***/
 .clear { clear: both; }
@@ -223,10 +239,16 @@ article {
 	margin-bottom: 40px;
 }
 
-article h1 {
-	font-size: 17px;
+article h1:first-child {
+	font-size: 22px;
 	margin: 0 0 10px 0;
+	border-bottom: none;
 }
+
+#header h1:first-child {
+	border-bottom: none;
+}
+
 article h1 a {
 	border: none;
 }
