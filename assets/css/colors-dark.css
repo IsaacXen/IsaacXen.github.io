@@ -11,10 +11,16 @@ html {
 	background-color: #2c2846;
 	background-image: url('/images/background.jpg');
     background-repeat: no-repeat;
-    background-position-x: 45%;
-    background-position-y: -46%;
-    background-size: 1000px auto;
+    background-position-x: 50%;
+    background-position-y: -10px;
+    background-size: 1200px auto;
 /*    background-attachment: fixed;*/
+}
+
+body {
+	/*background-color: rgba(33, 29, 55, .6);*/
+	/*padding-top: 1px;*/
+	/*padding-bottom: 1px;*/
 }
 
 a, a:visited, a:active {
