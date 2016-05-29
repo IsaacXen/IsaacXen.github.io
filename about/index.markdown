@@ -3,9 +3,27 @@ layout: default
 title: About
 ---
 
-This is where you would but a short bio, and/or a description of your site. It also serves as an example of how to set up a standalone page. For example:
+This is **Isaac Chen**, a student from ZHBIT.
 
-<img src="/images/shakespeare.png" class="right" />
-**William Shakespeare** (26 April 1564 – 23 April 1616) was an English poet and playwright, widely regarded as the greatest writer in the English language and the world's pre-eminent dramatist. He is often called England's national poet and the "Bard of Avon". His extant works, including some collaborations, consist of about 38 plays, 154 sonnets, two long narrative poems, and a few other verses, the authorship of some of which is uncertain. His plays have been translated into every major living language and are performed more often than those of any other playwright.
+Here are my tags:
 
-Shakespeare was born and brought up in Stratford-upon-Avon. At the age of 18, he married Anne Hathaway—no, not *that* Anne Hathaway—with whom he had three children.
+Game / Code / EDM / Anime / Design / Tech / Bilier
+
+You can found me on:
+
+* [Weibo](http://weibo.com/blackoutxen)
+* [Twitter](https://twitter.com/IsaacXen)
+* [Github](https://github.com/IsaacXen)
+* [Bilibili](http://space.bilibili.com/1727932)
+
+##### Site info:
+
+emoji support: [emoji-for-jekyll](https://github.com/yihangho/emoji-for-jekyll) by [yihangho](https://github.com/yihangho).
+
+original theme: [Solar Theme](https://github.com/mattvh/solar-theme-jekyll) by [Matt Harzewski](http://www.webmaster-source.com/), modified by me.
+
+background artwork: [Encounter](http://toilettenmassaker.deviantart.com/art/Encounter-465046533) by [ToilettenMassaker](http://toilettenmassaker.deviantart.com/).
+
+Powered by [Jekyll](http://jekyllrb.com/).
+
+I'm new to jekyll and still working on this color scheme. If you found any bug, feel free to let me know.
