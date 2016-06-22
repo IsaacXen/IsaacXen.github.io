@@ -229,6 +229,42 @@ What is Android<span class="ni">&amp;nbsp;</span>Studio? <span class="ni">&amp;#
 <span class="o">}</span> <span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
+<p>PYTHON:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">s</span><span class="o">=</span><span class="s">'''
+The Zen of Python, by Tim Peters
+  
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+'''</span>
+ 
+<span class="kn">import</span> <span class="nn">re</span> <span class="o">,</span><span class="nn">collections</span>
+<span class="n">tail_map</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"'s"</span> <span class="p">:</span> <span class="s">' is'</span><span class="p">,</span> <span class="s">"'re"</span> <span class="p">:</span> <span class="s">' are'</span><span class="p">,</span> <span class="s">"n't"</span><span class="p">:</span> <span class="s">' not'</span> <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span> <span class="s">'</span><span class="err">\</span><span class="s">w+'</span> <span class="p">,</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span> <span class="s">"('s|'re|n't)"</span> <span class="p">,</span><span class="k">lambda</span> <span class="n">matchobj</span> <span class="p">:</span> <span class="n">tail_map</span><span class="p">[</span> <span class="n">matchobj</span><span class="o">.</span><span class="n">group</span><span class="p">(</span> <span class="p">)</span> <span class="p">]</span> <span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+ 
+<span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">'Total word count : </span><span class="si">%</span><span class="s">d'</span> <span class="p">,</span><span class="nb">sum</span><span class="p">(</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span> <span class="n">data</span> <span class="p">):</span>
+     <span class="k">print</span> <span class="p">(</span> <span class="s">'</span><span class="si">%*</span><span class="s">s =&gt; </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="p">(</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span> <span class="n">word</span> <span class="p">]</span> <span class="p">)</span> </code></pre></figure>
+
 <p>Some Text Here.</p>
 
 </div>

@@ -129,7 +129,7 @@ figure code {
 /*** Pygments ***/
 .highlight{
 	background-color: rgba(34, 31, 61, .8);
-	color: #657b83;
+	color: #9088b1;
 	border: 1px solid #514E66;
     border-radius: 3px 3px 3px 3px;
     overflow: auto;
@@ -282,3 +282,16 @@ figure code {
 .language-json .s2 { color: #bbe16c } /* str */
 .language-json .mi { color: #99cc66 } /* num */
 .language-json .mf { color: #99cc66 } /* num */
+
+/* Python */
+.language-python .s  { color: #bbe16c } /* text */
+.language-python .err{ color: #bbe16c } /* text */
+.language-python .o  { color: #3d8f9a } /* operator */
+.language-python .kn { color: #e151b4 } /* import */
+.language-python .nn { color: #c6cfd2 } 
+.language-python .n  { color: #c6cfd2 } 
+.language-python .p  { color: #c6cfd2 } /* () */
+.language-python .k  { color: #ec7968 } 
+.language-python .nb  { color: #bb95ef } 
+.language-python .si  { color: #33a2d9 } 
+.language-python .ow  { color: #3d8f9a } 
