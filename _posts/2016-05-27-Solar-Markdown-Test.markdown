@@ -1,16 +1,11 @@
 ---
 layout: post
-title:  "Solar Markdown Test"
+title:  "Markdown 格式测试"
 date:   2016-05-27 23:46:25
 categories: jekyll update
 ---
 
 测试一下 Solar 主题对 Markdown 的支持程度。
-
-### Table of Contents
-
-[toc]
-
 
 ###  Headers
 
@@ -54,7 +49,7 @@ categories: jekyll update
 1. Ordered
    * Un-Ordered
 
-### Task List
+### <del>Task List</del>
 
 - [ ] a task list item
 - [ ] **another** task list *item*
@@ -71,7 +66,7 @@ public static void main() {
 } 
 ```
 
-### Math Blocks
+### <del>Math Blocks</del>
 
 Here is an example of *LaTeX*:
 
@@ -126,9 +121,9 @@ And then define the link:
 
 ### Images
 
-![Alt text](/images/shakespeare.jpg)
+![Alt text](/images/2016-05-29.png)
 
-![Alt text](/images/shakespeare.jpg "Optional title")
+![Alt text](/images/2016-05-29.png "Optional title")
 
 ### Emphasis
 
@@ -162,11 +157,9 @@ Underline is powered by raw HTML.
 
 ### Emoji :happy:
 
-Input emoji with syntax `:smile:`. 
+😊
 
-User can trigger auto-complete suggestions for emoji by pressing `ESC` key, or trigger it automatically after enable it on preference panel. Also, input UTF8 emoji char directly from `Edit` -> `Emoji & Symbols` from menu bar is also supported. 
-
-### Inline Math
+### <del>Inline Math</del>
 
 To use this feature, first, please enable it in `Preference` Panel -> `Markdown` Tab. Then use `$` to wrap TeX command, for example: `$\lim_{x \to \infty} \exp(-x) = 0$` will be rendered as LaTeX command. 
 

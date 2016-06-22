@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>语法高亮测试</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/"><i class="icon-sun"></i> Isaac's Blog</a></h1>
+    <p>We see things as we are.</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="#">Comment</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      <article class="post">
+
+	<!-- Title -->
+	
+		<h1><a href="/2013/06/06/test/">语法高亮测试</a></h1>
+	
+
+	<!-- Content -->
+	<div class="post-content"><p>测试语法高亮。</p>
+
+<h3 id="fenced-code-blocks">(Fenced) Code Blocks</h3>
+
+<p>This is a <code class="highlighter-rouge">Code Block</code></p>
+
+<p>CSS:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Comment */</span>
+
+<span class="nc">.clear</span> <span class="p">{</span> <span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#page</span> <span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+	<span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+	<span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#sidebar</span> <span class="nt">a</span> <span class="p">{</span>
+	<span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Helvetica Neue"</span><span class="p">,</span> <span class="s1">"Helvetica"</span><span class="p">,</span> <span class="nb">serif</span><span class="p">;</span>
+	<span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2em</span><span class="p">;</span>
+	<span class="nl">padding</span><span class="p">:</span> <span class="m">2px</span> <span class="m">4px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'solarthemeicons'</span><span class="p">;</span>
+  <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/solarthemeicons.eot')</span><span class="p">;</span>
+  <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/solarthemeicons.eot#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+       <span class="sx">url('../fonts/solarthemeicons.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
+       <span class="sx">url('../fonts/solarthemeicons.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
+       <span class="sx">url('../fonts/solarthemeicons.svg#solarthemeicons')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>JSON:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Line</span><span class="w"> </span><span class="err">comments</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">standard</span><span class="w"> </span><span class="err">but</span><span class="w"> </span><span class="err">nonetheless</span><span class="w"> </span><span class="err">allowed.</span><span class="w">
+  </span><span class="err">/*</span><span class="w"> </span><span class="err">As</span><span class="w"> </span><span class="err">well</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">block</span><span class="w"> </span><span class="err">comments.</span><span class="w"> </span><span class="err">*/</span><span class="w">
+  </span><span class="nt">"the only keywords are"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"strings with"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"no excapes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pseudopolinomiality"</span><span class="w">
+    </span><span class="s2">"valid escapes"</span><span class="err">:</span><span class="w"> </span><span class="s2">"C-style\r\n and unicode\u0021"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"illegal escapes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\0377\x\"
+  },
+  "</span><span class="err">some</span><span class="w"> </span><span class="err">numbers":</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">42</span><span class="p">,</span><span class="w">
+    </span><span class="mf">-0.0e-0</span><span class="p">,</span><span class="w">
+    </span><span class="mf">6.626e-34</span><span class="w">
+  </span><span class="p">]</span><span class="w"> 
+</span><span class="p">}</span></code></pre></figure>
+
+<p>Cpp:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/*
+ * Block comment 
+ */</span>
+<span class="cp">#include &lt;vector&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  <span class="c1">// line comment
+</span><span class="k">namespace</span> <span class="n">foo</span> <span class="p">{</span>
+
+  <span class="k">typedef</span> <span class="k">struct</span> <span class="n">Struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">field</span><span class="p">;</span>
+  <span class="p">}</span> <span class="n">Typedef</span><span class="p">;</span>
+  <span class="k">enum</span> <span class="n">Enum</span> <span class="p">{</span><span class="n">Foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">};</span>
+
+  <span class="n">Typedef</span> <span class="o">*</span><span class="n">globalVar</span><span class="p">;</span>
+  <span class="k">extern</span> <span class="n">Typedef</span> <span class="o">*</span><span class="n">externVar</span><span class="p">;</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">Class</span> <span class="p">{</span>
+    <span class="n">T</span> <span class="n">n</span><span class="p">;</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">function</span><span class="p">(</span><span class="kt">int</span> <span class="n">paramName</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">int</span> <span class="o">*</span><span class="n">localVar</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">n</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span> 
+
+    <span class="n">label</span><span class="o">:</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"Formatted string %d</span><span class="se">\n</span><span class="s">\g"</span><span class="p">,</span> <span class="n">localVar</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="n">R</span><span class="s">"**(Formatted raw-string %d</span><span class="se">\n</span><span class="s">)**"</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  
+
+    <span class="cp">#define FOO(A) A
+</span>    <span class="cp">#ifdef DEBUG
+</span>      <span class="n">printf</span><span class="p">(</span><span class="s">"debug"</span><span class="p">);</span>
+    <span class="cp">#endif
+</span>    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>HTML:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN"&gt;</span>
+<span class="c">&lt;!--
+*        Sample comment
+--&gt;</span>
+<span class="nt">&lt;HTML&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;</span>Android Studio<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Android Studio<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;&lt;br&gt;&lt;b&gt;&lt;IMG</span> <span class="na">border=</span><span class="s">0</span> <span class="na">height=</span><span class="s">12</span> <span class="na">src=</span><span class="s">"images/hg.gif"</span> <span class="na">width=</span><span class="s">18</span> <span class="nt">&gt;</span>
+What is Android<span class="ni">&amp;nbsp;</span>Studio? <span class="ni">&amp;#x00B7;</span> <span class="ni">&amp;Alpha;</span> <span class="nt">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<p>XML:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version='1.0' encoding='ISO-8859-1'  ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE index&gt;</span>
+<span class="c">&lt;!-- Some xml example --&gt;</span>
+<span class="nt">&lt;index</span> <span class="na">version=</span><span class="s">"1.0"</span> <span class="na">xmlns:pf=</span><span class="s">"http://test"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;name&gt;</span>Main Index<span class="nt">&lt;/name&gt;</span>
+   <span class="nt">&lt;indexitem</span> <span class="na">text=</span><span class="s">"rename"</span> <span class="na">target=</span><span class="s">"refactoring.rename"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;indexitem</span> <span class="na">text=</span><span class="s">"move"</span> <span class="na">target=</span><span class="s">"refactoring.move"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;indexitem</span> <span class="na">text=</span><span class="s">"migrate"</span> <span class="na">target=</span><span class="s">"refactoring.migrate"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;indexitem</span> <span class="na">text=</span><span class="s">"usage search"</span> <span class="na">target=</span><span class="s">"find.findUsages"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;someTextWithEntityRefs&gt;</span><span class="ni">&amp;amp;</span> <span class="ni">&amp;#x00B7;</span><span class="nt">&lt;/someTextWithEntityRefs&gt;</span>
+   <span class="nt">&lt;withCData&gt;</span><span class="cp">&lt;![CDATA[
+          &lt;object class="MyClass" key="constant"&gt;</span>
+          <span class="nt">&lt;/object&gt;</span>
+        ]]&gt;
+   <span class="nt">&lt;/withCData&gt;</span>
+   <span class="nt">&lt;indexitem</span> <span class="na">text=</span><span class="s">"project"</span> <span class="na">target=</span><span class="s">"project.management"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;pf:foo</span> <span class="na">pf:bar=</span><span class="s">"bar"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/index&gt;</span></code></pre></figure>
+
+<p>Java:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/* Block comment */</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+<span class="cm">/**
+ * Doc comment here for &lt;code&gt;SomeClass&lt;/code&gt;
+ * @param T type parameter
+ * @see Math#sin(double)
+ */</span>
+<span class="nd">@Annotation</span> <span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="n">value</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SomeClass</span><span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Runnable</span><span class="o">&gt;</span> <span class="o">{</span> <span class="c1">// some comment</span>
+  <span class="kd">private</span> <span class="n">T</span> <span class="n">field</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">unusedField</span> <span class="o">=</span> <span class="mf">12345.67890</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">UnknownType</span> <span class="n">anotherString</span> <span class="o">=</span> <span class="s">"Another\nStrin\g"</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">staticField</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">AnInterface</span> <span class="n">param</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">reassignedParam</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">localVar</span> <span class="o">=</span> <span class="s">"IntelliJ"</span><span class="o">;</span> <span class="c1">// Error, incompatible types</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">anotherString</span> <span class="o">+</span> <span class="n">toString</span><span class="o">()</span> <span class="o">+</span> <span class="n">localVar</span><span class="o">);</span>
+    <span class="kt">long</span> <span class="n">time</span> <span class="o">=</span> <span class="n">Date</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"1.2.3"</span><span class="o">);</span> <span class="c1">// Method is deprecated</span>
+    <span class="kt">int</span> <span class="n">reassignedValue</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">staticField</span><span class="o">;</span> 
+    <span class="n">reassignedValue</span> <span class="o">++;</span> 
+    <span class="n">field</span><span class="o">.</span><span class="na">run</span><span class="o">();</span> 
+    <span class="k">new</span> <span class="n">SomeClass</span><span class="o">()</span> <span class="o">{</span>
+      <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">localVar</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">};</span>
+    <span class="n">reassignedParam</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;().</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">enum</span> <span class="n">AnEnum</span> <span class="o">{</span> <span class="n">CONST1</span><span class="o">,</span> <span class="n">CONST2</span> <span class="o">}</span>
+<span class="kd">interface</span> <span class="nc">AnInterface</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">CONSTANT</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+  <span class="kt">void</span> <span class="n">method</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">SomeAbstractClass</span> <span class="o">{</span>
+<span class="o">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">Code</span> <span class="n">block</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">String</span> <span class="n">testingHighLight</span><span class="o">;</span>
+<span class="o">}</span> <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Some Text Here.</p>
+
+</div>
+
+	<!-- Posted Date -->
+	<p class="meta">Posted on <span class="postdate">Jun 06, 2013</span></p>
+
+	<!-- Comment -->
+	
+
+</article>
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2016 Isaac's Blog. Powered by <a href="http://jekyllrb.com">Jekyll</a>, original theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>
