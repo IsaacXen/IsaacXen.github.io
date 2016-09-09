@@ -121,9 +121,23 @@ And then define the link:
 
 ### Images
 
-![Alt text](/images/2016-05-29.png)
+![Alt text](/images/000-Visit-of-The-King-by-ToilettenMassaker.jpg)
 
-![Alt text](/images/2016-05-29.png "Optional title")
+![Alt text](/images/001 DUELYST Concept Art by Anton Fadeev.jpg)
+
+![Alt text](/images/002 DUELYST Cpncept Art by Anton Fadeev.jpg)
+
+![Alt text](/images/003 DUELYST Concept Art Magmar by Anton Fadeev.jpg)
+
+![Alt text](/images/004 The Encounter by Rafael Nascimento.jpg)
+
+![Alt text](/images/005 Busy Underworld by Leon Tukker.jpg)
+
+![Alt text](/images/006 Wanderer by Philipp Kruse.jpg)
+
+![Alt text](/images/007 The Birth of Eden by Noah Bradley.jpg)
+
+![Alt text](/images/008 Newtons dream by Bilalcan Kocaman.jpg)
 
 ### Emphasis
 

@@ -1,0 +1,35 @@
+html, body {
+	background:#fff;
+}
+
+.root {
+	background-color: #fafafa;
+}
+
+header {
+	background:#ffffff;
+}
+
+/* 主页标题 */
+header h1 {
+	
+}
+
+
+
+a {
+	text-decoration: none;
+	color: #;
+	/*background-color: #f6f6f6;*/
+}
+
+a:hover {
+
+}
+
+.navmenu ul li a {
+	background-color: rgba(255,255,255,0);
+	color: #000;
+	transition-duration: .3s;
+	
+}

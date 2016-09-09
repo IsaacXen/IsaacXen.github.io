@@ -10,42 +10,38 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <link href="/assets/css/style.css" rel="stylesheet" />
-  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <!-- <link href="/assets/css/style.css" rel="stylesheet" /> -->
+  <!-- <link href="/assets/css/colors-dark.css" rel="stylesheet" /> -->
+  <link href="/assets/css/frame.css" rel="stylesheet" />
+  <link href="/assets/css/clear.css" rel="stylesheet" />
 
 </head>
 
-<body>
+<body class="root">
+<!--     <div> -->
+        <header>
+            <div class="color-overlay"></div>
+            <div class="headerContainer">
+                <div class="navbar">
+                    <h1>Isaac's Blog</h1>
+                    <!-- <p>We see things as we are.</p> -->
+                    <nav class="navmenu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/archives">Archive</a></li>
+                            <li><a href="/about">About</a></li>
+                            <!-- <li><a href="#">Comment</a></li> -->
+                            <li><a href="/feed.xml">RSS</a></li>
+                        </ul>
+                    </nav>  
+                </div>
+            </div>
+            
+        </header>
 
-
-
-  <header id="header">
-    <h1><a href="/"><i class="icon-sun"></i> Isaac's Blog</a></h1>
-    <p>We see things as we are.</p>
-  </header>
-
-
-
-  <div id="page">
-
-
-
-    <div id="sidebar">
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/archives">Archive</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="#">Comment</a></li>
-          <li><a href="/feed.xml">RSS</a></li>
-        </ul>
-      </nav>
-    </div>
-
-
-
-    <div id="content">
-      <div id="blog-archives">
+        <div class="content-wrapper">
+            <div class="content">
+                <div id="blog-archives">
 
 	
 		<article class="post">
@@ -87,30 +83,30 @@
 
 </div>
 
-    </div>
 
+                <footer id="footer">
+                    <p class="copyright">Copyright &copy; 2016 Isaac's Blog. Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+                </footer>
+            </div>
+        </div>
 
+        <!-- firefox svg blurring trick -->
+<!--         <svg id="svg-image-blur">
+        <filter id="blur-effect">
+            <feGaussianBlur stdDeviation="10" />
+        </filter>
+        </svg> -->
 
-  </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+      <!-- <script src="/assets/js/jquery.mobilemenu.min.js"></script> -->
+        <script src="/assets/js/blur.js"></script>
 
+        <!-- <script>
+        $(document).ready(function(){
+          $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+        });
+        </script> -->
 
-
-  <footer id="footer">
-    <p class="copyright">Copyright &copy; 2016 Isaac's Blog. Powered by <a href="http://jekyllrb.com">Jekyll</a>, original theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
-  </footer>
-
-
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
-
-  <script>
-    $(document).ready(function(){
-      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
-    });
-  </script>
-
-
-
+    <!-- </div> -->
 </body>
 </html>
