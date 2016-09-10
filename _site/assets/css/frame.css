@@ -4,10 +4,16 @@
 
 html {
 	font-family:"SourceHanSansCN-Light", "Helvetica Neue","Helvetica",sans-serif;
-	
-	font-size:1rem;
+	/*-webkit-font-smoothing: antialiased;*/
+	/*text-shadow: 0 0 2px rgba(0, 0, 0, 0.08);*/
+	font-size: 14px;
 	position: relative;
 	/*height: 800px;*/
+}
+
+body {
+	-webkit-font-smoothing: subpixel-antialiased;
+	text-rendering: optimizeLegibility; 
 }
 
 html,body {
@@ -57,7 +63,7 @@ header {
 	left: 0px;
 	font-family:"Helvetica Neue","Helvetica",sans-serif;
 	letter-spacing: 1px;
-	font-size:1.2rem;
+	font-size:20px;
 	margin:0;
 	padding:0;
 	line-height:54px;
@@ -94,15 +100,16 @@ header {
 	text-decoration: none;
 	font-family:"Helvetica Neue","Helvetica",sans-serif;
 	letter-spacing: 1px;
-	font-size: 0.9em;
+	font-size: 14px;
 	font-weight: 100;
 	color: #000;
 	transition-duration: .3s;
-	
+	text-shadow: 0 0 1px #0008;
+
 }
 
 .navmenu ul li a:hover {
-	color: #aaa;
+	color: #777;
 	transition-duration: .2s;
 }
 
@@ -114,7 +121,7 @@ header {
 	top:0;
 	left:0;
 	right:0;
-	-webkit-filter:blur(20px)  contrast(1.00) brightness(1.00);
+	-webkit-filter:blur(20px)  contrast(1.20) brightness(1.14);
 	/*filter:url(#blur-effect);*/
 	opacity:1;
   z-index: 2;
@@ -142,10 +149,10 @@ header {
 #footer p {
 	font-family:"Helvetica Neue","Helvetica",sans-serif;
 	letter-spacing: 1px;
-	font-size: 8px;
+	font-size: 12px;
 	font-weight: 100;
 	text-align: center;
-	color: #ccc;
+	color: #aaa;
 }
 
 /*.root {

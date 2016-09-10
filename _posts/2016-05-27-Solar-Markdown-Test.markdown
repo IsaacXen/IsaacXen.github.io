@@ -25,7 +25,7 @@ categories: jekyll update
 
 > This is a blockquotes
 >
-> > Nested blockquotes
+> Nested blockquotes
 
 ### Lists
 
