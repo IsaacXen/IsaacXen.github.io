@@ -65,7 +65,7 @@ h6 {
 /* Blockquote */
 
 blockquote {
-	margin: 0 0 0 20px;
+	margin: 0 20px 0 20px;
 	padding: 8px 8px 8px 10px;
 	border-left: 2px solid #ffeb8e;
 	background-color: #fff8dc;
@@ -92,7 +92,7 @@ table {
 	border-collapse: separate;
 }
 
-table tr {
+table tr:nth-child(2n) {
 
 	/*background-color: #f9f9f9;*/
 	/*border-bottom: 1px solid #eaeaea;*/

@@ -125,7 +125,7 @@ And then define the link:
 
 ![Alt text](/images/001 DUELYST Concept Art by Anton Fadeev.jpg)
 
-![Alt text](/images/002 DUELYST Cpncept Art by Anton Fadeev.jpg)
+![Alt text](/images/002.jpeg)
 
 ![Alt text](/images/003 DUELYST Concept Art Magmar by Anton Fadeev.jpg)
 

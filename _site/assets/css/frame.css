@@ -2,13 +2,18 @@
 	display: none;
 }*/
 
+* {
+	transition-duration: .4s;
+}
+
 html {
-	font-family:"SourceHanSansCN-Light", "Helvetica Neue","Helvetica",sans-serif;
+	font-family:"Source Sans Pro", sans-serif;
 	/*-webkit-font-smoothing: antialiased;*/
 	/*text-shadow: 0 0 2px rgba(0, 0, 0, 0.08);*/
+	font-weight: 400;
 	font-size: 14px;
 	position: relative;
-	/*height: 800px;*/
+	/*height: 800px; "Helvetica Neue","Helvetica"*/
 }
 
 body {
@@ -70,11 +75,11 @@ header {
 	text-align:left;
   	z-index: 2;
   	font-weight:100;
-	box-shadow:inset 0 -1px 0 rgba(255,255,255,.25);
+	/*box-shadow:inset 0 -1px 0 rgba(255,255,255,.25);*/
 }
 
 .navbar {
-	width: 900px;
+	max-width: 940px;
 	margin: 0 auto;
 	position: relative;
 }
@@ -104,7 +109,7 @@ header {
 	font-weight: 100;
 	color: #000;
 	transition-duration: .3s;
-	text-shadow: 0 0 1px #0008;
+	/*text-shadow: 0 0 1px #0008;*/
 
 }
 
@@ -116,7 +121,7 @@ header {
 .content-blurred {
 	margin-top:44px;
 	margin-right: 0px;
-	padding:0 1rem;
+	/*padding:0 1rem;*/
 	position:absolute;
 	top:0;
 	left:0;
@@ -125,11 +130,16 @@ header {
 	/*filter:url(#blur-effect);*/
 	opacity:1;
   z-index: 2;
+  transition-duration: 0s;
+}
+
+.content-blurred .content {
+  transition-duration: 0s;
 }
 
 .content-wrapper {
 	position:relative;
-	padding:0 1rem;
+	/*padding:0 1rem;*/
 	z-index:1;
 	height:100%;
 	overflow:auto;
@@ -143,8 +153,12 @@ header {
 .content {
 	/*display:block;*/
 	padding-top:1em;
-	width: 900px;
+	/*width: 900px;*/
+	max-width: 940px;
+	min-width: 280px;
 	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px; 
 }
 #footer p {
 	font-family:"Helvetica Neue","Helvetica",sans-serif;
@@ -166,4 +180,58 @@ header {
 
 img {
 	width: 100%;
+}
+
+figure {
+	overflow: auto;
+}
+
+figure.highlight {
+	background-color: #f5f5f5;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 16px 0;
+}
+
+figure pre {
+	margin: 2px 4px;
+}
+
+pre.lineno {
+	padding-right: 8px;
+}
+
+.highlighter-rouge {
+	background-color: #f5f5f5;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+.highlight {
+	margin: 10px;
+}
+
+code {
+	font-family:"Source Code Pro", sans-serif;
+	font-size: 0.9em;
+}
+
+code table {
+	margin: 0;
+    border: none;
+    background-color: #ffffff00;
+    border-radius: 0;
+}
+
+code table tr td {
+	padding: 0;
+}
+
+
+/* Horizontal Rules */
+hr {
+	border: none;
+    border-top: 1px solid #eaeaea;
 }
