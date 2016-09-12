@@ -1,7 +1,6 @@
-
-
 html, body {
-	background:#fff;
+	/*background:#fff;*/
+	color: #525252;
 }
 
 .root {
@@ -21,25 +20,61 @@ header h1 {
 
 a {
 	text-decoration: none;
-	color: #;
-	/*background-color: #f6f6f6;*/
+	text-decoration: none;
+    background-color: #eef4f600;
+    border: 1px solid #dee9ed00;
+    border-radius: 4px;
+    padding: 0 2px;
+    color: #348bb7;
+    margin: 0 -2px;
 }
 
 a:hover {
-
+	background-color: #eef4f6;
+    border: 1px solid #dee9ed;
+    /*box-shadow: 0 0px 0 rgba(0,0,0,.16),0 1px 8px rgba(0,0,0,.1);*/
 }
 
 .navmenu ul li a {
 	background-color: rgba(255,255,255,0);
 	color: #000;
 	transition-duration: .3s;
-	
+	line-height: 54px;
+	border: none; 
+	border-radius: 0;
+	padding: 19px 8px;
+}
+
+.navmenu ul li a:hover {
+	background-color: #00000009;
 }
 
 /* Headers */
+h1 a {
+	color: #333;
+	font-size: 30px;
+	font-weight: 200;
+	-webkit-font-smoothing: subpixel-antialiased;
+	width: 100%;
+	background-color: #f5f5f500;
+    padding: 0 6px;
+    margin-left: -6px;
+    border: 1px solid #eaeaea00;
+    border-radius: 4px;
+}
+
+h1 a:hover {
+	background-color: hsl(0, 0%, 96%);
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+}
+
+h1 a:visited {
+	color: #333;
+}
 
 h1 {
-
+	
 }
 
 h2 {
