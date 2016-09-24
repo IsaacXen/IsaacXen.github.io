@@ -66,7 +66,7 @@ public static void main() {
 } 
 ```
 
-### <del>Math Blocks</del>
+### Math Blocks
 
 Here is an example of *LaTeX*:
 
@@ -173,11 +173,11 @@ Underline is powered by raw HTML.
 
 😊
 
-### <del>Inline Math</del>
+### Inline Math
 
 To use this feature, first, please enable it in `Preference` Panel -> `Markdown` Tab. Then use `$` to wrap TeX command, for example: `$\lim_{x \to \infty} \exp(-x) = 0$` will be rendered as LaTeX command. 
 
 To trigger inline preview for inline math: input “$”, then press `ESC` key, then input TeX command, a preview tooltip will be visible like below:
 
-$\lim_{x \to \infty} \exp(-x) = 0$
+$$\lim_{x \to \infty} \exp(-x) = 0$$
 
