@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Solar Theme</title>  
+    <meta name="viewport" content="width=device-width">
 
-  <meta charset="UTF-8">
-  <title>Solar Theme</title>
-  <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-  <link href="/assets/css/frame.css" rel="stylesheet" />
-  <link href="/assets/css/clear.css" rel="stylesheet" />
-  <link href="/assets/css/max-960.css" rel="stylesheet" media="(max-width: 958px)" />
-  <link href="/assets/css/max-480.css" rel="stylesheet" media="(max-width: 678px)" />
-  <link href="/assets/css/small.css" rel="stylesheet" media="(max-width: 520px)" />
-  <link href="/assets/css/trans.css" rel="stylesheet" media="(max-width: 480px)" />
+    <link href="/assets/css/frame.css" rel="stylesheet" />
+    <link href="/assets/css/clear.css" rel="stylesheet" />
+    <!-- <link href="/assets/css/max-960.css" rel="stylesheet" media="(max-width: 958px)" /> -->
+    <!-- <link href="/assets/css/max-480.css" rel="stylesheet" media="(max-width: 678px)" /> -->
+    <!-- <link href="/assets/css/small.css" rel="stylesheet" media="(max-width: 520px)" /> -->
+    <!-- <link href="/assets/css/trans.css" rel="stylesheet" media="(max-width: 480px)" /> -->
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-
 <body class="root">
-<!--     <div> -->
         <header>
             <div class="color-overlay"></div>
             <div class="headerContainer">
@@ -36,8 +34,7 @@
                         </ul>
                     </nav>  
                 </div>
-            </div>
-            
+            </div>  
         </header>
 
         <div class="content-wrapper">
@@ -133,7 +130,7 @@
 </code></pre>
 </div>
 
-<h3 id="delmath-blocksdel"><del>Math Blocks</del></h3>
+<h3 id="math-blocks">Math Blocks</h3>
 
 <p>Here is an example of <em>LaTeX</em>:</p>
 
@@ -268,13 +265,13 @@
 
 <p>😊</p>
 
-<h3 id="delinline-mathdel"><del>Inline Math</del></h3>
+<h3 id="inline-math">Inline Math</h3>
 
 <p>To use this feature, first, please enable it in <code class="highlighter-rouge">Preference</code> Panel -&gt; <code class="highlighter-rouge">Markdown</code> Tab. Then use <code class="highlighter-rouge">$</code> to wrap TeX command, for example: <code class="highlighter-rouge">$\lim_{x \to \infty} \exp(-x) = 0$</code> will be rendered as LaTeX command.</p>
 
 <p>To trigger inline preview for inline math: input “$”, then press <code class="highlighter-rouge">ESC</code> key, then input TeX command, a preview tooltip will be visible like below:</p>
 
-<p>$\lim_{x \to \infty} \exp(-x) = 0$</p>
+<script type="math/tex; mode=display">\lim_{x \to \infty} \exp(-x) = 0</script>
 
 <div class="footnotes">
   <ol>
@@ -584,8 +581,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
       <!-- <script src="/assets/js/jquery.mobilemenu.min.js"></script> -->
-        <script src="/assets/js/blur.js"></script>
-
+        <!-- <script src="/assets/js/blur.js"></script> -->
         <script>
         window.onresize = function() {
             var width = document.documentElement.clientWidth;
@@ -601,7 +597,5 @@ Namespaces are one honking great idea -- let's do more of those!
             }
         }
         </script>
-
-    <!-- </div> -->
 </body>
 </html>
