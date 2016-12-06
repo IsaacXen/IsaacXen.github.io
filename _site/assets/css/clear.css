@@ -97,6 +97,15 @@ h6 {
 
 }
 
+ol {
+
+}
+
+li {
+    line-height: 26px;
+}
+
+
 /* Blockquote */
 
 blockquote {
@@ -145,6 +154,21 @@ table tr td {
 
 .lineno {
 	color: #B3B3B3;
+}
+
+.footnotes {
+    border-left: 2px solid #ccc;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.footnotes ol {
+	margin: 30px 0 20px 0;
+}
+
+.meta {
+	color: #aaa;
+	font-style: italic;
 }
 
 /* Highlight */
