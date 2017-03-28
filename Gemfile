@@ -1,1 +1,5 @@
 gem 'jekyll-paginate'
+gem 'jekyll-watch'
+gem 'kramdown'
+gem 'addressable'
+gem 'rouge'

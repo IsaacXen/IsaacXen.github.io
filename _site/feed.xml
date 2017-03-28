@@ -3,17 +3,17 @@
   <channel>
     <title></title>
     <description>We see things as we are.</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Nov 2016 16:51:00 +0800</pubDate>
-    <lastBuildDate>Fri, 04 Nov 2016 16:51:00 +0800</lastBuildDate>
-    <generator>Jekyll v3.1.3</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 20 Mar 2017 23:45:20 +0800</pubDate>
+    <lastBuildDate>Mon, 20 Mar 2017 23:45:20 +0800</lastBuildDate>
+    <generator>Jekyll v3.4.0</generator>
     
       <item>
         <title>iOS 辅助功能的另类用途</title>
         <description>&lt;p&gt;整理一些辅助功能的另类用途。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;使用缩放功能实现更暗屏幕&lt;/h2&gt;
+&lt;h2 id=&quot;使用缩放功能实现更暗屏幕&quot;&gt;使用缩放功能实现更暗屏幕&lt;/h2&gt;
 
 &lt;p&gt;这应该是比较广为人知的解决在 iPhone 在弱光环境下即使亮度调节至最低屏幕依旧过亮的方法了。&lt;/p&gt;
 
@@ -39,7 +39,7 @@
 
 &lt;p&gt;现在，你可以通过连按三次主屏幕按钮来开启弱光滤镜了。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;使用降低白点值功能实现更暗屏幕&lt;/h2&gt;
+&lt;h2 id=&quot;使用降低白点值功能实现更暗屏幕&quot;&gt;使用降低白点值功能实现更暗屏幕&lt;/h2&gt;
 
 &lt;p&gt;除了上面说到的缩放功能，苹果在 iOS 10 中为&lt;strong&gt;降低白点值&lt;/strong&gt;新增了强度滑块。通过提高&lt;strong&gt;降低亮色的强度&lt;/strong&gt;，同样能够使屏幕变得更暗。&lt;/p&gt;
 
@@ -52,7 +52,7 @@
 
 &lt;p&gt;你同样可以在&lt;strong&gt;辅助功能快捷键&lt;/strong&gt;中选中&lt;strong&gt;降低白点值&lt;/strong&gt;来快速开启功能。更棒的是，你能够叠加多个辅助功能，如同时开启缩放与降低白点值来实现亮度极低的效果。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;使用色彩滤镜调节屏幕色温&lt;/h2&gt;
+&lt;h2 id=&quot;使用色彩滤镜调节屏幕色温&quot;&gt;使用色彩滤镜调节屏幕色温&lt;/h2&gt;
 
 &lt;p&gt;iPhone se 刚发售时听到的最多的吐槽应该就是“大黄屏”了。虽然说可以通过越狱后使用插件对屏幕色温进行调节，但是用越狱的不安全与不稳定换来的调节色温功能难免代价过大。&lt;/p&gt;
 
@@ -68,7 +68,7 @@
 
 &lt;p&gt;同样的，你可以在&lt;strong&gt;辅助功能快捷键&lt;/strong&gt;中选中&lt;strong&gt;色彩滤镜&lt;/strong&gt;来快速开启功能。&lt;/p&gt;
 
-&lt;h2 id=&quot;assistivetouch-&quot;&gt;更优雅的 AssistiveTouch 用法&lt;/h2&gt;
+&lt;h2 id=&quot;更优雅的-assistivetouch-用法&quot;&gt;更优雅的 AssistiveTouch 用法&lt;/h2&gt;
 
 &lt;p&gt;如果你用过 Noeliel 开发的越狱插件 vHome，相信你一定会被它简单的设计和交互所吸引。屏幕上浮动的就是主屏幕按钮，没有多余的二级菜单，点一下就触发点击主屏幕按钮动作。&lt;/p&gt;
 
@@ -89,14 +89,14 @@
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;不用按下主屏幕按钮，用 TouchID 即可打开 iPhone。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;不用按下主屏幕按钮，用 TouchID 即可打开 iPhone。&amp;nbsp;&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 11 Oct 2016 21:18:25 +0800</pubDate>
-        <link>/2016/10/11/ios-accessibility-special-usage/</link>
-        <guid isPermaLink="true">/2016/10/11/ios-accessibility-special-usage/</guid>
+        <link>http://localhost:4000/2016/10/11/ios-accessibility-special-usage/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/10/11/ios-accessibility-special-usage/</guid>
         
         
         <category>jekyll</category>
