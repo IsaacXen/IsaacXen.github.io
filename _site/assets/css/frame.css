@@ -51,7 +51,7 @@ html, body {
 }
 
 .containter {
-	max-width: 720px;
+	max-width: 840px;
 	min-width: 280px;
 	margin: 0 auto;
 }
@@ -120,7 +120,7 @@ code,
 pre {
 	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
 	font-size: .9em;
-	background: white;
+	/*background: white;*/
 }
 .md-fences{
 	margin-left: 1em;
