@@ -9,7 +9,7 @@ layout: default
 	<div class="post-content">{{ content }}</div>
 
 	<!-- Posted Date -->
-	<p>Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></p>
+	<p><em>Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></em></p>
 
 	<!-- Comment -->
 	{% include comment.html %}
