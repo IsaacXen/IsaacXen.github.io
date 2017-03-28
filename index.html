@@ -4,10 +4,9 @@ title: ;p
 ---
 
 {% for post in paginator.posts %}
-	<article class="post">
+	<div class="post list">
 			<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-<!-- 		<div class="post-content">{{ post.content }}</div> -->
-	</article>
+	</div>
 {% endfor %}
 
 

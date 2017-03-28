@@ -181,3 +181,11 @@ table thead:first-child tr:first-child td {
 table tbody+tbody {
 	border-top: 2px solid #ddd
 }
+
+.post.list h3 {
+	margin: 0;
+}
+
+.post.list h3:first-child {
+	margin: 3em;
+}
