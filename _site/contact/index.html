@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>
+
+Contact • Breakpøint
+
+</title>
+<meta name="description" content=" Code, tips, life, something like that.">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed.xml">
+
+<!-- Web Font -->
+<script src="https://use.typekit.net/eac7rlr.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+<!-- icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<meta name="theme-color" content="#00f0ff">
+<meta name="msapplication-TileColor" content="#00f0ff">
+<meta name="msapplication-TileImage" content="/mstile-310x310.png">
+<!-- /icons -->
+
+<!-- og tags -->
+<meta property="og:site_name" content="Breakpøint">
+<meta property="og:title" content="Contact • Breakpøint">
+<meta property="og:locale" content="en">
+
+  
+    <meta property="og:image" content="http://localhost:4000/img/og-image.jpg">
+  
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:4000/contact/">
+<meta property="og:description" content="
+
+Code, tips, life, something like that.
+">
+<!-- /og tags -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="/js/modernizr.js"></script>
+<script src="/js/fitvids.js"></script>
+<link href='//fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:600,900|Crimson+Text:700italic,600,600italic,400,700,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/reset.css">
+<!-- <link rel="stylesheet" href="/css/pygments.css"> -->
+<script src="/js/prism.js"></script>
+<link rel="stylesheet" href="/css/prism.css">
+
+<link rel="stylesheet" href="/css/style.css">
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+
+<style>
+header {
+  margin-bottom: 40px;
+}
+@media all and (min-width: 500px) {
+  header {
+    margin-bottom: 100px;
+  }
+}
+header::after {
+  display: none;
+}
+</style>
+
+
+</head>
+<body>
+	
+	<div class="wrap">
+		<header>
+  <a href="/" class="website-title">
+    
+      Breakpøint
+    
+
+  </a>
+  <nav>
+  <a href="/about/">About</a>
+  <a href="/contact/">Contact</a>
+  <a href="/archive/">Archive</a>
+</nav>
+
+  
+</header>
+
+		<article>
+	<h1>Contact</h1>
+		<form action="//formspree.io/blackoutxen@gmail.com"
+      method="POST">
+    <input type="email" name="_replyto" placeholder="Your email">
+    <input type="hidden" name="_next" value="/thanks" />
+    <input type="hidden" name="_subject" value="New submission from http://localhost:4000" />
+    <input type="text" name="_gotcha" style="display:none" />
+    <textarea type="text" name="content" rows="8" placeholder="Your message"></textarea>
+    <input type="submit" value="Send">
+</form>
+
+</article>
+
+	  <script>
+	    $("article").fitVids();
+	    $('article p').each(function(i){
+				if (($(this).find('img').length) && (!$.trim($(this).text()).length))  {
+					$(this).addClass('img-only');
+				}
+				if ($.trim($(this).text()).length - $.trim($(this).find('small').text()).length == 0 && ($(this).find('img').length)){
+					$(this).addClass('img-only-source');
+				}
+	  	});
+	  </script>
+	</div>
+	<footer>
+  <div class="inner">
+    <p>Theme by <a href="http://steinvc.github.io/holo-alfa/">Stijn</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

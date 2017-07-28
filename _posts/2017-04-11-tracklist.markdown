@@ -1,8 +1,6 @@
 ---
-layout: post
-title:  "Tracklist"
-date:   2017-03-26 16:50:00
-categories: achieves
+title: Tracklist
+summary: Some Tracklist
 ---
 
 #### *"Trance to Study By: All-Nighter"*

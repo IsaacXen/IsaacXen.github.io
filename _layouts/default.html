@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang }}" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }}</title>  
-    <meta name="viewport" content="width=device-width">
-
-    <link href="/assets/css/frame.css" rel="stylesheet" />
-    <link href="/assets/css/prism.css" rel="stylesheet" />
-    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	{% include head.html %}
 </head>
-<body class="root">
-        <div class="content-wrapper">
-            <div class="containter">
-                {{ content }}
-            <h3>let nav = [ "<a href="/">home</a>", "<a href="/about">about</a>" ]</h3>
-        </div>
-    </div>
-
-    <script src="/assets/js/prism.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<body>
+	{% if page.cover-image %}
+	<div class="cover-image-container">
+		<img alt="Cover image" src="{{ site.baseurl }}/img/covers/{{ page.cover-image }}">
+	</div>
+	{% endif %}
+	<div class="wrap">
+		{% include header.html %}
+		{{ content }}
+	  <script>
+	    $("article").fitVids();
+	    $('article p').each(function(i){
+				if (($(this).find('img').length) && (!$.trim($(this).text()).length))  {
+					$(this).addClass('img-only');
+				}
+				if ($.trim($(this).text()).length - $.trim($(this).find('small').text()).length == 0 && ($(this).find('img').length)){
+					$(this).addClass('img-only-source');
+				}
+	  	});
+	  </script>
+	</div>
+	{% include footer.html %}
 </body>
 </html>

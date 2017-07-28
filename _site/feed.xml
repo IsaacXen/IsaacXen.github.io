@@ -1,323 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title></title>
-    <description>We see things as we are.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Mar 2017 22:30:51 +0800</pubDate>
-    <lastBuildDate>Tue, 28 Mar 2017 22:30:51 +0800</lastBuildDate>
-    <generator>Jekyll v3.4.0</generator>
-    
-      <item>
-        <title>Achieves for macdev.io Forum</title>
-        <description>&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Breakpøint</title>
+		<description>{&quot;meta&quot;=&gt;&quot;Code, tips, life, something like that.&quot;, &quot;subtitle&quot;=&gt;nil}</description>
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Tracklist</title>
+				
+					
+						<dc:creator>{&quot;name&quot;=&gt;&quot;Isaac Chen&quot;, &quot;email&quot;=&gt;&quot;blackoutxen@gmail.com&quot;, &quot;info&quot;=&gt;nil}</dc:creator>
+					
+				
+				
+					<description>&lt;h4 id=&quot;trance-to-study-by-all-nighter&quot;&gt;&lt;em&gt;“Trance to Study By: All-Nighter”&lt;/em&gt;&lt;/h4&gt;
 
-&lt;p&gt;WIP&lt;/p&gt;
+&lt;p&gt;0:00:53 - Burial – Night Bus&lt;/p&gt;
 
-&lt;h2 id=&quot;nstableview&quot;&gt;NSTableView&lt;/h2&gt;
+&lt;p&gt;0:02:59 - Above &amp;amp; Beyond – Filmic&lt;/p&gt;
 
-&lt;h3 id=&quot;如何动态更改行顺序&quot;&gt;如何动态更改行顺序&lt;/h3&gt;
+&lt;p&gt;0:06:28 - Sasha – Requiem&lt;/p&gt;
 
-&lt;p&gt;如何实现如 QQ 中当接收到新消息时该好友移动到最顶部？&lt;/p&gt;
+&lt;p&gt;0:12:00 - Andrew Bayer – Community&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;NSTableView&lt;/code&gt; 有以下方法：&lt;/p&gt;
+&lt;p&gt;0:18:45 - Nuera – Green Cape Sunset&lt;/p&gt;
 
-  &lt;pre&gt;&lt;code class=&quot;language-swift&quot;&gt; func moveRow(at: Int, to: Int)
- // Moves the specified row to the new row location using animation.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;0:21:36 - Estiva – I Feel Fine (Piano Mix)&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;参阅：&lt;a href=&quot;https://developer.apple.com/reference/appkit/nstableview&quot;&gt;NSTableView&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;0:29:08 - Deadmau5 – Faxing Berlin&lt;/p&gt;
 
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-15.htm&quot;&gt;NSTableView如何实现某个Cell动态滚动到顶部位置&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;0:36:52 - Vadim Soloviev – Forma Perpetua&lt;/p&gt;
 
-&lt;h2 id=&quot;nswindow&quot;&gt;NSWindow&lt;/h2&gt;
+&lt;p&gt;0:42:30 - Motorcitysoul – Space Katzle (Jerome Sydenham Remix)&lt;/p&gt;
 
-&lt;h3 id=&quot;为程序添加登陆窗口&quot;&gt;为程序添加登陆窗口&lt;/h3&gt;
+&lt;p&gt;0:49:53 - Alpha 9 – Come Home&lt;/p&gt;
 
-&lt;p&gt;如何实现如 QQ 中登录框在的时候，关闭登录框关闭程序。在主界面的时候关闭不关闭程序，并且点击Dock图标打开主界面？&lt;/p&gt;
+&lt;p&gt;0:54:40 - Soultanas &amp;amp; Tone Depth – Moments&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;你需要两个窗口，一个是登陆窗口，另一个是主窗口。&lt;/p&gt;
+&lt;p&gt;0:59:34 - Armin van Buuren – Minack&lt;/p&gt;
 
-  &lt;p&gt;假设这两个窗口都在 Storyboard 里有定义。在你的 AppDelegate 中，你需要两个变量来存储你的窗口：&lt;/p&gt;
+&lt;p&gt;1:05:56 - Daniel Kandi – 3 Strikes UR In&lt;/p&gt;
 
-  &lt;pre&gt;&lt;code class=&quot;language-swift&quot;&gt;class AppDelegate: NSObject, NApplicationDelegate {
-    var mainWindow: NSWindow? // 主窗口
-    var loginWindowController: LoginWindowColtroller? // 登陆窗口
+&lt;p&gt;1:10:55 - Andrew Bayer – Counting the Points (Matt Lange Remix)&lt;/p&gt;
 
-    func applicationWillFinishLaunching(_ notification: Notification) {
-        // 尽快地隐藏你的主窗口
-        mainWindow = NSApplication.shared().windows.first
-        if let mainWindow = mainWindow {
-            mainWindow.close()
-        }
+&lt;p&gt;1:18:38 - Fake Truth – Land of the Questions&lt;/p&gt;
 
-        // 显示你的登陆窗口
-        let storyboard = NSStoryboard(name: &quot;Main&quot;, bundle: nil)
-        loginWindowColtroller = storyboard.instantiateController(withIdentifier: &quot;loginWindowController&quot;) as? LoginWindowController
-        loginWindowColtroller?.showWindow(nil)
-    }
+&lt;p&gt;1:21:44 - Airbase – Escape (Exhales Chilldown Remix)&lt;/p&gt;
 
-    // 这里用于实现点击 dock 图标打开主窗口
-    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -&amp;gt; Bool {
-        if flag {
-            return false
-        } else {
-            mainWindow = NSApplication.shared().windows.first
-            mainWindow?.makeKeyAndOrderFront(self)
-            return true
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1:27:22 - Sasha – Cloud Cuckoo&lt;/p&gt;
 
-  &lt;p&gt;登陆窗口实现关闭窗口时退出程序：&lt;/p&gt;
+&lt;p&gt;1:34:37 - Rex Mundi – Sandstone&lt;/p&gt;
 
-  &lt;pre&gt;&lt;code class=&quot;language-swift&quot;&gt;class func LoginWindowController: NSWindowController {
-  override func windowDidLoad() {
-    // 指定关闭按钮的关闭事件
-    window?.standWindowButton(.closeButton)?.target = self
-    window?.standWindowButton(.closeButton)?.action = #selector(closeAction)
-  }
-  
-  @objc func closeAction() {
-    NSApplication.shared().terminate(self)
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1:38:49 - Andy Duguid – Dreamcatcher&lt;/p&gt;
 
-  &lt;p&gt;在进行验证后，执行以下代码显示主窗口并隐藏登陆窗口：&lt;/p&gt;
+&lt;p&gt;1:43:12 - Zack Roth – Silver of Blue&lt;/p&gt;
 
-  &lt;pre&gt;&lt;code class=&quot;language-swift&quot;&gt;class LoginViewController: NSViewController {
-  @IBAction func login(_ sender: NSButton) {
-    let appDelegate = NSApplication.shared().delegate as! AppDelegate
-    appDelegate.mainWindow?.makeKeyAndOrderFront(nil) // 显示主窗口
-    self.view.window?.close() // 隐藏登陆窗口
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;1:50:04 - The Blizzard – Piercing the Fog (Radio Edit)&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;参阅：&lt;a href=&quot;https://sqllyw.wordpress.com/2013/09/29/adding-a-login-window-to-mac-os-x-app/&quot;&gt;Adding a login window to mac os x app&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1:53:03 - Tiesto – Ten Seconds Before Sunrise&lt;/p&gt;
 
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-2.htm&quot;&gt;怎么实现QQ的多开账号&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;1:58:15 - Cressida – 6AM (Kyau &amp;amp; Albert Remix)&lt;/p&gt;
 
-&lt;h2 id=&quot;nssplitviewcontroller&quot;&gt;NSSplitViewController&lt;/h2&gt;
+&lt;p&gt;2:03:21 - Marc Marzenit – Trozitos de Navidad (Primavera Remix)&lt;/p&gt;
 
-&lt;h3 id=&quot;如何在splititemcontroller里获取其他splititemcontroller&quot;&gt;如何在splitItemController里获取其他splitItemController&lt;/h3&gt;
+&lt;p&gt;2:07:50 - Kamaya Painters – Far From Over&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-objective-c&quot;&gt;NSSplitViewController * controller = (NSSplitViewController *)self.view.window.contentViewController;
-NSArray * itemArray = controller.splitViewItems;
-NSSplitViewItem * item = itemArray[1];
-NSViewController * VC =  item.viewController;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2:11:04 - The Blizzard &amp;amp; Omnia – My Inner Island&lt;/p&gt;
 
-  &lt;p&gt;或者：&lt;/p&gt;
+&lt;p&gt;2:15:03 - T4L – Alternative Route&lt;/p&gt;
 
-  &lt;pre&gt;&lt;code class=&quot;language-swift&quot;&gt;if let parentSplitViewController = self.parent as? NSSplitViewController ?? nil {
-    let vc = parentSplitViewController.splitViewItems[1].viewController
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;2:19:30 - Deadmau5 – October&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-10.htm&quot;&gt;在NSSplitViewController的item1对应的控制器中 如何获取NSSplitViewController中item2对应的控制器呢?&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;2:25:22 - Tiesto – Bright Morning Star&lt;/p&gt;
 
-&lt;h2 id=&quot;nstask&quot;&gt;NSTask&lt;/h2&gt;
+&lt;p&gt;2:30:42 - Teana &amp;amp; Tiida – Australia (Nicks Remix)&lt;/p&gt;
 
-&lt;h3 id=&quot;如何实现应用多开&quot;&gt;如何实现应用多开&lt;/h3&gt;
+&lt;p&gt;2:37:26 - David Forbes – Point Picquet&lt;/p&gt;
 
-&lt;p&gt;Q: 如何实现如 QQ 可同时登陆多个账号的功能？&lt;/p&gt;
+&lt;p&gt;2:41:56 - Sunlounger – Another Day on the Terrace (AJT on Top Remix)&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;参阅：&lt;a href=&quot;http://www.jianshu.com/p/0096fc7cbde9&quot;&gt;Mac开发App多开&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2:46:19 - Sunlounger – Another Day on the Terrace&lt;/p&gt;
 
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-2.htm&quot;&gt;怎么实现QQ的多开账号&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;2:53:17 - Armin van Buuren – Face to Face&lt;/p&gt;
 
-&lt;h2 id=&quot;nsalert&quot;&gt;NSAlert&lt;/h2&gt;
+&lt;p&gt;2:59:16 - M6 – Days of Wonder&lt;/p&gt;
 
-&lt;h3 id=&quot;在-nsalert-中获取-nswindow&quot;&gt;在 NSAlert 中获取 NSWindow&lt;/h3&gt;
+&lt;p&gt;3:02:43 - Dreas &amp;amp; Alex Robert – Mormugao (Alex Robert 2011 Mix Edit)&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;用 &lt;code&gt;alert.runModal()&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;3:05:12 - Mike Shiver &amp;amp; Matias Lehtola – Slacker&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-13.htm&quot;&gt;alert with NSWindowController&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;3:09:43 - David Villa &amp;amp; Tito Coco – La Noche&lt;/p&gt;
 
-&lt;h2 id=&quot;animation&quot;&gt;Animation&lt;/h2&gt;
+&lt;p&gt;3:15:12 - Cressida – No More Lies&lt;/p&gt;
 
-&lt;h3 id=&quot;cabasicanimation平移动画结束后不接收点击事件&quot;&gt;CABasicAnimation平移动画结束后不接收点击事件&lt;/h3&gt;
+&lt;p&gt;3:20:46 - Basic Perspective – Small Step on the Other Side&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;removedOnCompletion = NO&lt;/code&gt; 这句代码阻隔了你的 View 对鼠标事件进行响应。根据&lt;a href=&quot;http://stackoverflow.com/a/13655535/6692025&quot;&gt;这里&lt;/a&gt;的说法：&lt;/p&gt;
+&lt;p&gt;3:26:35 - P8 &amp;amp; Answer42 – Fragments&lt;/p&gt;
 
-  &lt;blockquote&gt;
-    &lt;p&gt;CAAnimation 对象实际上并没有改变应用了动态效果的对象的属性，而是将属性应用在新画出来的用于展示效果的图层上。 当你创建动画并应用 removedOnCompletion = NO 时， 这个用于展示的图层不会消失，但其原本的 View 的属性并没有发生任何变化。换句话说，移动 View 的图层并没有移动 View 本身。所以在新的位置显示的图层当然也不会响应任何事件。&lt;/p&gt;
-  &lt;/blockquote&gt;
+&lt;p&gt;3:31:24 - VillaNaranjos – Granadella (Radio Edit)&lt;/p&gt;
 
-  &lt;p&gt;如果你仍然想要使用 CAAnimation，可以：&lt;/p&gt;
+&lt;p&gt;3:34:35 - Orjan Nilsen – Le Tour De Trance&lt;/p&gt;
 
-  &lt;ol&gt;
-    &lt;li&gt;去掉 removedOnCompletion = NO&lt;/li&gt;
-    &lt;li&gt;在动画结束时更新 View 的 frame 至新位置&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;3:40:05 - Paul Kalkbrenner – Square 1&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;参阅：&lt;a href=&quot;http://stackoverflow.com/questions/13651591/nsview-does-not-respond-to-mouse-events-after-cabasicanimation&quot;&gt;NSView Does Not Respond To Mouse Events After CABasicAnimation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3:45:45 - Above &amp;amp; Beyond – Sun in Your Eyes&lt;/p&gt;
 
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-4.htm&quot;&gt;CABasicAnimation平移动画结束后,按钮以及cell不接收点击事件&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;3:49:42 - Jaytech – Synergy&lt;/p&gt;
 
-&lt;h3 id=&quot;nsanimation-执行一系列动作&quot;&gt;NSAnimation 执行一系列动作&lt;/h3&gt;
+&lt;p&gt;3:55:26 - Ahmet Ertenu – Why&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-swift&quot;&gt;NSAniamtionContext.beginGrouping()
-/* Your animator code here */
-NSAnimationContext.endGrouping()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;3:59:58 - MzR – Hidden Inside&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-7.htm&quot;&gt;splitViewItems在折叠过程中能不能获取折叠过程&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;4:04:25 - Orjan Nilsen – La Guitarra&lt;/p&gt;
 
-&lt;h2 id=&quot;本地化&quot;&gt;本地化&lt;/h2&gt;
+&lt;p&gt;4:08:24 - Arnej – The Strings That Bind Us&lt;/p&gt;
 
-&lt;h3 id=&quot;设置-nsopenpanel-按钮文本&quot;&gt;设置 NSOpenPanel 按钮文本&lt;/h3&gt;
+&lt;p&gt;4:13:15 - Deadmau5 – Alone With You&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;打开你的项目设置&lt;/li&gt;
-    &lt;li&gt;在 PROJECT 中选中你的项目&lt;/li&gt;
-    &lt;li&gt;在右侧 Info 标签中，找到 Localizations&lt;/li&gt;
-    &lt;li&gt;点击加号，添加 Chinese (Simplified)&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;4:20:14 - Wighnomy Brothers – Wurz &amp;amp; Blosse&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;参阅：&lt;a href=&quot;https://developer.apple.com/internationalization/&quot;&gt;Build Apps for the World&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4:22:59 - Soundprank – Boundless Energy&lt;/p&gt;
 
-  &lt;p&gt;原文：&lt;a href=&quot;https://ask.macdev.io/?thread-3.htm&quot;&gt;NSOpenPanel怎么设置取消按钮文字&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;4:28:18 - Ad Brown &amp;amp; Maxi Valvona – Fractions (Original Mix)&lt;/p&gt;
 
+&lt;p&gt;4:31:48 - Ralphie B – Bullfrog&lt;/p&gt;
+
+&lt;p&gt;4:36:18 - Kyau &amp;amp; Albert – Kiksu (Kyau vs. Albert 2011 Rework)&lt;/p&gt;
+
+&lt;p&gt;4:42:55 - Richard Dinsdale – Supernova (Original Club Mix)&lt;/p&gt;
+
+&lt;p&gt;4:49:15 - Deadmau5 – There Might Be Coffee&lt;/p&gt;
+
+&lt;p&gt;4:55:40 - Manilla Rising – Beyond the Stars&lt;/p&gt;
+
+&lt;p&gt;4:57:48 - Andrew Bayer – Gaff’s Eulogy&lt;/p&gt;
+
+&lt;p&gt;5:02:05 - Technodreamer – Cutting Distance&lt;/p&gt;
+
+&lt;p&gt;5:05:23 - Deadmau5 – Brazil&lt;/p&gt;
+
+&lt;p&gt;5:11:27 - Tiesto – Always Near (Extended Tiesto Remix)&lt;/p&gt;
+
+&lt;p&gt;5:18:41 - Jaytech – Atlantic&lt;/p&gt;
+
+&lt;p&gt;5:25:22 - Claudia Cazacu – Labyrinth&lt;/p&gt;
+
+&lt;p&gt;5:31:08 - Oliver Smith – New Dawn&lt;/p&gt;
+
+&lt;p&gt;5:37:09 - Jaytech – Overdrive&lt;/p&gt;
+
+&lt;p&gt;5:41:54 - Erick Strong – Heart Inside (Original Mix)&lt;/p&gt;
+
+&lt;p&gt;5:47:23 - Estuera – Tales from the South (Jonas Steur’s Revision Flow)&lt;/p&gt;
+
+&lt;p&gt;5:55:08 - Jaytech – Overdrive (Proff Remix)&lt;/p&gt;
+
+&lt;p&gt;6:01:00 - Orjan Nilsen – Dominatrix&lt;/p&gt;
+
+&lt;p&gt;6:06:00 - Daniel Steinberg – True Romance (Special Edit)&lt;/p&gt;
+
+&lt;p&gt;6:10:45 - Anhken – Always Look Back (Original Mix Edit)&lt;/p&gt;
+
+&lt;p&gt;6:14:54 - Paul Van Dyk &amp;amp; Austin Leeds – Symmetries&lt;/p&gt;
+
+&lt;p&gt;6:19:39 - Audien – Keep This Memory (Original Mix)&lt;/p&gt;
+
+&lt;p&gt;6:23:39 - Basil O’Glue – Angular Momentum (Original Mix)&lt;/p&gt;
+
+&lt;p&gt;6:29:21 - Above &amp;amp; Beyond – Eternal&lt;/p&gt;
+
+&lt;p&gt;6:32:13 - Gregory Esayan – Light Flashes (NK Remix)&lt;/p&gt;
+
+&lt;p&gt;6:36:04 - Marc Vision – Time Gate (Update)&lt;/p&gt;
+
+&lt;p&gt;6:39:20 - LN Movement – Golden Desert Part 2&lt;/p&gt;
+
+&lt;p&gt;6:42:50 - Kamaya Painters – Northern Spirit&lt;/p&gt;
+
+&lt;p&gt;6:46:19 - Jaytech – New Vibe&lt;/p&gt;
+
+&lt;p&gt;6:51:35 - Tiesto – LA Ride&lt;/p&gt;
+
+&lt;p&gt;6:54:58 - Oliver Smith – Symmetry&lt;/p&gt;
+
+&lt;p&gt;6:59:30 - Tilt – Twelve (Dousk Mix)&lt;/p&gt;
+
+&lt;p&gt;7:03:00 - Daniel Kandi – Promised (Jason Van Wyk Remix)&lt;/p&gt;
+
+&lt;p&gt;7:05:57 - Aspekt – Hi Jack&lt;/p&gt;
+
+&lt;p&gt;7:09:27 - Danilo Ercole – Water That Birds Don’t Drink (Original Mix)&lt;/p&gt;
+
+&lt;p&gt;7:16:25 - Rank 1 – Airwave&lt;/p&gt;
+
+&lt;p&gt;7:19:53 - Activa vs. Chris &amp;amp; Matt Kidd – U.R. (Stoneface &amp;amp; Terminal Mix)&lt;/p&gt;
+
+&lt;p&gt;7:25:51 - Deadmau5 – Closer&lt;/p&gt;
+
+&lt;p&gt;7:30:30 - Distant Fragment &amp;amp; Steve Mill – Utopia&lt;/p&gt;
+
+&lt;p&gt;7:36:49 - Parker &amp;amp; Hanson – Afterthought (Soundprank’s Deep04 Mix)&lt;/p&gt;
+
+&lt;p&gt;7:41:17 - Arnej – People Come People Go&lt;/p&gt;
+
+&lt;p&gt;7:46:32 - Kassey Voorn – Shine&lt;/p&gt;
+
+&lt;p&gt;7:55:27 - Essay &amp;amp; Rhian Sheehan – Morning Mountain (Radio Edit)&lt;/p&gt;
+
+&lt;p&gt;7:59:52 - Estiva – I Feel Fine (Radar Detector Remix)&lt;/p&gt;
 </description>
-        <pubDate>Mon, 27 Mar 2017 06:05:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/03/27/macdev-forum-achieves/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/03/27/macdev-forum-achieves/</guid>
-        
-        
-        <category>achieves</category>
-        
-      </item>
-    
-      <item>
-        <title>iOS 辅助功能的另类用途</title>
-        <description>&lt;p&gt;整理一些辅助功能的另类用途。&lt;/p&gt;
-
-&lt;h2 id=&quot;使用缩放功能实现更暗屏幕&quot;&gt;使用缩放功能实现更暗屏幕&lt;/h2&gt;
-
-&lt;p&gt;这应该是比较广为人知的解决在 iPhone 在弱光环境下即使亮度调节至最低屏幕依旧过亮的方法了。&lt;/p&gt;
-
-&lt;p&gt;这个方法通过缩放功能的弱光滤镜达成更暗亮度的效果。以下是实现方法：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;前往 &lt;strong&gt;设置 - 通用 - 辅助功能 - 缩放&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;打开&lt;strong&gt;缩放&lt;/strong&gt;开关&lt;/li&gt;
-  &lt;li&gt;三指三击屏幕，打开缩放菜单&lt;/li&gt;
-  &lt;li&gt;确认当前缩放模式为&lt;strong&gt;全屏幕缩放&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;将下方控制缩放倍率的滑动条拖到最左&lt;/li&gt;
-  &lt;li&gt;点击&lt;strong&gt;选取滤镜&lt;/strong&gt;，选择&lt;strong&gt;弱光&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;点击缩放菜单以外区域，关闭缩放菜单&lt;/li&gt;
-  &lt;li&gt;关闭&lt;strong&gt;缩放&lt;/strong&gt;开关&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;现在，在&lt;strong&gt;辅助功能快捷键&lt;/strong&gt;中选中&lt;strong&gt;缩放&lt;/strong&gt;，便于快速开启：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;前往 &lt;strong&gt;辅助功能 - 辅助功能快捷键&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;选中 &lt;strong&gt;缩放&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;现在，你可以通过连按三次主屏幕按钮来开启弱光滤镜了。&lt;/p&gt;
-
-&lt;h2 id=&quot;使用降低白点值功能实现更暗屏幕&quot;&gt;使用降低白点值功能实现更暗屏幕&lt;/h2&gt;
-
-&lt;p&gt;除了上面说到的缩放功能，苹果在 iOS 10 中为&lt;strong&gt;降低白点值&lt;/strong&gt;新增了强度滑块。通过提高&lt;strong&gt;降低亮色的强度&lt;/strong&gt;，同样能够使屏幕变得更暗。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;前往 &lt;strong&gt;设置 - 通用 - 辅助功能 - 显示调节&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;打开&lt;strong&gt;降低白点值&lt;/strong&gt;开关&lt;/li&gt;
-  &lt;li&gt;调节下方滑块&lt;br /&gt;&lt;note&gt;你可以调节滑块至最适合你自己的值，这不会对接下来的操作产生任何影响。&lt;/note&gt;&lt;/li&gt;
-  &lt;li&gt;关闭&lt;strong&gt;降低白点值&lt;/strong&gt;开关&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;你同样可以在&lt;strong&gt;辅助功能快捷键&lt;/strong&gt;中选中&lt;strong&gt;降低白点值&lt;/strong&gt;来快速开启功能。更棒的是，你能够叠加多个辅助功能，如同时开启缩放与降低白点值来实现亮度极低的效果。&lt;/p&gt;
-
-&lt;h2 id=&quot;使用色彩滤镜调节屏幕色温&quot;&gt;使用色彩滤镜调节屏幕色温&lt;/h2&gt;
-
-&lt;p&gt;iPhone se 刚发售时听到的最多的吐槽应该就是“大黄屏”了。虽然说可以通过越狱后使用插件对屏幕色温进行调节，但是用越狱的不安全与不稳定换来的调节色温功能难免代价过大。&lt;/p&gt;
-
-&lt;p&gt;其实，系统自带的色彩滤镜是可以达成调节色温的效果的。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;前往 &lt;strong&gt;设置 - 通用 - 辅助功能 - 显示调节 - 色彩滤镜&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;打开&lt;strong&gt;色彩滤镜&lt;/strong&gt;开关&lt;/li&gt;
-  &lt;li&gt;选择&lt;strong&gt;色调&lt;/strong&gt;滤镜&lt;/li&gt;
-  &lt;li&gt;调节下方&lt;strong&gt;强度&lt;/strong&gt;滑块至最小&lt;/li&gt;
-  &lt;li&gt;现在，你可以通过调节&lt;strong&gt;色调&lt;/strong&gt;滑块来调节屏幕色温了&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;同样的，你可以在&lt;strong&gt;辅助功能快捷键&lt;/strong&gt;中选中&lt;strong&gt;色彩滤镜&lt;/strong&gt;来快速开启功能。&lt;/p&gt;
-
-&lt;h2 id=&quot;更优雅的-assistivetouch-用法&quot;&gt;更优雅的 AssistiveTouch 用法&lt;/h2&gt;
-
-&lt;p&gt;如果你用过 Noeliel 开发的越狱插件 vHome，相信你一定会被它简单的设计和交互所吸引。屏幕上浮动的就是主屏幕按钮，没有多余的二级菜单，点一下就触发点击主屏幕按钮动作。&lt;/p&gt;
-
-&lt;p&gt;现在，在新版本的 iOS中，你可以用 AssistiveTouch 达成类似的效果。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;前往 &lt;strong&gt;设置 - 通用 - 辅助功能 - AssistiveTouch&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;打开 &lt;strong&gt;AssistiveTouch&lt;/strong&gt; 开关&lt;/li&gt;
-  &lt;li&gt;进入&lt;strong&gt;自定顶层菜单…&lt;/strong&gt; 菜单&lt;/li&gt;
-  &lt;li&gt;调节下方&lt;strong&gt;计数器&lt;/strong&gt;至 &lt;strong&gt;1个图标&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;点击上方图标，选择&lt;strong&gt;主屏幕&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;现在，点击屏幕上的 AssistiveTouch 将不再打开菜单，取而代之的是直接触发点击主屏幕按钮动作。你完全可以把它当作一个放在屏幕上的主屏幕按钮，双击打开多任务，三击打开辅助功能快捷键，或者长按打开 Siri，你甚至可以用它和唤醒按钮来截屏。&lt;/p&gt;
-
-&lt;p&gt;此外，对于升级到 iOS 10 的不支持&lt;strong&gt;轻触打开&lt;/strong&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;功能的设备而言，可以通过点击 AssistiveTouch 来代替点击物理主屏幕按钮解锁。&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;不用按下主屏幕按钮，用 TouchID 即可打开 iPhone。&amp;nbsp;&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 11 Oct 2016 21:18:25 +0800</pubDate>
-        <link>http://localhost:4000/2016/10/11/ios-accessibility-special-usage/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/10/11/ios-accessibility-special-usage/</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-  </channel>
+				
+				<pubDate>Tue, 11 Apr 2017 00:00:00 +0800</pubDate>
+				<link>http://localhost:4000/2017/04/11/tracklist/</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/04/11/tracklist/</guid>
+			</item>
+		
+	</channel>
 </rss>

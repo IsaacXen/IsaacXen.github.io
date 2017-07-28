@@ -1,344 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="UTF-8">
-    <title>;p</title>  
-    <meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>
 
-    <link href="/assets/css/frame.css" rel="stylesheet" />
-    <link href="/assets/css/prism.css" rel="stylesheet" />
-    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</head>
-<body class="root">
-        <!-- <header> -->
-            <!-- <div class="headerContainer"> -->
-                <!-- <div class="navbar"> -->
-                    <!-- <h1>Isaac's Blog</h1> -->
-                    <!-- <p>We see things as we are.</p> -->
-                    <!-- <nav class="navmenu"> -->
-                        <!-- <ul> -->
-                            <!-- <li><a href="/">Home</a></li> -->
-                            <!-- <li><a href="/archives">Archive</a></li> -->
-                            <!-- <li><a href="/about">About</a></li> -->
-                            <!-- <li><a href="#">Comment</a></li> -->
-                            <!-- <li><a href="/feed.xml">RSS</a></li> -->
-                        <!-- </ul> -->
-                    <!-- </nav>   -->
-                <!-- </div> -->
-            <!-- </div>   -->
-        <!-- </header> -->
+Breakpøint
 
-        <div class="content-wrapper">
-            <div class="containter">
-                
-	<article class="post">
-			<h3><a href="/2017/03/27/macdev-forum-achieves/">Achieves for macdev.io Forum</a></h3>
-<!-- 		<div class="post-content"><h2 id="目录">目录</h2>
+</title>
+<meta name="description" content=" Code, tips, life, something like that.">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed.xml">
 
-<p>WIP</p>
+<!-- Web Font -->
+<script src="https://use.typekit.net/eac7rlr.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
-<h2 id="nstableview">NSTableView</h2>
+<!-- icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<meta name="theme-color" content="#00f0ff">
+<meta name="msapplication-TileColor" content="#00f0ff">
+<meta name="msapplication-TileImage" content="/mstile-310x310.png">
+<!-- /icons -->
 
-<h3 id="如何动态更改行顺序">如何动态更改行顺序</h3>
+<!-- og tags -->
+<meta property="og:site_name" content="Breakpøint">
+<meta property="og:title" content="Breakpøint">
+<meta property="og:locale" content="en">
 
-<p>如何实现如 QQ 中当接收到新消息时该好友移动到最顶部？</p>
-
-<blockquote>
-  <p><code>NSTableView</code> 有以下方法：</p>
-
-  <pre><code class="language-swift"> func moveRow(at: Int, to: Int)
- // Moves the specified row to the new row location using animation.
-</code></pre>
-</blockquote>
-
-<blockquote>
-  <p>参阅：<a href="https://developer.apple.com/reference/appkit/nstableview">NSTableView</a></p>
-
-  <p>原文：<a href="https://ask.macdev.io/?thread-15.htm">NSTableView如何实现某个Cell动态滚动到顶部位置</a></p>
-</blockquote>
-
-<h2 id="nswindow">NSWindow</h2>
-
-<h3 id="为程序添加登陆窗口">为程序添加登陆窗口</h3>
-
-<p>如何实现如 QQ 中登录框在的时候，关闭登录框关闭程序。在主界面的时候关闭不关闭程序，并且点击Dock图标打开主界面？</p>
-
-<blockquote>
-  <p>你需要两个窗口，一个是登陆窗口，另一个是主窗口。</p>
-
-  <p>假设这两个窗口都在 Storyboard 里有定义。在你的 AppDelegate 中，你需要两个变量来存储你的窗口：</p>
-
-  <pre><code class="language-swift">class AppDelegate: NSObject, NApplicationDelegate {
-    var mainWindow: NSWindow? // 主窗口
-    var loginWindowController: LoginWindowColtroller? // 登陆窗口
-
-    func applicationWillFinishLaunching(_ notification: Notification) {
-        // 尽快地隐藏你的主窗口
-        mainWindow = NSApplication.shared().windows.first
-        if let mainWindow = mainWindow {
-            mainWindow.close()
-        }
-
-        // 显示你的登陆窗口
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        loginWindowColtroller = storyboard.instantiateController(withIdentifier: "loginWindowController") as? LoginWindowController
-        loginWindowColtroller?.showWindow(nil)
-    }
-
-    // 这里用于实现点击 dock 图标打开主窗口
-    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -&gt; Bool {
-        if flag {
-            return false
-        } else {
-            mainWindow = NSApplication.shared().windows.first
-            mainWindow?.makeKeyAndOrderFront(self)
-            return true
-        }
-    }
-}
-</code></pre>
-
-  <p>登陆窗口实现关闭窗口时退出程序：</p>
-
-  <pre><code class="language-swift">class func LoginWindowController: NSWindowController {
-  override func windowDidLoad() {
-    // 指定关闭按钮的关闭事件
-    window?.standWindowButton(.closeButton)?.target = self
-    window?.standWindowButton(.closeButton)?.action = #selector(closeAction)
-  }
   
-  @objc func closeAction() {
-    NSApplication.shared().terminate(self)
-  }
-}
-</code></pre>
+    <meta property="og:image" content="http://localhost:4000/img/og-image.jpg">
+  
 
-  <p>在进行验证后，执行以下代码显示主窗口并隐藏登陆窗口：</p>
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:description" content="
 
-  <pre><code class="language-swift">class LoginViewController: NSViewController {
-  @IBAction func login(_ sender: NSButton) {
-    let appDelegate = NSApplication.shared().delegate as! AppDelegate
-    appDelegate.mainWindow?.makeKeyAndOrderFront(nil) // 显示主窗口
-    self.view.window?.close() // 隐藏登陆窗口
-  }
-}
-</code></pre>
-</blockquote>
+Code, tips, life, something like that.
+">
+<!-- /og tags -->
 
-<blockquote>
-  <p>参阅：<a href="https://sqllyw.wordpress.com/2013/09/29/adding-a-login-window-to-mac-os-x-app/">Adding a login window to mac os x app</a></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  <p>原文：<a href="https://ask.macdev.io/?thread-2.htm">怎么实现QQ的多开账号</a></p>
-</blockquote>
+<script src="/js/modernizr.js"></script>
+<script src="/js/fitvids.js"></script>
+<link href='//fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:600,900|Crimson+Text:700italic,600,600italic,400,700,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/reset.css">
+<!-- <link rel="stylesheet" href="/css/pygments.css"> -->
+<script src="/js/prism.js"></script>
+<link rel="stylesheet" href="/css/prism.css">
 
-<h2 id="nssplitviewcontroller">NSSplitViewController</h2>
+<link rel="stylesheet" href="/css/style.css">
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
 
-<h3 id="如何在splititemcontroller里获取其他splititemcontroller">如何在splitItemController里获取其他splitItemController</h3>
 
-<blockquote>
-  <pre><code class="language-objective-c">NSSplitViewController * controller = (NSSplitViewController *)self.view.window.contentViewController;
-NSArray * itemArray = controller.splitViewItems;
-NSSplitViewItem * item = itemArray[1];
-NSViewController * VC =  item.viewController;
-</code></pre>
 
-  <p>或者：</p>
+</head>
+<body>
+	
+	<div class="wrap">
+		<header>
+  <a href="/" class="website-title">
+    
+      Breakpøint
+    
 
-  <pre><code class="language-swift">if let parentSplitViewController = self.parent as? NSSplitViewController ?? nil {
-    let vc = parentSplitViewController.splitViewItems[1].viewController
-}
-</code></pre>
-</blockquote>
+  </a>
+  <nav>
+  <a href="/about/">About</a>
+  <a href="/contact/">Contact</a>
+  <a href="/archive/">Archive</a>
+</nav>
 
-<blockquote>
-  <p>原文：<a href="https://ask.macdev.io/?thread-10.htm">在NSSplitViewController的item1对应的控制器中 如何获取NSSplitViewController中item2对应的控制器呢?</a></p>
-</blockquote>
-
-<h2 id="nstask">NSTask</h2>
-
-<h3 id="如何实现应用多开">如何实现应用多开</h3>
-
-<p>Q: 如何实现如 QQ 可同时登陆多个账号的功能？</p>
-
-<blockquote>
-  <p>参阅：<a href="http://www.jianshu.com/p/0096fc7cbde9">Mac开发App多开</a></p>
-
-  <p>原文：<a href="https://ask.macdev.io/?thread-2.htm">怎么实现QQ的多开账号</a></p>
-</blockquote>
-
-<h2 id="nsalert">NSAlert</h2>
-
-<h3 id="在-nsalert-中获取-nswindow">在 NSAlert 中获取 NSWindow</h3>
-
-<blockquote>
-  <p>用 <code>alert.runModal()</code></p>
-</blockquote>
-
-<blockquote>
-  <p>原文：<a href="https://ask.macdev.io/?thread-13.htm">alert with NSWindowController</a></p>
-</blockquote>
-
-<h2 id="animation">Animation</h2>
-
-<h3 id="cabasicanimation平移动画结束后不接收点击事件">CABasicAnimation平移动画结束后不接收点击事件</h3>
-
-<blockquote>
-  <p><code>removedOnCompletion = NO</code> 这句代码阻隔了你的 View 对鼠标事件进行响应。根据<a href="http://stackoverflow.com/a/13655535/6692025">这里</a>的说法：</p>
-
-  <blockquote>
-    <p>CAAnimation 对象实际上并没有改变应用了动态效果的对象的属性，而是将属性应用在新画出来的用于展示效果的图层上。 当你创建动画并应用 removedOnCompletion = NO 时， 这个用于展示的图层不会消失，但其原本的 View 的属性并没有发生任何变化。换句话说，移动 View 的图层并没有移动 View 本身。所以在新的位置显示的图层当然也不会响应任何事件。</p>
-  </blockquote>
-
-  <p>如果你仍然想要使用 CAAnimation，可以：</p>
-
-  <ol>
-    <li>去掉 removedOnCompletion = NO</li>
-    <li>在动画结束时更新 View 的 frame 至新位置</li>
-  </ol>
-</blockquote>
-
-<blockquote>
-  <p>参阅：<a href="http://stackoverflow.com/questions/13651591/nsview-does-not-respond-to-mouse-events-after-cabasicanimation">NSView Does Not Respond To Mouse Events After CABasicAnimation</a></p>
-
-  <p>原文：<a href="https://ask.macdev.io/?thread-4.htm">CABasicAnimation平移动画结束后,按钮以及cell不接收点击事件</a></p>
-</blockquote>
-
-<h3 id="nsanimation-执行一系列动作">NSAnimation 执行一系列动作</h3>
-
-<blockquote>
-  <pre><code class="language-swift">NSAniamtionContext.beginGrouping()
-/* Your animator code here */
-NSAnimationContext.endGrouping()
-</code></pre>
-</blockquote>
-
-<blockquote>
-  <p>原文：<a href="https://ask.macdev.io/?thread-7.htm">splitViewItems在折叠过程中能不能获取折叠过程</a></p>
-</blockquote>
-
-<h2 id="本地化">本地化</h2>
-
-<h3 id="设置-nsopenpanel-按钮文本">设置 NSOpenPanel 按钮文本</h3>
-
-<blockquote>
-  <ol>
-    <li>打开你的项目设置</li>
-    <li>在 PROJECT 中选中你的项目</li>
-    <li>在右侧 Info 标签中，找到 Localizations</li>
-    <li>点击加号，添加 Chinese (Simplified)</li>
-  </ol>
-</blockquote>
-
-<blockquote>
-  <p>参阅：<a href="https://developer.apple.com/internationalization/">Build Apps for the World</a></p>
-
-  <p>原文：<a href="https://ask.macdev.io/?thread-3.htm">NSOpenPanel怎么设置取消按钮文字</a></p>
-</blockquote>
-
-</div> -->
-	</article>
-
-	<article class="post">
-			<h3><a href="/2016/10/11/ios-accessibility-special-usage/">iOS 辅助功能的另类用途</a></h3>
-<!-- 		<div class="post-content"><p>整理一些辅助功能的另类用途。</p>
-
-<h2 id="使用缩放功能实现更暗屏幕">使用缩放功能实现更暗屏幕</h2>
-
-<p>这应该是比较广为人知的解决在 iPhone 在弱光环境下即使亮度调节至最低屏幕依旧过亮的方法了。</p>
-
-<p>这个方法通过缩放功能的弱光滤镜达成更暗亮度的效果。以下是实现方法：</p>
-
-<ol>
-  <li>前往 <strong>设置 - 通用 - 辅助功能 - 缩放</strong></li>
-  <li>打开<strong>缩放</strong>开关</li>
-  <li>三指三击屏幕，打开缩放菜单</li>
-  <li>确认当前缩放模式为<strong>全屏幕缩放</strong></li>
-  <li>将下方控制缩放倍率的滑动条拖到最左</li>
-  <li>点击<strong>选取滤镜</strong>，选择<strong>弱光</strong></li>
-  <li>点击缩放菜单以外区域，关闭缩放菜单</li>
-  <li>关闭<strong>缩放</strong>开关</li>
-</ol>
-
-<p>现在，在<strong>辅助功能快捷键</strong>中选中<strong>缩放</strong>，便于快速开启：</p>
-
-<ol>
-  <li>前往 <strong>辅助功能 - 辅助功能快捷键</strong></li>
-  <li>选中 <strong>缩放</strong></li>
-</ol>
-
-<p>现在，你可以通过连按三次主屏幕按钮来开启弱光滤镜了。</p>
-
-<h2 id="使用降低白点值功能实现更暗屏幕">使用降低白点值功能实现更暗屏幕</h2>
-
-<p>除了上面说到的缩放功能，苹果在 iOS 10 中为<strong>降低白点值</strong>新增了强度滑块。通过提高<strong>降低亮色的强度</strong>，同样能够使屏幕变得更暗。</p>
-
-<ol>
-  <li>前往 <strong>设置 - 通用 - 辅助功能 - 显示调节</strong></li>
-  <li>打开<strong>降低白点值</strong>开关</li>
-  <li>调节下方滑块<br /><note>你可以调节滑块至最适合你自己的值，这不会对接下来的操作产生任何影响。</note></li>
-  <li>关闭<strong>降低白点值</strong>开关</li>
-</ol>
-
-<p>你同样可以在<strong>辅助功能快捷键</strong>中选中<strong>降低白点值</strong>来快速开启功能。更棒的是，你能够叠加多个辅助功能，如同时开启缩放与降低白点值来实现亮度极低的效果。</p>
-
-<h2 id="使用色彩滤镜调节屏幕色温">使用色彩滤镜调节屏幕色温</h2>
-
-<p>iPhone se 刚发售时听到的最多的吐槽应该就是“大黄屏”了。虽然说可以通过越狱后使用插件对屏幕色温进行调节，但是用越狱的不安全与不稳定换来的调节色温功能难免代价过大。</p>
-
-<p>其实，系统自带的色彩滤镜是可以达成调节色温的效果的。</p>
-
-<ol>
-  <li>前往 <strong>设置 - 通用 - 辅助功能 - 显示调节 - 色彩滤镜</strong></li>
-  <li>打开<strong>色彩滤镜</strong>开关</li>
-  <li>选择<strong>色调</strong>滤镜</li>
-  <li>调节下方<strong>强度</strong>滑块至最小</li>
-  <li>现在，你可以通过调节<strong>色调</strong>滑块来调节屏幕色温了</li>
-</ol>
-
-<p>同样的，你可以在<strong>辅助功能快捷键</strong>中选中<strong>色彩滤镜</strong>来快速开启功能。</p>
-
-<h2 id="更优雅的-assistivetouch-用法">更优雅的 AssistiveTouch 用法</h2>
-
-<p>如果你用过 Noeliel 开发的越狱插件 vHome，相信你一定会被它简单的设计和交互所吸引。屏幕上浮动的就是主屏幕按钮，没有多余的二级菜单，点一下就触发点击主屏幕按钮动作。</p>
-
-<p>现在，在新版本的 iOS中，你可以用 AssistiveTouch 达成类似的效果。</p>
-
-<ol>
-  <li>前往 <strong>设置 - 通用 - 辅助功能 - AssistiveTouch</strong></li>
-  <li>打开 <strong>AssistiveTouch</strong> 开关</li>
-  <li>进入<strong>自定顶层菜单…</strong> 菜单</li>
-  <li>调节下方<strong>计数器</strong>至 <strong>1个图标</strong></li>
-  <li>点击上方图标，选择<strong>主屏幕</strong></li>
-</ol>
-
-<p>现在，点击屏幕上的 AssistiveTouch 将不再打开菜单，取而代之的是直接触发点击主屏幕按钮动作。你完全可以把它当作一个放在屏幕上的主屏幕按钮，双击打开多任务，三击打开辅助功能快捷键，或者长按打开 Siri，你甚至可以用它和唤醒按钮来截屏。</p>
-
-<p>此外，对于升级到 iOS 10 的不支持<strong>轻触打开</strong><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>功能的设备而言，可以通过点击 AssistiveTouch 来代替点击物理主屏幕按钮解锁。</p>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p>不用按下主屏幕按钮，用 TouchID 即可打开 iPhone。&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
+  
+<div class="subtitle">
+  <p>
+  
+    
+  
+  
+  </p>
 </div>
-</div> -->
-	</article>
+
+  
+</header>
+
+		
 
 
 
 
+  <article>
+    <span class="meta">
+      
+        
+          
+            Isaac Chen •
+          
+        
+      
+      Apr 11, 2017 • 4&nbsp;min read</span>
+  	<a href="/2017/04/11/tracklist/"><h1>Tracklist</h1></a>
+      <p>
+      
+        Some Tracklist&nbsp;<a class="read-more" href="/2017/04/11/tracklist/">Read  →</a>
+      
+      </p>
+
+  </article>
 
 
 
-                <!-- <footer id="footer"> -->
-                	<h3>let nav = [ "<a href="/">home</a>", "<a href="/about">about</a>" ]</h3>
-                    <!-- <p class="copyright"> &lt;!-- &copy; ixan --&gt;</p> -->
-                <!-- </footer> -->
-            </div>
-        </div>
 
-        <script src="/assets/js/prism.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	  <script>
+	    $("article").fitVids();
+	    $('article p').each(function(i){
+				if (($(this).find('img').length) && (!$.trim($(this).text()).length))  {
+					$(this).addClass('img-only');
+				}
+				if ($.trim($(this).text()).length - $.trim($(this).find('small').text()).length == 0 && ($(this).find('img').length)){
+					$(this).addClass('img-only-source');
+				}
+	  	});
+	  </script>
+	</div>
+	<footer>
+  <div class="inner">
+    <p>Theme by <a href="http://steinvc.github.io/holo-alfa/">Stijn</a>.</p>
+  </div>
+</footer>
+
 </body>
 </html>

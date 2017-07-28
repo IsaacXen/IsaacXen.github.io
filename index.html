@@ -1,34 +1,43 @@
 ---
 layout: default
-title: ;p
+home: true
 ---
-	<div class="post list">
-		{% for post in paginator.posts %}
-			<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-		{% endfor %}
-	</div>
 
 
-{% if paginator.total_pages > 1 %}
-	<div class="postnavigation">
 
-		{% if paginator.previous_page %}
-			{% if paginator.page == 2 %}
-				<a class="prev left" href="/">&larr; Newer</a>
-			{% else %}
-				<a class="prev left" href="/page{{paginator.previous_page}}/">&larr; Newer</a>
-			{% endif %}
-		{% else %}
-			<span class="nope left">&larr; Newer</span>
-		{% endif %}
+{% for post in paginator.posts %}
 
-		<span class="pages">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+{% assign minutes = post.content | number_of_words | divided_by: 180 %}
+{% if minutes == 0 %}
+  {% assign read-time = site.var_less_than_a_minute_read %}
+{% else %}
+  {% assign read-time = minutes | append: "&nbsp;" | append: site.var_min_read %}
+{% endif %}
 
-		{% if paginator.next_page %}
-			<a class="next right" href="/page{{paginator.next_page}}/">Older &rarr;</a>
-		{% else %}
-			<span class="nope right">Older &rarr;</span>
-		{% endif %}
+  <article>
+    <span class="meta">
+      {% if site.display-author-front-page %}
+        {% if post.author.name %}
+          {{ post.author.name }} •
+        {% else %}
+          {% if site.author.name %}
+            {{ site.author.name }} •
+          {% endif %}
+        {% endif %}
+      {% endif %}
+      {{ post.date | date: site.date_format }} • {{ read-time }}</span>
+  	<a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1></a>
+      <p>
+      {% if post.summary %}
+        {{ post.summary }}&nbsp;<a class="read-more" href="{{ post.url | prepend: site.baseurl }}">{{ site.var_read }}  →</a>
+      {% else %}
+        {{ post.excerpt | remove: '<p>' | remove: '</p>' }}&nbsp;<a class="read-more" href="{{ post.url | prepend: site.baseurl }}">{{ site.var_read }}  →</a>
+      {% endif %}
+      </p>
 
-	</div>
+  </article>
+{% endfor %}
+
+{% if paginator.previous_page or paginator.next_page %}
+  {% include pagination.html %}
 {% endif %}
