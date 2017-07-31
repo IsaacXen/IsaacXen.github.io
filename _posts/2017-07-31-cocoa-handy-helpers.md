@@ -40,8 +40,8 @@ extension NSView {
     ///   - relation: The relationship between the left side of the constraint and the right side of the constraint.
     ///   - view2: The view for the right side of the constraint.
     ///   - attribute2: The attribute of the view for the right side of the constraint.
-    ///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute.
-    ///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute.
+    ///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute. (optional)
+    ///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute. (optional)
     func addConstrain(_ view1: Any, _ attribute1: NSLayoutAttribute, _ relation: NSLayoutRelation, to view2: Any?, _ attribute2: NSLayoutAttribute, plus constant: CGFloat = 0, multiply multiplier: CGFloat = 1) {
         if let itemView = item as? NSView {
             itemView.translatesAutoresizingMaskIntoConstraints = false
