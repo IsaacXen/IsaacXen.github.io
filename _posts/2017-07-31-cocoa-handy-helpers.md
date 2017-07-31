@@ -59,14 +59,53 @@ extension NSView {
 /// Check the given path is a file or a directory.
 ///
 /// - Parameters:
-///   - path: path of file to be check
-/// - Returns: true for file and false for directory, nil if not exist
+///   - path: Path of file to be check.
+/// - Returns: `true` for file and `false` for directory, `nil` if not exist.
 func isFile(at path: String) -> Bool? {
 	var isDirectory: ObjCBool = false
 	if FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory) {
 		return isDirectory.boolValue    
 	}
 	return nil
+}
+```
+
+## Network
+
+### Convert IPV4 to IPV6
+
+```swift
+/// Convert IPV4 address string to compatible IPV6 address string.
+///
+/// - Parameters:
+///   - ipv4: String of IPV4 address to be convert.
+/// - Returns: Compatible IPV6 address, `nil` if IPV4 address is invalid.
+func convertToIPV6(with ipv4: String) -> String? {
+    var result = "::"
+
+    let octets = ipv4.components(separatedBy: ".")
+
+    guard octets.count == 4 else {
+        return nil
+    }
+
+    for (index, octetStr) in octets.enumerated() {
+        if let octet = Int(octetStr) {
+
+            guard octet >= 0 && octet < 256 else {
+                return nil
+            }
+
+            var hex = String(format: "%x", octet)
+            hex = hex.count < 2 ? "0\(hex)" : hex
+
+            result += index == 2 ? ":\(hex)" : hex
+        } else {
+            return nil
+        }
+    }
+
+    return result
 }
 ```
 
