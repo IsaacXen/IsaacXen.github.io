@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>
+
+Cocoa Handy Helpers • Breakpøint
+
+</title>
+<meta name="description" content="Some useful functions and extensions for macOS in Swift. Code, tips, life, something like that.">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed.xml">
+
+<!-- Web Font -->
+<script src="https://use.typekit.net/eac7rlr.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+<!-- icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<meta name="theme-color" content="#00f0ff">
+<meta name="msapplication-TileColor" content="#00f0ff">
+<meta name="msapplication-TileImage" content="/mstile-310x310.png">
+<!-- /icons -->
+
+<!-- og tags -->
+<meta property="og:site_name" content="Breakpøint">
+<meta property="og:title" content="Cocoa Handy Helpers • Breakpøint">
+<meta property="og:locale" content="en">
+
+  
+    <meta property="og:image" content="http://localhost:4000/img/og-image.jpg">
+  
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:4000/2017/07/31/cocoa-handy-helpers/">
+<meta property="og:description" content="
+
+Some useful functions and extensions for macOS in Swift.
+">
+<!-- /og tags -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="/js/modernizr.js"></script>
+<script src="/js/fitvids.js"></script>
+<link href='//fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:600,900|Crimson+Text:700italic,600,600italic,400,700,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/reset.css">
+<!-- <link rel="stylesheet" href="/css/pygments.css"> -->
+<script src="/js/prism.js"></script>
+<link rel="stylesheet" href="/css/prism.css">
+
+<link rel="stylesheet" href="/css/style.css">
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+
+<style>
+header {
+  margin-bottom: 40px;
+}
+@media all and (min-width: 500px) {
+  header {
+    margin-bottom: 100px;
+  }
+}
+header::after {
+  display: none;
+}
+</style>
+
+
+</head>
+<body>
+	
+	<div class="wrap">
+		<header>
+  <a href="/" class="website-title">
+    
+      Breakpøint
+    
+
+  </a>
+  <nav>
+  <a href="/about/">About</a>
+  <a href="/contact/">Contact</a>
+  <a href="/archive/">Archive</a>
+</nav>
+
+  
+</header>
+
+		
+
+
+<article>
+  <span class="meta">Jul 31, 2017 • 3&nbsp;min read</span>
+	<h1>Cocoa Handy Helpers</h1>
+		<p>Some useful functions and extensions for macOS in Swift 4.</p>
+
+<p>Update at anytime.</p>
+
+<h2 id="autolayout">AutoLayout</h2>
+
+<h3 id="add-constrains-cleaner">Add constrains cleaner</h3>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">NSView</span> <span class="p">{</span>
+
+    <span class="c1">/// Adds multiple constraints on the layout of the receiving view or its subviews.</span>
+    <span class="c1">///</span>
+    <span class="c1">/// - Parameters:</span>
+    <span class="c1">///   - format: The format specification for the constraints. The keys of views must be the string values begin with a `v` and follow by number begin from 0.</span>
+    <span class="c1">///   - views: Views that appear in the visual format string. Begin from v0.</span>
+    <span class="kd">func</span> <span class="nf">addConstrains</span><span class="p">(</span><span class="n">withVisualFormat</span> <span class="nv">format</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">views</span><span class="p">:</span> <span class="kt">NSView</span><span class="o">...</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">viewDictionary</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">NSView</span><span class="p">]()</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span> <span class="k">in</span> <span class="n">views</span><span class="o">.</span><span class="nf">enumerated</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="nv">key</span> <span class="o">=</span> <span class="s">"v</span><span class="se">\(</span><span class="n">index</span><span class="se">)</span><span class="s">"</span>
+            <span class="n">viewDictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">view</span>
+
+            <span class="n">view</span><span class="o">.</span><span class="n">translatesAutoresizingMaskIntoConstraints</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="p">}</span>
+
+        <span class="nf">addConstraints</span><span class="p">(</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="nf">constraints</span><span class="p">(</span><span class="nv">withVisualFormat</span><span class="p">:</span> <span class="n">format</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">NSLayoutFormatOptions</span><span class="p">(),</span> <span class="nv">metrics</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">views</span><span class="p">:</span> <span class="n">viewDictionary</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// Adds a constraint on the layout of the receiving view or its subviews.</span>
+    <span class="c1">///</span>
+    <span class="c1">/// - Parameters:</span>
+    <span class="c1">///   - view1：The view for the left side of the constraint.</span>
+    <span class="c1">///   - attribute1：The attribute of the view for the left side of the constraint.</span>
+    <span class="c1">///   - relation: The relationship between the left side of the constraint and the right side of the constraint.</span>
+    <span class="c1">///   - view2: The view for the right side of the constraint.</span>
+    <span class="c1">///   - attribute2: The attribute of the view for the right side of the constraint.</span>
+    <span class="c1">///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute.</span>
+    <span class="c1">///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute.</span>
+    <span class="kd">func</span> <span class="nf">addConstrain</span><span class="p">(</span><span class="n">_</span> <span class="nv">view1</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="n">_</span> <span class="nv">attribute1</span><span class="p">:</span> <span class="kt">NSLayoutAttribute</span><span class="p">,</span> <span class="n">_</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutRelation</span><span class="p">,</span> <span class="n">to</span> <span class="nv">view2</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="n">_</span> <span class="nv">attribute2</span><span class="p">:</span> <span class="kt">NSLayoutAttribute</span><span class="p">,</span> <span class="n">plus</span> <span class="nv">constant</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">multiply</span> <span class="nv">multiplier</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">itemView</span> <span class="o">=</span> <span class="n">item</span> <span class="k">as?</span> <span class="kt">NSView</span> <span class="p">{</span>
+            <span class="n">itemView</span><span class="o">.</span><span class="n">translatesAutoresizingMaskIntoConstraints</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="p">}</span>
+        <span class="nf">addConstraint</span><span class="p">(</span><span class="kt">NSLayoutConstraint</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="n">view1</span><span class="p">,</span> <span class="nv">attribute</span><span class="p">:</span> <span class="n">attribute1</span><span class="p">,</span> <span class="nv">relatedBy</span><span class="p">:</span> <span class="n">relation</span><span class="p">,</span> <span class="nv">toItem</span><span class="p">:</span> <span class="n">view2</span><span class="p">,</span> <span class="nv">attribute</span><span class="p">:</span> <span class="n">attribute2</span><span class="p">,</span> <span class="nv">multiplier</span><span class="p">:</span> <span class="n">multiplier</span><span class="p">,</span> <span class="nv">constant</span><span class="p">:</span> <span class="n">constant</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="filemanager">FileManager</h2>
+
+<h3 id="check-if-path-is-a-file-or-directory">Check if path is a file or directory</h3>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="c1">/// Check the given path is a file or a directory.</span>
+<span class="c1">///</span>
+<span class="c1">/// - Parameters:</span>
+<span class="c1">///   - path: path of file to be check</span>
+<span class="c1">/// - Returns: true for file and false for directory, nil if not exist</span>
+<span class="kd">func</span> <span class="nf">isFile</span><span class="p">(</span><span class="n">at</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">?</span> <span class="p">{</span>
+	<span class="k">var</span> <span class="nv">isDirectory</span><span class="p">:</span> <span class="kt">ObjCBool</span> <span class="o">=</span> <span class="kc">false</span>
+	<span class="k">if</span> <span class="kt">FileManager</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nf">fileExists</span><span class="p">(</span><span class="nv">atPath</span><span class="p">:</span> <span class="n">path</span><span class="p">,</span> <span class="nv">isDirectory</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">isDirectory</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">isDirectory</span><span class="o">.</span><span class="n">boolValue</span>    
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<hr />
+
+<p><em>References</em></p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/a/37225557/6692025">swift - Check if path is a directory in Swift2? - Stack Overflow</a></li>
+  <li><a href="https://www.youtube.com/watch?v=XtEoKixIfG4">Swift: Facebook Messenger - Auto Layout Using Code or Programmatically (Ep 1)</a></li>
+</ul>
+
+  
+    
+      
+        <small><em>Post by: Isaac Chen </em></small>
+      
+    
+  
+</article>
+
+
+
+
+
+	  <script>
+	    $("article").fitVids();
+	    $('article p').each(function(i){
+				if (($(this).find('img').length) && (!$.trim($(this).text()).length))  {
+					$(this).addClass('img-only');
+				}
+				if ($.trim($(this).text()).length - $.trim($(this).find('small').text()).length == 0 && ($(this).find('img').length)){
+					$(this).addClass('img-only-source');
+				}
+	  	});
+	  </script>
+	</div>
+	<footer>
+  <div class="inner">
+    <p>Theme by <a href="http://steinvc.github.io/holo-alfa/">Stijn</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
