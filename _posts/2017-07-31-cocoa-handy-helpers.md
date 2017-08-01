@@ -16,6 +16,8 @@ extension NSView {
 
     /// Adds multiple constraints on the layout of the receiving view or its subviews.
     ///
+    /// Reference: [Swift: Facebook Messenger - Auto Layout Using Code or Programmatically (Ep 1)](https://www.youtube.com/watch?v=XtEoKixIfG4)
+    ///
     /// - Parameters:
     ///   - format: The format specification for the constraints. The keys of views must be the string values begin with a `v` and follow by number begin from 0.
     ///   - views: Views that appear in the visual format string. Begin from v0.
@@ -33,6 +35,8 @@ extension NSView {
     }
 
     /// Adds a constraint on the layout of the receiving view or its subviews.
+    ///
+    /// Reference: [Swift: Facebook Messenger - Auto Layout Using Code or Programmatically (Ep 1)](https://www.youtube.com/watch?v=XtEoKixIfG4)
     ///
     /// - Parameters:
     ///   - view1：The view for the left side of the constraint.
@@ -58,6 +62,8 @@ extension NSView {
 ```swift
 /// Check the given path is a file or a directory.
 ///
+/// Reference: [swift - Check if path is a directory in Swift2? - Stack Overflow](https://stackoverflow.com/a/37225557/6692025)
+///
 /// - Parameters:
 ///   - path: Path of file to be check.
 /// - Returns: `true` for file and `false` for directory, `nil` if not exist.
@@ -71,6 +77,47 @@ func isFile(at path: String) -> Bool? {
 ```
 
 ## Network
+
+### Get MAC address of primary interface
+
+```swift
+/// Get MAC address of primary network interface.
+///
+/// Reference: [How to get MAC address from OSX with Swift](https://stackoverflow.com/a/31838645/6692025)
+///
+/// - Returns: String of MAC address, nil if no interface found
+func getMACAddress() -> String? {
+    let matchingDict = IOServiceMatching("IOEthernetInterface") as NSMutableDictionary
+    matchingDict["IOPropertyMatch"] = [ "IOPrimaryInterface" : true]
+
+    var primaryInterface = io_iterator_t()
+    guard IOServiceGetMatchingServices(kIOMasterPortDefault, matchingDict, &primaryInterface) == KERN_SUCCESS else {
+        return nil
+    }
+
+    var macAddress = [UInt8](repeating: 0, count: 6)
+
+    var intfService = IOIteratorNext(primaryInterface)
+    while intfService != 0 {
+
+        var controllerService = io_object_t()
+        if IORegistryEntryGetParentEntry(intfService, "IOService", &controllerService) == KERN_SUCCESS {
+            let dataUM = IORegistryEntryCreateCFProperty(controllerService, "IOMACAddress" as CFString, kCFAllocatorDefault, 0)
+
+            if let data = dataUM?.takeRetainedValue() as? NSData {
+                data.getBytes(&macAddress, length: macAddress.count)
+            }
+
+            IOObjectRelease(controllerService)
+        }
+
+        IOObjectRelease(intfService)
+        intfService = IOIteratorNext(primaryInterface)
+    }
+
+    return macAddress.map({ String(format:"%02x", $0) }).joined(separator: ":")
+}
+```
 
 ### Convert IPV4 to IPV6
 
@@ -108,10 +155,3 @@ func convertToIPV6(with ipv4: String) -> String? {
     return result
 }
 ```
-
----
-
-_References_
-
-- [swift - Check if path is a directory in Swift2? - Stack Overflow](https://stackoverflow.com/a/37225557/6692025)
-- [Swift: Facebook Messenger - Auto Layout Using Code or Programmatically (Ep 1)](https://www.youtube.com/watch?v=XtEoKixIfG4)

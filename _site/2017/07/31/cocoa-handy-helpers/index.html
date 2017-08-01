@@ -101,7 +101,7 @@ header::after {
 
 
 <article>
-  <span class="meta">Jul 31, 2017 • 5&nbsp;min read</span>
+  <span class="meta">Jul 31, 2017 • 6&nbsp;min read</span>
 	<h1>Cocoa Handy Helpers</h1>
 		<p>Some useful functions and extensions for macOS in Swift 4.</p>
 
@@ -114,6 +114,8 @@ header::after {
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">NSView</span> <span class="p">{</span>
 
     <span class="c1">/// Adds multiple constraints on the layout of the receiving view or its subviews.</span>
+    <span class="c1">///</span>
+    <span class="c1">/// Reference: [Swift: Facebook Messenger - Auto Layout Using Code or Programmatically (Ep 1)](https://www.youtube.com/watch?v=XtEoKixIfG4)</span>
     <span class="c1">///</span>
     <span class="c1">/// - Parameters:</span>
     <span class="c1">///   - format: The format specification for the constraints. The keys of views must be the string values begin with a `v` and follow by number begin from 0.</span>
@@ -132,6 +134,8 @@ header::after {
     <span class="p">}</span>
 
     <span class="c1">/// Adds a constraint on the layout of the receiving view or its subviews.</span>
+    <span class="c1">///</span>
+    <span class="c1">/// Reference: [Swift: Facebook Messenger - Auto Layout Using Code or Programmatically (Ep 1)](https://www.youtube.com/watch?v=XtEoKixIfG4)</span>
     <span class="c1">///</span>
     <span class="c1">/// - Parameters:</span>
     <span class="c1">///   - view1：The view for the left side of the constraint.</span>
@@ -157,6 +161,8 @@ header::after {
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="c1">/// Check the given path is a file or a directory.</span>
 <span class="c1">///</span>
+<span class="c1">/// Reference: [swift - Check if path is a directory in Swift2? - Stack Overflow](https://stackoverflow.com/a/37225557/6692025)</span>
+<span class="c1">///</span>
 <span class="c1">/// - Parameters:</span>
 <span class="c1">///   - path: Path of file to be check.</span>
 <span class="c1">/// - Returns: `true` for file and `false` for directory, `nil` if not exist.</span>
@@ -171,6 +177,47 @@ header::after {
 </div>
 
 <h2 id="network">Network</h2>
+
+<h3 id="get-mac-address-of-primary-interface">Get MAC address of primary interface</h3>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="c1">/// Get MAC address of primary network interface.</span>
+<span class="c1">///</span>
+<span class="c1">/// Reference: [How to get MAC address from OSX with Swift](https://stackoverflow.com/a/31838645/6692025)</span>
+<span class="c1">///</span>
+<span class="c1">/// - Returns: String of MAC address, nil if no interface found</span>
+<span class="kd">func</span> <span class="nf">getMACAddress</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">matchingDict</span> <span class="o">=</span> <span class="kt">IOServiceMatching</span><span class="p">(</span><span class="s">"IOEthernetInterface"</span><span class="p">)</span> <span class="k">as</span> <span class="kt">NSMutableDictionary</span>
+    <span class="n">matchingDict</span><span class="p">[</span><span class="s">"IOPropertyMatch"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="s">"IOPrimaryInterface"</span> <span class="p">:</span> <span class="kc">true</span><span class="p">]</span>
+
+    <span class="k">var</span> <span class="nv">primaryInterface</span> <span class="o">=</span> <span class="nf">io_iterator_t</span><span class="p">()</span>
+    <span class="k">guard</span> <span class="kt">IOServiceGetMatchingServices</span><span class="p">(</span><span class="n">kIOMasterPortDefault</span><span class="p">,</span> <span class="n">matchingDict</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">primaryInterface</span><span class="p">)</span> <span class="o">==</span> <span class="kt">KERN_SUCCESS</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+
+    <span class="k">var</span> <span class="nv">macAddress</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UInt8</span><span class="p">](</span><span class="nv">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="mi">6</span><span class="p">)</span>
+
+    <span class="k">var</span> <span class="nv">intfService</span> <span class="o">=</span> <span class="kt">IOIteratorNext</span><span class="p">(</span><span class="n">primaryInterface</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">intfService</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+
+        <span class="k">var</span> <span class="nv">controllerService</span> <span class="o">=</span> <span class="nf">io_object_t</span><span class="p">()</span>
+        <span class="k">if</span> <span class="kt">IORegistryEntryGetParentEntry</span><span class="p">(</span><span class="n">intfService</span><span class="p">,</span> <span class="s">"IOService"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">controllerService</span><span class="p">)</span> <span class="o">==</span> <span class="kt">KERN_SUCCESS</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="nv">dataUM</span> <span class="o">=</span> <span class="kt">IORegistryEntryCreateCFProperty</span><span class="p">(</span><span class="n">controllerService</span><span class="p">,</span> <span class="s">"IOMACAddress"</span> <span class="k">as</span> <span class="kt">CFString</span><span class="p">,</span> <span class="n">kCFAllocatorDefault</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">dataUM</span><span class="p">?</span><span class="o">.</span><span class="nf">takeRetainedValue</span><span class="p">()</span> <span class="k">as?</span> <span class="kt">NSData</span> <span class="p">{</span>
+                <span class="n">data</span><span class="o">.</span><span class="nf">getBytes</span><span class="p">(</span><span class="o">&amp;</span><span class="n">macAddress</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="n">macAddress</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+            <span class="p">}</span>
+
+            <span class="kt">IOObjectRelease</span><span class="p">(</span><span class="n">controllerService</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="kt">IOObjectRelease</span><span class="p">(</span><span class="n">intfService</span><span class="p">)</span>
+        <span class="n">intfService</span> <span class="o">=</span> <span class="kt">IOIteratorNext</span><span class="p">(</span><span class="n">primaryInterface</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">macAddress</span><span class="o">.</span><span class="nf">map</span><span class="p">({</span> <span class="kt">String</span><span class="p">(</span><span class="nv">format</span><span class="p">:</span><span class="s">"%02x"</span><span class="p">,</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">})</span><span class="o">.</span><span class="nf">joined</span><span class="p">(</span><span class="nv">separator</span><span class="p">:</span> <span class="s">":"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <h3 id="convert-ipv4-to-ipv6">Convert IPV4 to IPV6</h3>
 
@@ -208,15 +255,6 @@ header::after {
 <span class="p">}</span>
 </code></pre>
 </div>
-
-<hr />
-
-<p><em>References</em></p>
-
-<ul>
-  <li><a href="https://stackoverflow.com/a/37225557/6692025">swift - Check if path is a directory in Swift2? - Stack Overflow</a></li>
-  <li><a href="https://www.youtube.com/watch?v=XtEoKixIfG4">Swift: Facebook Messenger - Auto Layout Using Code or Programmatically (Ep 1)</a></li>
-</ul>
 
   
     
