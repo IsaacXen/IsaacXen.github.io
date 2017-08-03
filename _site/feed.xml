@@ -111,7 +111,9 @@
 
 &lt;h3 id=&quot;checks-if-connected-to-wireless-network&quot;&gt;Checks if connected to wireless network&lt;/h3&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;/// Checks if is connected to a wireless network.&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;CoreWLAN&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;/// Checks if is connected to a wireless network.&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;///&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;/// Reference: [How to programmatically check if Mac is connected to Wi-Fi network?](https://stackoverflow.com/a/31780651/6692025)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;///&lt;/span&gt;

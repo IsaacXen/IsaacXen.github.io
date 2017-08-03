@@ -101,6 +101,8 @@ func isFile(at path: String) -> Bool? {
 ### Checks if connected to wireless network
 
 ```swift
+import CoreWLAN
+
 /// Checks if is connected to a wireless network.
 ///
 /// Reference: [How to programmatically check if Mac is connected to Wi-Fi network?](https://stackoverflow.com/a/31780651/6692025)
