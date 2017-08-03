@@ -101,7 +101,7 @@ header::after {
 
 
 <article>
-  <span class="meta">Jul 31, 2017 • 7&nbsp;min read</span>
+  <span class="meta">Jul 31, 2017 • 8&nbsp;min read</span>
 	<h1>Cocoa Handy Helpers</h1>
 		<p>Some useful functions and extensions for macOS in Swift 4.</p>
 
@@ -197,6 +197,31 @@ header::after {
 </div>
 
 <h2 id="network">Network</h2>
+
+<h3 id="checks-if-connected-to-wireless-network">Checks if connected to wireless network</h3>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="c1">/// Checks if is connected to a wireless network.</span>
+<span class="c1">///</span>
+<span class="c1">/// Reference: [How to programmatically check if Mac is connected to Wi-Fi network?](https://stackoverflow.com/a/31780651/6692025)</span>
+<span class="c1">///</span>
+<span class="c1">/// - Returns: 'true' if connected to a wireless network, 'false' if not.</span>
+<span class="kd">func</span> <span class="nf">isWIFIActive</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">interfaceName</span> <span class="o">=</span> <span class="kt">CWWiFiClient</span><span class="o">.</span><span class="nf">interfaceNames</span><span class="p">()</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">interfaceName</span> <span class="k">in</span> <span class="n">interfaceName</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">interface</span> <span class="o">=</span> <span class="kt">CWWiFiClient</span><span class="o">.</span><span class="nf">shared</span><span class="p">()</span><span class="o">.</span><span class="nf">interface</span><span class="p">(</span><span class="nv">withName</span><span class="p">:</span> <span class="n">interfaceName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">interface</span><span class="o">.</span><span class="nf">ssid</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">true</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <h3 id="get-mac-address-of-primary-interface">Get MAC address of primary interface</h3>
 

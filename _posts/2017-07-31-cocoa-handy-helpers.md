@@ -98,6 +98,31 @@ func isFile(at path: String) -> Bool? {
 
 ## Network
 
+### Checks if connected to wireless network
+
+```swift
+/// Checks if is connected to a wireless network.
+///
+/// Reference: [How to programmatically check if Mac is connected to Wi-Fi network?](https://stackoverflow.com/a/31780651/6692025)
+///
+/// - Returns: 'true' if connected to a wireless network, 'false' if not.
+func isWIFIActive() -> Bool {
+    guard let interfaceName = CWWiFiClient.interfaceNames() else {
+        return false
+    }
+
+    for interfaceName in interfaceName {
+        if let interface = CWWiFiClient.shared().interface(withName: interfaceName) {
+            if interface.ssid() != nil {
+                return true
+            }
+        }
+    }
+
+    return false
+}
+```
+
 ### Get MAC address of primary interface
 
 ```swift
