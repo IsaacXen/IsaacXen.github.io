@@ -44,8 +44,8 @@ extension NSView {
     ///   - relation: The relationship between the left side of the constraint and the right side of the constraint.
     ///   - view2: The view for the right side of the constraint.
     ///   - attribute2: The attribute of the view for the right side of the constraint.
-    ///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute. (optional)
-    ///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute. (optional)
+    ///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute. 0 by default.
+    ///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute. 1 by default.
     func addConstrain(_ view1: Any, _ attribute1: NSLayoutAttribute, _ relation: NSLayoutRelation, to view2: Any?, _ attribute2: NSLayoutAttribute, plus constant: CGFloat = 0, multiply multiplier: CGFloat = 1) {
         if let itemView = item as? NSView {
             itemView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,28 @@ extension NSView {
 }
 ```
 
-## FileManager
+## Text
+
+### Calculate text size with given width
+
+```swift
+extension NSAttributedString {
+
+    /// Calculates and returns bounding rectangle for the receiver drawn using the options specified, within the given rectangle in the current graphics context.
+    /// The origin of the rectangle returned from this method is the first glyph origin.
+    ///
+    /// - Parameters:
+    ///   - width: The width of the rectangle to draw in.
+    ///   - options: The string drawing options. [.usesFontLeading, .usesLineFragmentOrigin] by default.
+    /// - Returns: The bounding rectangle size in the current graphics context.
+    func boundingSize(withWidth width: CGFloat, options: NSString.DrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]) -> CGSize {
+        let size = NSMakeSize(width, CGFloat(Int.max))
+        return boundingRect(with: size, options: options).size
+    }
+}
+```
+
+## File
 
 ### Check if path is a file or directory
 

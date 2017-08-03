@@ -101,7 +101,7 @@ header::after {
 
 
 <article>
-  <span class="meta">Jul 31, 2017 • 6&nbsp;min read</span>
+  <span class="meta">Jul 31, 2017 • 7&nbsp;min read</span>
 	<h1>Cocoa Handy Helpers</h1>
 		<p>Some useful functions and extensions for macOS in Swift 4.</p>
 
@@ -143,8 +143,8 @@ header::after {
     <span class="c1">///   - relation: The relationship between the left side of the constraint and the right side of the constraint.</span>
     <span class="c1">///   - view2: The view for the right side of the constraint.</span>
     <span class="c1">///   - attribute2: The attribute of the view for the right side of the constraint.</span>
-    <span class="c1">///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute. (optional)</span>
-    <span class="c1">///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute. (optional)</span>
+    <span class="c1">///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute. 0 by default.</span>
+    <span class="c1">///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute. 1 by default.</span>
     <span class="kd">func</span> <span class="nf">addConstrain</span><span class="p">(</span><span class="n">_</span> <span class="nv">view1</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="n">_</span> <span class="nv">attribute1</span><span class="p">:</span> <span class="kt">NSLayoutAttribute</span><span class="p">,</span> <span class="n">_</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutRelation</span><span class="p">,</span> <span class="n">to</span> <span class="nv">view2</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="n">_</span> <span class="nv">attribute2</span><span class="p">:</span> <span class="kt">NSLayoutAttribute</span><span class="p">,</span> <span class="n">plus</span> <span class="nv">constant</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">multiply</span> <span class="nv">multiplier</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="k">let</span> <span class="nv">itemView</span> <span class="o">=</span> <span class="n">item</span> <span class="k">as?</span> <span class="kt">NSView</span> <span class="p">{</span>
             <span class="n">itemView</span><span class="o">.</span><span class="n">translatesAutoresizingMaskIntoConstraints</span> <span class="o">=</span> <span class="kc">false</span>
@@ -155,7 +155,28 @@ header::after {
 </code></pre>
 </div>
 
-<h2 id="filemanager">FileManager</h2>
+<h2 id="text">Text</h2>
+
+<h3 id="calculate-text-size-with-given-width">Calculate text size with given width</h3>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">NSAttributedString</span> <span class="p">{</span>
+
+    <span class="c1">/// Calculates and returns bounding rectangle for the receiver drawn using the options specified, within the given rectangle in the current graphics context.</span>
+    <span class="c1">/// The origin of the rectangle returned from this method is the first glyph origin.</span>
+    <span class="c1">///</span>
+    <span class="c1">/// - Parameters:</span>
+    <span class="c1">///   - width: The width of the rectangle to draw in.</span>
+    <span class="c1">///   - options: The string drawing options. [.usesFontLeading, .usesLineFragmentOrigin] by default.</span>
+    <span class="c1">/// - Returns: The bounding rectangle size in the current graphics context.</span>
+    <span class="kd">func</span> <span class="nf">boundingSize</span><span class="p">(</span><span class="n">withWidth</span> <span class="nv">width</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">NSString</span><span class="o">.</span><span class="kt">DrawingOptions</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">usesFontLeading</span><span class="p">,</span> <span class="o">.</span><span class="n">usesLineFragmentOrigin</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">size</span> <span class="o">=</span> <span class="kt">NSMakeSize</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="kt">CGFloat</span><span class="p">(</span><span class="kt">Int</span><span class="o">.</span><span class="n">max</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nf">boundingRect</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">size</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="file">File</h2>
 
 <h3 id="check-if-path-is-a-file-or-directory">Check if path is a file or directory</h3>
 
