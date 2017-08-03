@@ -63,7 +63,6 @@ extension NSView {
 extension NSAttributedString {
 
     /// Calculates and returns bounding rectangle for the receiver drawn using the options specified, within the given rectangle in the current graphics context.
-    /// The origin of the rectangle returned from this method is the first glyph origin.
     ///
     /// - Parameters:
     ///   - width: The width of the rectangle to draw in.

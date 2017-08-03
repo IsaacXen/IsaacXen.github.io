@@ -73,7 +73,6 @@
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSAttributedString&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
     &lt;span class=&quot;c1&quot;&gt;/// Calculates and returns bounding rectangle for the receiver drawn using the options specified, within the given rectangle in the current graphics context.&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;/// The origin of the rectangle returned from this method is the first glyph origin.&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;///&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;/// - Parameters:&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;///   - width: The width of the rectangle to draw in.&lt;/span&gt;
