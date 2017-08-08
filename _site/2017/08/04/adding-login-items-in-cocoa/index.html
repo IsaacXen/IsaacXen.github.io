@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width">
 <title>
 
-Time Machine • Breakpøint
+Adding Login Items in Cocoa • Breakpøint
 
 </title>
-<meta name="description" content=" Code, tips, life, something like that.">
+<meta name="description" content="Here is a simple guide on how to add login item using Service Management Framework. Code, tips, life, something like that.">
 <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed.xml">
 
 <!-- Web Font -->
@@ -27,7 +27,7 @@ Time Machine • Breakpøint
 
 <!-- og tags -->
 <meta property="og:site_name" content="Breakpøint">
-<meta property="og:title" content="Time Machine • Breakpøint">
+<meta property="og:title" content="Adding Login Items in Cocoa • Breakpøint">
 <meta property="og:locale" content="en">
 
   
@@ -35,10 +35,10 @@ Time Machine • Breakpøint
   
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:4000/archive/">
+<meta property="og:url" content="http://localhost:4000/2017/08/04/adding-login-items-in-cocoa/">
 <meta property="og:description" content="
 
-Code, tips, life, something like that.
+Here is a simple guide on how to add login item using Service Management Framework.
 ">
 <!-- /og tags -->
 
@@ -97,27 +97,56 @@ header::after {
   
 </header>
 
-		<article>
-	<h1>Time Machine</h1>
-		  
+		
 
-    
-      <h3>2017</h3>
-    
 
-    <p><a href="/2017/08/04/adding-login-items-in-cocoa/">Adding Login Items in Cocoa</a><small> • Aug 4, 2017</small></p>
+<article>
+  <span class="meta">Aug 4, 2017 • 1&nbsp;min read</span>
+	<h1>Adding Login Items in Cocoa</h1>
+		<p>There’s a lot of guides and simple code out there showing you how to add your login item. But sadly most of them are (or will be) deprecated, so here is how to make our app launch on login, version 2017.</p>
+
+<h2 id="the-most-recommended-way-service-management-framework">The most recommended way: Service Management Framework</h2>
+
+<p>This is probably the most recommended approach if we need to keep our app sandboxed.</p>
+
+<p>We provide a helper application inside our main application bundle to Service Management Framework which can help start the helper application in every login.</p>
+
+<h3 id="add-and-configure-helper-application">Add and configure helper application</h3>
+
+<p>Say we have a working project already, go to project settings (the blueprint icon under project navigator), add a Cocoa App to the targets.</p>
+
+<p>Now we need to do some configurations.</p>
+
+<p>For helper application target:</p>
+
+<ul>
+  <li>in <strong>Info</strong> tab, under <strong>Custom macOS Application Target Properties</strong> section, add a new property named <code class="highlighter-rouge">Application is background only</code> and set it to <code class="highlighter-rouge">true</code> .</li>
+  <li>In <strong>Build Settings</strong> tab, under <strong>Deployment</strong> section, set <code class="highlighter-rouge">Skip Install</code> to <code class="highlighter-rouge">YES</code> .</li>
+</ul>
+
+<p>For main application target:</p>
+
+<ul>
+  <li>In <strong>Build Phases</strong> tab, click the plus button on the top left corner and select <strong>New Copy File Phase</strong> (skip this if you already have one). Set <strong>Destination</strong> to <code class="highlighter-rouge">Wrapper</code>, <strong>Subpath</strong> to <code class="highlighter-rouge">Contents/Library/LoginItems</code> and add you helper app to the list.</li>
+  <li>In <strong>General</strong> tab, add the helper app to <strong>Embedded Binaries</strong>.</li>
+</ul>
+
+<h3 id="time-for-some-code">Time for some code!</h3>
+
+<h2 id="not-a-big-fan-of-sandbox-try-shared-file-list">Not a big fan of sandbox? Try Shared File List</h2>
+
   
-
     
       
-      
+        <small><em>Post by: Isaac Chen </em></small>
       
     
-
-    <p><a href="/2017/07/31/cocoa-handy-helpers/">Cocoa Handy Helpers</a><small> • Jul 31, 2017</small></p>
   
-
 </article>
+
+
+
+
 
 	  <script>
 	    $("article").fitVids();

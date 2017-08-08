@@ -7,6 +7,52 @@
 		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Adding Login Items in Cocoa</title>
+				
+					
+						<dc:creator>{&quot;name&quot;=&gt;&quot;Isaac Chen&quot;, &quot;email&quot;=&gt;&quot;blackoutxen@gmail.com&quot;, &quot;info&quot;=&gt;nil}</dc:creator>
+					
+				
+				
+					<description>&lt;p&gt;There’s a lot of guides and simple code out there showing you how to add your login item. But sadly most of them are (or will be) deprecated, so here is how to make our app launch on login, version 2017.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-most-recommended-way-service-management-framework&quot;&gt;The most recommended way: Service Management Framework&lt;/h2&gt;
+
+&lt;p&gt;This is probably the most recommended approach if we need to keep our app sandboxed.&lt;/p&gt;
+
+&lt;p&gt;We provide a helper application inside our main application bundle to Service Management Framework which can help start the helper application in every login.&lt;/p&gt;
+
+&lt;h3 id=&quot;add-and-configure-helper-application&quot;&gt;Add and configure helper application&lt;/h3&gt;
+
+&lt;p&gt;Say we have a working project already, go to project settings (the blueprint icon under project navigator), add a Cocoa App to the targets.&lt;/p&gt;
+
+&lt;p&gt;Now we need to do some configurations.&lt;/p&gt;
+
+&lt;p&gt;For helper application target:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;in &lt;strong&gt;Info&lt;/strong&gt; tab, under &lt;strong&gt;Custom macOS Application Target Properties&lt;/strong&gt; section, add a new property named &lt;code class=&quot;highlighter-rouge&quot;&gt;Application is background only&lt;/code&gt; and set it to &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; .&lt;/li&gt;
+  &lt;li&gt;In &lt;strong&gt;Build Settings&lt;/strong&gt; tab, under &lt;strong&gt;Deployment&lt;/strong&gt; section, set &lt;code class=&quot;highlighter-rouge&quot;&gt;Skip Install&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;YES&lt;/code&gt; .&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For main application target:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In &lt;strong&gt;Build Phases&lt;/strong&gt; tab, click the plus button on the top left corner and select &lt;strong&gt;New Copy File Phase&lt;/strong&gt; (skip this if you already have one). Set &lt;strong&gt;Destination&lt;/strong&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Wrapper&lt;/code&gt;, &lt;strong&gt;Subpath&lt;/strong&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Contents/Library/LoginItems&lt;/code&gt; and add you helper app to the list.&lt;/li&gt;
+  &lt;li&gt;In &lt;strong&gt;General&lt;/strong&gt; tab, add the helper app to &lt;strong&gt;Embedded Binaries&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;time-for-some-code&quot;&gt;Time for some code!&lt;/h3&gt;
+
+&lt;h2 id=&quot;not-a-big-fan-of-sandbox-try-shared-file-list&quot;&gt;Not a big fan of sandbox? Try Shared File List&lt;/h2&gt;
+</description>
+				
+				<pubDate>Fri, 04 Aug 2017 00:00:00 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/04/adding-login-items-in-cocoa/</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/04/adding-login-items-in-cocoa/</guid>
+			</item>
+		
+			<item>
 				<title>Cocoa Handy Helpers</title>
 				
 					

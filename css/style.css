@@ -20,9 +20,9 @@
 
 body {
   font-family: "Crimson Text", source-han-serif-sc, Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 22px;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
-  font-weight: 400;
+  /*font-weight: 100;*/
   color: rgba({{ site.text-color }}, .8);
   background-color: rgb({{ site.background-color }});
   background-repeat: no-repeat;
@@ -176,13 +176,13 @@ blockquote::after {
 code {
   font-family: "Source Code Pro", monospace;
 }
-p code {
+p code, li code {
   font-size: .7em;
   display: inline-block;
-  border-radius: 2px;
+  border-radius: 3px;
   background-color: rgba({{ site.text-color }},.05);
   border: 1px solid rgba({{ site.text-color }},.1);
-  padding: 0 3px;
+  padding: 3px 5px;
 }
 pre {
   display: block;

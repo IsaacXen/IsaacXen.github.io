@@ -7,7 +7,7 @@ Some useful functions and extensions for macOS in Swift 4.
 
 Update at anytime.
 
-## AutoLayout
+## Views
 
 ### Add constrains cleaner
 
@@ -51,6 +51,26 @@ extension NSView {
             itemView.translatesAutoresizingMaskIntoConstraints = false
         }
         addConstraint(NSLayoutConstraint(item: view1, attribute: attribute1, relatedBy: relation, toItem: view2, attribute: attribute2, multiplier: multiplier, constant: constant))
+    }
+}
+```
+
+### Tableview helpers
+
+```swift
+extension NSTableView {
+    
+    /// Marks the table view as needing redisplay while maintaining the selection.
+    func reloadDataWithSelection() {
+        let selectedRowIndexes = self.selectedRowIndexes
+        self.reloadData()
+        self.selectRowIndexes(selectedRowIndexes, byExtendingSelection: false)
+    }
+
+    /// Check if last table row is visible by checking scroller's value.
+    /// - Returns: The bool value whether last row is visible, `false` if fail to unwrap optional value.
+    var isLastRowVisible: Bool {
+        get { return enclosingScrollView?.verticalScroller?.floatValue == 1 }
     }
 }
 ```
