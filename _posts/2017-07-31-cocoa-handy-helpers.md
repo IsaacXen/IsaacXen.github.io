@@ -46,11 +46,12 @@ extension NSView {
     ///   - attribute2: The attribute of the view for the right side of the constraint.
     ///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute. 0 by default.
     ///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute. 1 by default.
-    func addConstrain(_ view1: Any, _ attribute1: NSLayoutAttribute, _ relation: NSLayoutRelation, to view2: Any?, _ attribute2: NSLayoutAttribute, plus constant: CGFloat = 0, multiply multiplier: CGFloat = 1) {
-        if let itemView = item as? NSView {
-            itemView.translatesAutoresizingMaskIntoConstraints = false
-        }
-        addConstraint(NSLayoutConstraint(item: view1, attribute: attribute1, relatedBy: relation, toItem: view2, attribute: attribute2, multiplier: multiplier, constant: constant))
+    func addConstrain(_ view1: Any, _ attribute1: NSLayoutConstraint.Attribute, _ relation: NSLayoutConstraint.Relation, to view2: Any?, _ attribute2: NSLayoutConstraint.Attribute, plus constant: CGFloat = 0, multiply multiplier: CGFloat = 1) {
+
+        (view1 as? NSView)?.translatesAutoresizingMaskIntoConstraints = false
+        (view2 as? NSView)?.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addConstraint(NSLayoutConstraint(item: view1, attribute: attribute1, relatedBy: relation, toItem: view2, attribute: attribute2, multiplier: multiplier, constant: constant))
     }
 }
 ```
@@ -59,7 +60,7 @@ extension NSView {
 
 ```swift
 extension NSTableView {
-    
+
     /// Marks the table view as needing redisplay while maintaining the selection.
     func reloadDataWithSelection() {
         let selectedRowIndexes = self.selectedRowIndexes
@@ -110,9 +111,24 @@ extension NSAttributedString {
 func isFile(at path: String) -> Bool? {
 	var isDirectory: ObjCBool = false
 	if FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory) {
-		return isDirectory.boolValue    
+		return isDirectory.boolValue
 	}
 	return nil
+}
+```
+
+## Time & Date
+
+### Check if is using 24-Hour Time
+
+```swift
+/// Check if using 24-Hour Time Format.
+///
+/// Reference: [xcode - Detect iPhone 24-Hour time setting - Stack Overflow](https://stackoverflow.com/a/12236693/6692025)
+///
+/// - Returns: `true` for file and `false` for directory, `nil` if not exist.
+func using24hTimeFormat() -> Bool {
+    return DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: .current)?.range(of: "a") == nil
 }
 ```
 
