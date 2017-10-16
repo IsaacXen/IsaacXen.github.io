@@ -46,10 +46,10 @@ extension NSView {
     ///   - attribute2: The attribute of the view for the right side of the constraint.
     ///   - constant: The constant added to the multiplied attribute value on the right side of the constraint to yield the final modified attribute. 0 by default.
     ///   - multiplier: The constant multiplied with the attribute on the right side of the constraint as part of getting the modified attribute. 1 by default.
-    func addConstrain(_ view1: Any, _ attribute1: NSLayoutConstraint.Attribute, _ relation: NSLayoutConstraint.Relation, to view2: Any?, _ attribute2: NSLayoutConstraint.Attribute, plus constant: CGFloat = 0, multiply multiplier: CGFloat = 1) {
+    func addConstrain(_ view1: NSView, _ attribute1: NSLayoutConstraint.Attribute, _ relation: NSLayoutConstraint.Relation, to view2: NSView?, _ attribute2: NSLayoutConstraint.Attribute, plus constant: CGFloat = 0, multiply multiplier: CGFloat = 1) {
 
-        (view1 as? NSView)?.translatesAutoresizingMaskIntoConstraints = false
-        (view2 as? NSView)?.translatesAutoresizingMaskIntoConstraints = false
+        view1.translatesAutoresizingMaskIntoConstraints = false
+        view2?.translatesAutoresizingMaskIntoConstraints = false
 
         view.addConstraint(NSLayoutConstraint(item: view1, attribute: attribute1, relatedBy: relation, toItem: view2, attribute: attribute2, multiplier: multiplier, constant: constant))
     }
@@ -94,6 +94,39 @@ extension NSAttributedString {
         return boundingRect(with: size, options: options).size
     }
 }
+```
+
+## Image
+
+### Draw a text on center of a image
+
+```swift
+extension NSImage {
+    /// Return a image with text drawn on top of it.
+    ///
+    /// - Parameters:
+    ///   - text: The text to draw on image.
+    ///   - attributes: Attributes of the text.
+    /// - Returns: The image with text.
+    func image(withCenterDrawnText text: String, attributes: [NSAttributedStringKey: Any]) -> NSImage {
+        let image = self
+        let text = text as NSString
+        let options: NSString.DrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
+
+        let textSize = text.boundingRect(with: image.size, options: options, attributes: attributes).size
+
+        let x = (image.size.width - textSize.width) / 2
+        let y = (image.size.height - textSize.height) / 2
+        let point = NSMakePoint(x, y)
+
+        image.lockFocus()
+        text.draw(at: point, withAttributes: attributes)
+        image.unlockFocus()
+
+        return image
+    }
+}
+
 ```
 
 ## File
