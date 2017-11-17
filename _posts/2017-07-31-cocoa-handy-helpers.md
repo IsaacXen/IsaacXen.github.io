@@ -131,6 +131,7 @@ extension NSImage {
 ### Crop image
 
 ```swift
+extension NSImage {
     /// Crop image with given rect.
     ///
     /// - Parameter rect: The rect to crop relative to source image.
@@ -150,6 +151,7 @@ extension NSImage {
 
         return croppedImage
     }
+}
 ```
 
 ## File
