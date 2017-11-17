@@ -126,7 +126,30 @@ extension NSImage {
         return image
     }
 }
+```
 
+### Crop image
+
+```swift
+    /// Crop image with given rect.
+    ///
+    /// - Parameter rect: The rect to crop relative to source image.
+    /// - Returns: Cropped NSImage.
+    func crop(to rect: NSRect) -> NSImage {
+        let x = min(max(rect.origin.x, 0), size.width)
+        let y = min(max(rect.origin.y, 0), size.height)
+        let w = min(x + rect.size.width, size.width)
+        let h = min(y + rect.size.height, size.height)
+        let croppedRect = NSMakeRect(x, y, w, h)
+        let newRect = NSRect(origin: .zero, size: croppedRect.size)
+        let croppedImage = NSImage(size: croppedRect.size)
+
+        croppedImage.lockFocus()
+        draw(in: newRect, from: croppedRect, operation: .copy, fraction: 1)
+        croppedImage.unlockFocus()
+
+        return croppedImage
+    }
 ```
 
 ## File
