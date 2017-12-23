@@ -18,13 +18,13 @@ imageView.animator().frameCenterRotation += 90
 
 Easy piece of cake.
 
-![Weird Rotate Animation](../img/posts_img/2017-12-21-rotating-a-view-is-not-easy-01.gif)
+![Weird Rotate Animation]({{ site.baseurl }}/img/posts_img/2017-12-21-rotating-a-view-is-not-easy-01.gif)
 
 ## Wait, what?
 
 Let's slow it down for a little bit:
 
-![Weird Rotate Animation in Slow-Mo](../img/posts_img/2017-12-21-rotating-a-view-is-not-easy-02.gif)
+![Weird Rotate Animation in Slow-Mo]({{ site.baseurl }}/img/posts_img/2017-12-21-rotating-a-view-is-not-easy-02.gif)
 
 It looks like the layer's anchorPoint is also animated from `0` to `0.5`, which should be `0.5` by default as suggested in [this document](https://developer.apple.com/documentation/quartzcore/calayer/1410817-anchorpoint):
 
@@ -63,7 +63,7 @@ imageView.animator().layer?.transform = rotation
 n += 1
 ```
 
-![Rotate but without animation](../img/posts_img/2017-12-21-rotating-a-view-is-not-easy-03.gif)
+![Rotate but without animation]({{ site.baseurl }}/img/posts_img/2017-12-21-rotating-a-view-is-not-easy-03.gif)
 
 It rotate! But not about its center, and there's no animation. We still need to change the anchorPoint to center:
 
@@ -71,7 +71,7 @@ It rotate! But not about its center, and there's no animation. We still need to 
 layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 ```
 
-![Rotate about center...but not center](../img/posts_img/2017-12-21-rotating-a-view-is-not-easy-04.gif)
+![Rotate about center...but not center]({{ site.baseurl }}/img/posts_img/2017-12-21-rotating-a-view-is-not-easy-04.gif)
 
 Now it do rotate about layer's center, but it jumps to bottom left, the origin point of its frame. To fix this, we need to also change its position:
 
@@ -79,7 +79,7 @@ Now it do rotate about layer's center, but it jumps to bottom left, the origin p
 layer.position = CGPoint(x: layer.frame.midX, y: layer.frame.midY)
 ```
 
-![Rotate about center](../img/posts_img/2017-12-21-rotating-a-view-is-not-easy-05.gif)
+![Rotate about center]({{ site.baseurl }}/img/posts_img/2017-12-21-rotating-a-view-is-not-easy-05.gif)
 
 What about the animation? We already use `animator()` to animate the property changes?
 
@@ -89,7 +89,7 @@ That is because, by default, [AppKit disables implicit animations for its layer-
 NSAnimationContext.current.allowsImplicitAnimation = true
 ```
 
-![A prefect rotation](../img/posts_img/2017-12-21-rotating-a-view-is-not-easy-06.gif)
+![A prefect rotation]({{ site.baseurl }}/img/posts_img/2017-12-21-rotating-a-view-is-not-easy-06.gif)
 
 Now that's what I called a rotation!
 
