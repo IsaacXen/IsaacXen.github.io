@@ -1,6 +1,5 @@
 ---
 title: Rotating a View Is Simple Not Easy
-summary: Life is simple not easy.
 ---
 
 So I was asked to do a easy feature recently, provide two button to rotate a image view 90 degree clockwise or counterclockwise with animation.
