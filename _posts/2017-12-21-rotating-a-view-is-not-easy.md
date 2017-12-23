@@ -85,7 +85,7 @@ What about the animation? We already use `animator()` to animate the property ch
 
 That is because, by default, [AppKit disables implicit animations for its layer-backed views](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/CreatingBasicAnimations/CreatingBasicAnimations.html#//apple_ref/doc/uid/TP40004514-CH3-SW18). Since we are animating layer properties directly, we need to programmatically reenable implicit animations in current context:
 
-```
+```swift
 NSAnimationContext.current.allowsImplicitAnimation = true
 ```
 
