@@ -95,7 +95,7 @@ Now that's what I called a rotation!
 
 ## Complete Code
 
-```
+```swift
 var n: CGFloat = 1
 
 func rotate(_ sender: NSButton) {
