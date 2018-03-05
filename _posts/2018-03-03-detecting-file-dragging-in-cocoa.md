@@ -65,7 +65,7 @@ Then we need to get current mouse location:
 let mouseLocation = NSEvent.mouseLocation
 ```
 
-One thing to remember is that `NSEvent.mouseLocation` return a `NSPoint` at top-left relative screen coordinates, but `AXUIElementCopyElementAtPosition` accept a point at bottom-left relative screen coordinates. So we need to convert it.
+One thing to remember is that `NSEvent.mouseLocation` return a `NSPoint` at bottom-left relative screen coordinates, but `AXUIElementCopyElementAtPosition` accept a point at top-left relative screen coordinates. So we need to convert it.
 
 To do so, we can make a small helpful extension like this:
 
