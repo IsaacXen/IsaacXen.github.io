@@ -20,7 +20,9 @@ _Friends & Recommendations_
 <br>
 [cool8jay](https://cool8jay.github.io)
 <br>
-[Desgard_Duan](https://desgard.com) _(Blog written in Chinese)_
+[Desgard](https://desgard.com) _(Blog written in Chinese)_
+<br>
+[Curmido](http://www.curmido.com/) _(Blog written in Chinese)_
 
 ---
 
