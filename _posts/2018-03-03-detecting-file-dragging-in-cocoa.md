@@ -116,7 +116,7 @@ guard let _ = value else { return }
 
 _Note: This works only when dragging a file in finder. If you want this apply to like  when dragging an image inside an application, fell free to add other attribute name to examine, or even combine it with the result of pasteboard's propertyList._
 
-There you have it, this is how to detecting a file dragging. One thing to remember: If your app is sandboxed, you may found this not working. In this case, you may want to send a email to Apple, tell them what you want to do with this API, and ask them to send you a slightly different `.entitlements` file.
+There you have it, this is how to detecting a file dragging. One thing to remember: [If your app is sandboxed, you may found this not working](https://stackoverflow.com/questions/32116095/how-to-use-accessibility-with-sandboxed-app). In this case, you may want to send a email to Apple, tell them what you want to do with this API, and ask them to send you a slightly different `.entitlements` file.
 
 If they don't, then you need to find another way around, or consider distributing your app outside Mac App Store.
 
