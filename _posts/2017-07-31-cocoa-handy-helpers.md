@@ -51,7 +51,7 @@ extension NSView {
         view1.translatesAutoresizingMaskIntoConstraints = false
         view2?.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addConstraint(NSLayoutConstraint(item: view1, attribute: attribute1, relatedBy: relation, toItem: view2, attribute: attribute2, multiplier: multiplier, constant: constant))
+        view1.addConstraint(NSLayoutConstraint(item: view1, attribute: attribute1, relatedBy: relation, toItem: view2, attribute: attribute2, multiplier: multiplier, constant: constant))
     }
 }
 ```
