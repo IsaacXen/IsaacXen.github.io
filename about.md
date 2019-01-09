@@ -14,6 +14,18 @@ Currently live in Shenzhen, China, hot yet beautiful city.
 
 ---
 
+_Friends & Recommendations_
+
+[Karl Zeo](https://mikulove.com/) _(Blog written in Chinese)_
+<br>
+[cool8jay](https://cool8jay.github.io)
+<br>
+[Desgard](https://desgard.com) _(Blog written in Chinese)_
+<br>
+[Curmido](http://www.curmido.com/) _(Blog written in Chinese)_
+
+---
+
 Theme by Stijn. Get the latest version at the [Github repository](https://github.com/steinvc/holo-alfa).
 <br>
 Syntax highlight by [Prism](http://prismjs.com/).
