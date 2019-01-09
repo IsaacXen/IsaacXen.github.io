@@ -7,7 +7,9 @@ No, this is not tweaking a knob in interface builder nor changing a variable pro
 
 Here is how it works.
 
-Say you have a scroll view, and a button on it, which present a popover relatively to the button when clicked. Now scroll it til the button is away from visible rect. Guess what happend? The arrow of the popover will follow the button and when the button is outside visible rect, the arrow disappear!
+Say you have a scroll view, and a button on it, which present a popover relatively to the button when clicked. 
+
+Now scroll it til the button is away from visible rect. Guess what happend? The arrow of the popover will follow the button and when the button is outside visible rect, the arrow disappear!
 
 ![Default Popover Behavior]({{ site.baseurl }}/img/posts_img/2018-08-08-a-small-trick-to-hide-nspopovers-arrow-02.gif)
 
@@ -15,7 +17,7 @@ That is a default behvaior of popover we can make use of. The arrow of popover i
 
 That means all we need to do is:
 
-1. Create a different positioning view that have a save frame with the button.
+1. Create a different positioning view.
 2. Create the popover.
 3. present the popover.
 4. Move positioning view off visible rect.
@@ -23,8 +25,6 @@ That means all we need to do is:
 And now you have presented a popover with no arrow!
 
 ![Popover with no arrow]({{ site.baseurl }}/img/posts_img/2018-08-08-a-small-trick-to-hide-nspopovers-arrow-01.gif)
-
-Here is how you can do this in swift:
 
 ```swift
 var popover: NSPopover?
