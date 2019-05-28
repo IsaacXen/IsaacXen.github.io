@@ -3,6 +3,28 @@ layout: default
 ---
 <article {% if page.feature-img %}class="feature-image"{% endif %}>
   <header style="background-image: url('{{ site.baseurl }}/{{ page.feature-img }}')">
+    <!-- Series Header -->
+    {% if page.series %}
+      {% assign part = 1 %}
+      {% assign posts = site.posts | sort: 'date' %}
+      {% assign reversedPosts = posts | reverse %}
+      {% for item in reversedPosts %}
+        {% if item.series == page.series %}
+          {% if item == page %}
+            {% break %}
+          {% endif %}
+
+          {% assign part = part | plus:1 %}
+        {% endif %}
+      {% endfor %}
+    <h4 class="series">{{ page.series }}
+      {% if part > 1 %}
+      <span class="series-part">#{{ part }}</span>
+      {% endif %}
+    </h4>
+    {% endif %}
+
+    <!-- Post Header -->
     <h1 class="title">{{ page.title }}</h1>
     {% if page.subtitle %}<h2 class="subtitle">{{ page.subtitle }}</h2>{% endif %}
     <p class="meta">

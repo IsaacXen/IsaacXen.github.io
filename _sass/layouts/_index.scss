@@ -31,6 +31,11 @@
   .excerpt {
     margin-top: 1em;
   }
+  .series {
+    color: $series-text-color;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
 }
 // Pagination
 .pagination .button {

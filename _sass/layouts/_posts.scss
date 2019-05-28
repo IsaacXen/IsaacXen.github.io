@@ -29,6 +29,16 @@ header {
   h1 {
     margin: 0;
   }
+  .series {
+    display: inline-block;
+    color: $series-text-color;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    background: linear-gradient(120deg, $series-gradient-text-color-1, $series-gradient-text-color-2, $series-gradient-text-color-3);
+    background: -webkit-linear-gradient(30deg, $series-gradient-text-color-1, $series-gradient-text-color-2, $series-gradient-text-color-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 .meta {
   color: rgba($text-color, .5);
