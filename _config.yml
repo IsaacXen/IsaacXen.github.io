@@ -1,0 +1,83 @@
+# SITE CONFIGURATION
+baseurl: ""
+url: "https://isaacxen.github.io"
+
+# THEME-SPECIFIC CONFIGURATION
+theme_settings:
+  # Meta
+  title: ix4n33's Blog
+  avatar: assets/img/avatar.png
+  favicon: assets/favicon.ico
+  gravatar: # Email MD5 hash
+  description: "@ix4n33's Blog, sharing coding, and any other things."
+
+  # Header and footer text
+  header_text: #>
+  #   <p>Lorem ipsum dolor sit amet, <a href="https://jekyllrb.com/">Jekyll</a> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  header_text_feature_image:
+  footer_text: "(˶‾᷄ ⁻̫ ‾᷅˵)"
+
+  # Icons
+  rss: false
+  email_address: # Full email address, e.g. "sam@example.com"
+  behance:
+  bitbucket:
+  dribbble:
+  facebook:
+  flickr:
+  gitlab:
+  github: # "IsaacXen"
+  gitter:
+  google_plus:
+  instagram:
+  linkedin:  # Full URL
+  pinterest:
+  reddit:
+  soundcloud:
+  stack_exchange:  # Full URL
+  steam:
+  tumblr:
+  twitter: # "IsaacXen"
+  wordpress:
+  youtube:
+
+  # Scripts
+  google_analytics: # Tracking ID, e.g. "UA-000000-01"
+  disqus_shortname:
+  katex: true # Enable if using math markup
+  search: true # Enable the search feature
+
+  # Localization strings
+  str_follow_on: "关注"
+  str_rss_follow: "订阅 RSS"
+  str_email: "Email"
+  str_next_post: "下一篇"
+  str_previous_post: "上一篇"
+  str_next_page: "下一页"
+  str_previous_page: "上一页"
+  str_continue_reading: "继续阅读 ➔"
+  str_javascript_required_disqus: "请启用 JavaScript 来浏览评论."
+  str_search_no_results: "无结果."
+
+  # Colours, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
+  google_fonts: "Inconsolata|Noto+Sans+SC:400,700|Source+Sans+Pro:400,400i,700,700i&display=swap&subset=chinese-simplified"
+# Source+Sans+Pro:400,700,700italic,400italic\
+  # Post navigation
+  post_navigation: false
+
+# PAGINATION
+paginate: 5
+paginate_path: "blog/page:num"
+
+# BUILD SETTINGS
+markdown: kramdown
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: :compressed
+plugins: [jekyll-paginate]
+theme: jekyll-theme-type
+exclude:
+  - Gemfile
+  - Gemfile.lock

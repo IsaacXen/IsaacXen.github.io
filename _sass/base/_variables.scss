@@ -1,0 +1,47 @@
+// Typography
+$font-family-main: 'Source Sans Pro', 'Noto Sans SC', Helvetica, Arial, sans-serif !default;
+$font-family-headings: 'Source Sans Pro', 'Noto Sans SC', Helvetica, Arial, sans-serif !default;
+$font-family-mono: 'Inconsolata', monospace !default;
+$font-size: 1.25em !default;
+
+// Padding
+$padding-large: 20% !default;
+$padding-small: 5% !default;
+$padding-x-small: 3% !default;
+
+// Brand colours
+$brand-color: #263240 !default;
+$background-color: #263240 !default;
+$border-color: rgba(183, 194, 221, 0.16) !default; // rgba recommended if using feature images
+
+// Typography colours
+$text-color: #B7C2DD !default;
+$link-color: #BF93E8 !default;
+$selection-color: #A6B4D8 !default; // visible when highlighting text
+
+// Tags color
+$tags-color: #5A6D79 !default;
+
+//Search color
+$search-color: #B7C2DD !default;
+
+// Header colours
+$header-link-color: #B7C2DD !default;
+
+// Feature image for articles
+$feature-image-text-color: #fff !default;
+$feature-image-size: cover !default; // options include "cover", "contain", "auto"
+
+// Header description box
+$header-desc-background-color: #2B3A49 !default;
+$header-desc-text-color: rgba(183, 194, 221, 0.8) !default;
+$header-desc-link-color: rgba(191, 147, 232, 0.8) !default;
+
+$footer-text-color: #B7C2DD;
+$footer-link-color: #BF93E8;
+$footer-text-size: 0.8em;
+
+// Code 
+$code-background-color: rgb(32, 45, 59) !default;
+$code-key-background-color: #2b3d50 !default;
+$code-key-border-color: rgba(183, 194, 221, 0.2) !default;
