@@ -1,0 +1,12 @@
+.site-footer {
+  @extend %padding-regular;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  color: $footer-text-color;
+  font-size: $footer-text-size;
+}
+
+.site-footer a {
+  color: $footer-link-color;
+}
