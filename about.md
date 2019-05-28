@@ -23,6 +23,8 @@ _Friends & Recommendations_
 [Desgard](https://desgard.com) _(Blog written in Chinese)_
 <br>
 [Curmido](http://www.curmido.com/) _(Blog written in Chinese)_
+<br>
+[Captain YukinoshitaHachiman](https://blog.tcwq.tech/)  _(Blog written in mixed Chinese & English)_
 
 ---
 
