@@ -365,10 +365,13 @@ override func animateTransition(using transitionContext: UIViewControllerContext
 
 ### 插入 Search Result Controller
 
-我们还需要插入 Search Result Controller 到视图层级中。
+我们还需要插入 Search Result Controller 到视图层级中：
 
 ```swift
 override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+  let from = transitionContext.viewController(forKey: .from)!
+  let to = transitionContext.viewController(forKey: .to)!
+
   if isActive {
     // ...
     
@@ -397,7 +400,7 @@ override func animateTransition(using transitionContext: UIViewControllerContext
 
 ### 解决横竖屏转换时的布局错位
 
-在进行横竖屏转换的时候，视图会布局错乱，我们需要手动执行一下重写布局:
+在进行横竖屏转换的时候，视图会出现布局错乱的问题，我们需要手动触发布局:
 
 ```swift
 override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -414,8 +417,8 @@ override func viewWillTransition(to size: CGSize, with coordinator: UIViewContro
 
 ## 总结
 
-到这里，我们就完成了对我们 UISearchController 子类的实现。
+到这里，我们就完成了对 UISearchController 子类的实现。
 
 ![01](/assets/img/19042811.gif)
 
-如果你对这感兴趣，你可以在 Github 中查看我已经封装好的 [IXSearchController](https://github.com/IsaacXen/IXSearchController)。欢迎大家 star，提出 issue，甚至发起 pull request。
+如果你对这感兴趣，你可以在 Github 中查看已经封装好的 [IXSearchController](https://github.com/IsaacXen/IXSearchController)。欢迎大家 star，提出 issue，甚至发起 pull request。
