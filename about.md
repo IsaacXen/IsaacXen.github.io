@@ -16,7 +16,7 @@ Currently live in Shenzhen, China, hot yet beautiful city.
 
 _Friends & Recommendations_
 
-[Karl Zeo](https://mikulove.com/) _(Blog written in Chinese)_
+[Karl Zeo](https://mikulove.com/) _(Blog written in both Chinese and English)_
 <br>
 [cool8jay](https://cool8jay.github.io)
 <br>
