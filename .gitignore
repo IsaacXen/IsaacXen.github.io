@@ -107,3 +107,14 @@ build-iPhoneSimulator/
 
 # End of https://www.gitignore.io/api/git,ruby,macos,jekyll
 n
+# Created by https://www.gitignore.io/api/sass
+# Edit at https://www.gitignore.io/?templates=sass
+
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# End of https://www.gitignore.io/api/sass
+n
