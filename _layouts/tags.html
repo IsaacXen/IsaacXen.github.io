@@ -10,6 +10,7 @@ hide: true
 {% for item in (0..site.tags.size) %}
   {% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+
     <h2 id="{{ this_word | cgi_escape }}" class="tag-title">
       #{{ this_word }}
     </h2>
@@ -17,6 +18,21 @@ hide: true
     {% for post in site.tags[this_word] %}
       {% if post.title != null %}
         <div class="tagged-post">
+
+          {% if post.series %}
+            {% assign part = 0 %}
+            {% assign posts = site.posts | sort: 'date' %}
+            {% for item in posts %}
+              {% if item.series == post.series %}
+                {% assign part = part | plus:1 %}  
+                {% if item == post %}
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            <h5 class="series">{{ post.series }} <span class="series-part">#{{ part }}</span></h5>
+          {% endif %}
+
           <h4 class="title">
             <a href="{{ post.url | relative_url }}">
               {{ post.title }}

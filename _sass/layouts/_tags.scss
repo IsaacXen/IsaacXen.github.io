@@ -3,6 +3,16 @@
   margin-bottom: 0;
 }
 .tagged-post {
+  .series {
+    display: inline-block;
+    margin-bottom: 0;
+    color: $series-text-color;
+    text-transform: uppercase;
+    background: linear-gradient(120deg, $series-gradient-text-color-1, $series-gradient-text-color-2, $series-gradient-text-color-3);
+    background: -webkit-linear-gradient(30deg, $series-gradient-text-color-1, $series-gradient-text-color-2, $series-gradient-text-color-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .title {
     margin-top: 0;
     margin-bottom: 0;

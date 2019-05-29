@@ -7,21 +7,32 @@ layout: page
   {% for post in site.posts %}
 
     {% unless post.next %}
-      <h2>{{ post.date | date: '%Y' }}</h2>
+      <h2 class="tag-title">{{ post.date | date: '%Y' }}</h2>
     {% else %}
       {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
       {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
       {% if year != nyear %}
-        <h2>{{ post.date | date: '%Y' }}</h2>
+        <h2 class="tag-title">{{ post.date | date: '%Y' }}</h2>
       {% endif %}
     {% endunless %}
 
-    <p>
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    <div class="tagged-post">
+      {% if post.series %}
+        {% assign part = 0 %}
+        {% assign posts = site.posts | sort: 'date' %}
+        {% for item in posts %}
+          {% if item.series == post.series %}
+            {% assign part = part | plus:1 %}  
+            {% if item == post %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        <h5 class="series">{{ post.series }} <span class="series-part">#{{ part }}</span></h5>
+      {% endif %}
+      <h4 class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
     
-      <span class="meta" style="display: block; font-size: 0.8em">
-          {{ post.date | date: "%B %-d" }}
-      </span>
-    </p>
+      <div class="meta">{{ post.date | date: "%B %-d" }}</div>
+    </div>
     
   {% endfor %}
