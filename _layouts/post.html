@@ -5,23 +5,17 @@ layout: default
   <header style="background-image: url('{{ site.baseurl }}/{{ page.feature-img }}')">
     <!-- Series Header -->
     {% if page.series %}
-      {% assign part = 1 %}
+      {% assign part = 0 %}
       {% assign posts = site.posts | sort: 'date' %}
-      {% assign reversedPosts = posts | reverse %}
-      {% for item in reversedPosts %}
+      {% for item in posts %}
         {% if item.series == page.series %}
+          {% assign part = part | plus:1 %}  
           {% if item == page %}
             {% break %}
           {% endif %}
-
-          {% assign part = part | plus:1 %}
         {% endif %}
       {% endfor %}
-    <h4 class="series">{{ page.series }}
-      {% if part > 1 %}
-      <span class="series-part">#{{ part }}</span>
-      {% endif %}
-    </h4>
+    <h4 class="series">{{ page.series }} <span class="series-part">#{{ part }}</span></h4>
     {% endif %}
 
     <!-- Post Header -->

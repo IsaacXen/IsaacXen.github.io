@@ -48,8 +48,10 @@ h4 {
   font-size: 1.15em;
 }
 blockquote {
-    border-left: 2px solid;
+    border-left: $blockquote-thickness solid $blockquote-color;
     padding: 1em 1em;
+    background-color: $blockquote-background-color;
+    border-radius: $blockquote-radius;
 }
 blockquote p:last-child,
 footer p:last-child {
@@ -89,7 +91,7 @@ pre {
   background-color: $code-background-color;
   padding: 0.8em;
 }
-p > code {
+p > code, code.highlighter-rouge {
   background-color: $code-background-color;
   // border: 1px solid $code-key-border-color;
   padding: 0.2em 0.4em;
@@ -157,38 +159,57 @@ img[align=right] {
   margin-left: 3%;
 }
 // Blockquote
-blockquote.tips,
-blockquote.info,
-blockquote.warring,
-blockquote.error {
-  // border-left: 2px solid #0c0;
-}
 blockquote.tips {
-  border-left: 2px solid #82d18f;
-  color: #82d18f;
+  border-left: $blockquote-tips-thickness solid $blockquote-tips-color;
+  background-color: $blockquote-tips-background-color;
+  color: $blockquote-tips-text-color;
+  border-radius: $blockquote-tips-radius;
+  a, a.hover {
+    color: $blockquote-tips-link-color;
+  }
+  code, code.highlighter-rouge {
+    background-color: rgba($blockquote-tips-color, 0.2);
+  }
 }
 
 blockquote.info {
-  border-left: 2px solid #78aedb;
-  color: #78aedb;
+  border-left: $blockquote-info-thickness solid $blockquote-info-color;
+  background-color: $blockquote-info-background-color;
+  color: $blockquote-info-text-color;
+  border-radius: $blockquote-info-radius;
+  a, a.hover {
+    color: $blockquote-info-link-color;
+  }
+  code, code.highlighter-rouge {
+    background-color: rgba($blockquote-info-color, 0.2);
+  }
 }
 
-blockquote.warring {
-  border-left: 2px solid #ca9f61;
-  color: #ca9f61;
+blockquote.warning {
+  border-left: $blockquote-warning-thickness solid $blockquote-warning-color;
+  background-color: $blockquote-warning-background-color;
+  color: $blockquote-warning-text-color;
+  border-radius: $blockquote-warning-radius;
+  a, a.hover {
+    color: $blockquote-warning-link-color;
+  }
+  code, code.highlighter-rouge {
+    background-color: rgba($blockquote-warning-color, 0.2);
+  }
 }
 
 blockquote.error {
-  border-left: 2px solid #d4625c;
-  color: #d4625c;
+  border-left: $blockquote-error-thickness solid $blockquote-error-color;
+  background-color: $blockquote-error-background-color;
+  color: $blockquote-error-text-color;
+  border-radius: $blockquote-error-radius;
+  a, a.hover {
+    color: $blockquote-error-link-color;
+  }
+  code, code.highlighter-rouge {
+    background-color: rgba($blockquote-error-color, 0.2);
+  }
 }
-
-// blockquote.tips::before {
-//   content: "TIPS";
-//   font-size: 0.7em;
-//   font-weight: 400;
-//   color: #4cd964;
-// }
 
 a:hover {
   color: $link-color;

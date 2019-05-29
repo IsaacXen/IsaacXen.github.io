@@ -1,14 +1,15 @@
 ---
 layout: post
+series: Cocoa Touch 速记
 title: 为 UISearchController 添加额外的按钮
-tags: [ios, swift, cocoatouch, uisearchcontroller]
+tags: [ios, swift, cocoatouch, uikit, uisearchcontroller]
 ---
 
-如果你在 iPad 中使用过新的 App Store，那么你应该会发现在搜索页中的搜索栏与其他搜索栏有些不同: 在你点击搜索栏后，搜索栏会收缩到中间，而左右两边出现了筛选和取消按钮。
+如果你在 iPad 中使用过新的 App Store，那么你应该会发现在搜索页中的搜索栏与其他搜索栏有些不同: 在你点击搜索栏后，搜索栏会收缩到中间，而左右两边出现了筛选和取消按钮。怎样才能实现这样的效果呢?
 
 ![01](/assets/img/19042801.jpg)
 
-UIKit 并没有提供 API 来实现这样的效果。但是，我们可以通过重写一个 UISearchController 子类来实现这样的效果。
+UIKit 并没有提供直接了当的 API 来实现这样的效果。但我们可以通过重写一个 UISearchController 子类来实现这样的效果。
 
 > tl;dr: 你可以在这个 [Github Repo](https://github.com/IsaacXen/IXSearchController) 中查看完整代码。
 
@@ -18,11 +19,11 @@ UIKit 并没有提供 API 来实现这样的效果。但是，我们可以通过
 
 ![02](/assets/img/19042802.png)
 
-UISearchBar 下的 UIView 里存放了搜索输入框，这里是插入我们自定义视图的比较合理的位置。此外，在转场时，UISearchBar 的父视图 SearchPalette 的高度也会发生变化。
+UISearchBar 下的 UIView 里存放了搜索输入框，这里是插入我们自定义视图的比较合理的位置。
 
-`UISearchController` 实现了 `UIViewControllerAnimatedTransitioning`，我们可以通过重写 `animateTransition(using:)` 方法来自定义搜索栏收缩和添加按钮的动画。
+`UISearchController` 实现了 `UIViewControllerAnimatedTransitioning` 协议，我们可以通过重写协议中的 `animateTransition(using:)` 方法来自定义搜索栏收缩和添加按钮的动画。
 
-我们会完全重写这个方法，包括:
+在这个方法中，我们需要:
 
 - **修改搜索栏父容器的高度**。搜索栏父容器的高度根据不同场景会有所变化，我们需要重现这些变化。
 - **修改搜索栏的位置与大小**。在搜索栏父容器高度发生变化的时候，适当调整搜索栏的位置。

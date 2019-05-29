@@ -2,7 +2,7 @@
 layout: page
 title: About
 permalink: /about/
-feature-img: "assets/img/sample_feature_img_2.png"
+feature-img: "assets/img/about-feature-img.jpg"
 ---
 
 #### _About ix4n33_

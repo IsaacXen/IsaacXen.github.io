@@ -52,3 +52,37 @@ $series-text-color: #B979E9 !default;
 $series-gradient-text-color-1: #929de9;
 $series-gradient-text-color-2: #af92e9;
 $series-gradient-text-color-3: #d88ad2;
+
+// blockquote
+$blockquote-thickness: 4px;
+$blockquote-color: #B7C2DD;
+$blockquote-background-color: #2f3f50;
+$blockquote-radius: 4px;
+
+$blockquote-tips-thickness: 4px;
+$blockquote-tips-color: #82d18f;
+$blockquote-tips-background-color: rgba(121, 199, 175, 0.2) !important;
+$blockquote-tips-text-color: #82d18f;
+$blockquote-tips-link-color: #9fe5bf !important;
+$blockquote-tips-radius: 4px;
+
+$blockquote-info-thickness: 4px;
+$blockquote-info-color: #78aedb;
+$blockquote-info-background-color: rgba(85, 161, 224, 0.2) !important;
+$blockquote-info-text-color: #78aedb;
+$blockquote-info-link-color: #99d1ff !important;
+$blockquote-info-radius: 4px;
+
+$blockquote-warning-thickness: 4px;
+$blockquote-warning-color: #ca9f61;
+$blockquote-warning-background-color: rgba(216, 181, 131, 0.2) !important;
+$blockquote-warning-text-color: #ca9f61;
+$blockquote-warning-link-color: #fbc576 !important;
+$blockquote-warning-radius: 4px;
+
+$blockquote-error-thickness: 4px;
+$blockquote-error-color: #d4625c;
+$blockquote-error-background-color: rgba(220, 117, 111, 0.2) !important;
+$blockquote-error-text-color: #d4625c;
+$blockquote-error-link-color: #ff8080 !important;
+$blockquote-error-radius: 4px;

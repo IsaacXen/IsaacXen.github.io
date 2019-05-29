@@ -54,7 +54,9 @@ header {
   }
   header {
     color: $feature-image-text-color;
+    text-shadow: 0px 2px 16px #0000004d, 0px 1px 1px #00000040, 0px 4px 2px #00000024;
     background-size: $feature-image-size;
+    background-position: center center;
     margin-bottom: 0;
     padding: $padding-large/2.5 $padding-large;
     .meta {
