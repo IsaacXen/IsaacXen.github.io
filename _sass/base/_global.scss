@@ -167,7 +167,7 @@ blockquote.tips {
   a, a.hover {
     color: $blockquote-tips-link-color;
   }
-  code, code.highlighter-rouge {
+  code, code.highlighter-rouge, pre {
     background-color: rgba($blockquote-tips-color, 0.2);
   }
 }
@@ -180,7 +180,7 @@ blockquote.info {
   a, a.hover {
     color: $blockquote-info-link-color;
   }
-  code, code.highlighter-rouge {
+  code, code.highlighter-rouge, pre {
     background-color: rgba($blockquote-info-color, 0.2);
   }
 }
@@ -193,7 +193,7 @@ blockquote.warning {
   a, a.hover {
     color: $blockquote-warning-link-color;
   }
-  code, code.highlighter-rouge {
+  code, code.highlighter-rouge, pre {
     background-color: rgba($blockquote-warning-color, 0.2);
   }
 }
@@ -206,7 +206,7 @@ blockquote.error {
   a, a.hover {
     color: $blockquote-error-link-color;
   }
-  code, code.highlighter-rouge {
+  code, code.highlighter-rouge, pre {
     background-color: rgba($blockquote-error-color, 0.2);
   }
 }

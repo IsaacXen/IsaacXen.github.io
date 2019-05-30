@@ -16,19 +16,7 @@ layout: default
       <header>
         <!-- Series Header -->
         {% if post.series %}
-          {% assign part = 0 %}
-          {% assign posts = site.posts | sort: 'date' %}
-
-          {% for item in posts %}
-            {% if item.series == post.series %}
-              {% assign part = part | plus:1 %}  
-              {% if item == post %}
-                {% break %}
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-
-          <h4 class="series">{{ post.series }} <span class="series-part">#{{ part }}</span></h4>
+          <h4 class="series">{{ post.series }}</h4>
         {% endif %}
 
         <h1>

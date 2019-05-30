@@ -18,17 +18,7 @@ layout: page
 
     <div class="tagged-post">
       {% if post.series %}
-        {% assign part = 0 %}
-        {% assign posts = site.posts | sort: 'date' %}
-        {% for item in posts %}
-          {% if item.series == post.series %}
-            {% assign part = part | plus:1 %}  
-            {% if item == post %}
-              {% break %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-        <h5 class="series">{{ post.series }} <span class="series-part">#{{ part }}</span></h5>
+        <h5 class="series">{{ post.series }}</h5>
       {% endif %}
       <h4 class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
     
