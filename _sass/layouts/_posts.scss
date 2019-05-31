@@ -24,6 +24,9 @@ article {
   .footnotes {
     font-size: 0.9em;
   }
+  
+  letter-spacing: $letter-spacing;
+  word-spacing: $word-spacing;
 }
 header {
   h1 {
