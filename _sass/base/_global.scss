@@ -224,6 +224,6 @@ blockquote.error {
 a:hover {
   color: $link-color;
 }
-details {
+details, details[open] summary {
   margin-bottom: 1em;
 }
