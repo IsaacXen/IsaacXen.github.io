@@ -5,19 +5,17 @@ permalink: /about/
 feature-img: "assets/img/about-feature-img.jpg"
 ---
 
-#### _About ix4n33_
+#### _关于 ix4n33_
 
-A macOS developer who enjoy coding as much as gaming.
+自认为是个 macOS 开发者，和享受游戏一般地享受打代码。
 
-Listen to basically any genre of music but addicted to uplifting trance and ambient lately.
+愿意听几乎各种流派的音乐，但最近似乎沉迷于 Trance 与 Ambient 音乐。
 
-Can point and shot but never takes a good photo.
+有一颗记录生活的心，却从未拍出一张好照片。
 
-Currently live in Shenzhen, China, hot yet beautiful city.
+目前居住在中国深圳，一个既炎热又美丽的城市。
 
----
-
-#### _Friends & Recommendations_
+#### _ix4n33 的朋友们_
 
 [Karl Zeo](https://mikulove.com/) / [cool8jay](https://cool8jay.github.io) / [Desgard](https://desgard.com) / [Curmido](http://www.curmido.com/)
 
