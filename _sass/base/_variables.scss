@@ -1,8 +1,11 @@
 // Typography
-$font-family-main: 'Source Sans Pro', 'Noto Sans SC', Helvetica, Arial, sans-serif !default;
-$font-family-headings: 'Source Sans Pro', 'Noto Sans SC', Helvetica, Arial, sans-serif !default;
+$font-family-main: 'Open Sans', 'Noto Sans SC', Helvetica, Arial, sans-serif !default;
+$font-family-headings: 'Open Sans', 'Noto Sans SC', Helvetica, Arial, sans-serif !default;
 $font-family-mono: 'Inconsolata', monospace !default;
 $font-size: 1.25em !default;
+
+$letter-spacing: 0.01em;
+$word-spacing: 0.1em;
 
 // Padding
 $padding-large: 20% !default;
@@ -56,7 +59,7 @@ $series-gradient-text-color-3: #d88ad2;
 // blockquote
 $blockquote-thickness: 4px;
 $blockquote-color: #B7C2DD;
-$blockquote-background-color: #2f3f50;
+$blockquote-background-color: rgba(183, 194, 221, 0.1);
 $blockquote-radius: 4px;
 
 $blockquote-tips-thickness: 4px;

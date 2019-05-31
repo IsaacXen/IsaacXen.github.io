@@ -60,8 +60,8 @@ theme_settings:
 
   # Colours, typography and padding
   # Open the "_sass > base" folder, and open "_variables.scss"
-  google_fonts: "Inconsolata|Noto+Sans+SC:400,700|Source+Sans+Pro:400,400i,700,700i&display=swap&subset=chinese-simplified"
-# Source+Sans+Pro:400,700,700italic,400italic\
+  google_fonts: "Inconsolata|Noto+Sans+SC:300,400,700|Open+Sans:300,400,400i,700,700i&display=swap&subset=chinese-simplified"
+  
   # Post navigation
   post_navigation: false
 
@@ -71,6 +71,8 @@ paginate_path: "blog/page:num"
 
 # BUILD SETTINGS
 markdown: kramdown
+kramdown:
+  parse_block_html: true
 highlighter: rouge
 sass:
   sass_dir: _sass

@@ -54,6 +54,10 @@ blockquote {
     border-radius: $blockquote-radius;
 }
 blockquote p:last-child,
+blockquote ol:last-child,
+blockquote ul:last-child,
+blockquote details:last-child,
+blockquote blockquote:last-child,
 footer p:last-child {
   margin-bottom: 0;
 }
@@ -80,6 +84,8 @@ kbd,
 pre,
 samp {
   margin: 1em 0;
+  letter-spacing: 0;
+  word-spacing: 0;
 }
 code,
 kbd,
@@ -119,6 +125,10 @@ p, ol, ul, dl, .math-display {
 .math-display {
   display: inline-block;
   width: 100%;
+}
+// List
+article li:not(:last-child) {
+    margin-bottom: 0.2em;
 }
 // Lists within lists
 li > ul, li > ol {
@@ -213,4 +223,7 @@ blockquote.error {
 
 a:hover {
   color: $link-color;
+}
+details {
+  margin-bottom: 1em;
 }
