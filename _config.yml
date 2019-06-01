@@ -17,7 +17,7 @@ theme_settings:
   footer_text: "(˶‾᷄ ⁻̫ ‾᷅˵)"
 
   # Icons
-  rss: false
+  rss: true
   email_address: # Full email address, e.g. "sam@example.com"
   behance:
   bitbucket:
