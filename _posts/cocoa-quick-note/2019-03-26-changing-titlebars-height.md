@@ -107,7 +107,7 @@ for button in buttons {
 }
 ```
 
-最后，有一个小问题需要解决，那就是按钮的 tracking area。我们修改了按钮的位置，但是，用来实现 mouse hover 效果的 tracking area 还没有改变。
+最后，有一个小问题需要解决，那就是按钮的 tracking area。我们修改了按钮的位置，但是，用来实现 mouse hover 效果的 tracking area 还没有改变。
 
 这个 tracking area 存放在 theme frame (也就是 titlebar 的父视图) 的 `trackingAreas` 里，并且，它是在数组内唯一一个包含 `NSTrackingArea.Options.activeAlways` 的元素。 所以，我们可以获取到这个 tracking area，移除它，然后添加一个新的 tracking area:
 

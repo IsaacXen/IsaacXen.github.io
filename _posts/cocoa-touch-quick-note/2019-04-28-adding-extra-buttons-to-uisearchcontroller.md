@@ -71,7 +71,7 @@ private let _paletteHeightConstraint = searchBar.superview?.constraints.first(wh
 })
 ```
 
-在 `viewDidLoad` 中，我们需要设置这个高度为上文表中相应的值:
+在 `viewDidLoad` 中，我们需要设置这个高度为上文表中相应的值:
 
 ```swift
 _paletteHeightConstraint?.constant = paletteH
@@ -96,8 +96,11 @@ override func animateTransition(using transitionContext: UIViewControllerContext
 
 ![01](/assets/img/19042805.gif)
 
+
 > 这里的 `paletteH` 就是上面提到了的搜索栏父容器的高度。它会根据不同场景变化，影响这个高度的变量包括搜索栏的激活状态，导航栏的隐藏与否，以及设备与其横竖屏的状态。
-> 
+>
+> <details><summary markdown="span">更多详情</summary>
+>
 > 当搜索栏未激活时:
 > 
 > <table>
@@ -149,6 +152,8 @@ override func animateTransition(using transitionContext: UIViewControllerContext
 > 其中，Palette 指搜索栏的父视图，TextField 指搜索栏中的输入框。
 > 
 > 这里可以编写一个函数来根据情况返回特定的数值，这里就不给出代码了。
+> 
+> </details>
 
 ### 实现搜索栏布局
 
@@ -418,8 +423,8 @@ override func viewWillTransition(to size: CGSize, with coordinator: UIViewContro
 
 ## 总结
 
-到这里，我们就完成了对 UISearchController 子类的实现。
+到这里，我们就完成了对 UISearchController 子类的实现。
 
 ![01](/assets/img/19042811.gif)
 
-如果你对这感兴趣，你可以在 Github 中查看已经封装好的 [IXSearchController](https://github.com/IsaacXen/IXSearchController)。欢迎大家 star，提出 issue，甚至发起 pull request。
+如果你对这感兴趣，你可以在 Github 中查看已经封装好的 [IXSearchController](https://github.com/IsaacXen/IXSearchController)。欢迎大家 star，提出 issue，甚至发起 pull request。
