@@ -3,7 +3,6 @@ layout: post
 series: Cocoa Quicknote
 title: A Small Trick to Hide NSPopover's Arrow
 tags: [cocoa, macos, swift, nspopover, appkit]
-lang:en
 ---
 
 A friend of mine who works as a macOS developer asked me a strange question - can you hide the arrow of a popover?
