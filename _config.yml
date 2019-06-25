@@ -70,6 +70,7 @@ paginate: 5
 paginate_path: "blog/page:num"
 
 # BUILD SETTINGS
+permalink: pretty
 markdown: kramdown
 kramdown:
   parse_block_html: true
