@@ -29,38 +29,42 @@ It looks like the layer's anchorPoint is also animated from `0` to `0.5`, which 
 
 > ... The default value of this property is (0.5, 0.5), which represents the center of the layer’s bounds rectangle.
 
-Even if you change the anchorPoint manually to `0.5`:
+Even if you change the `anchorPoint` manually to `0.5`:
 
 ```swift
 let layer = imageView.layer
-print(layer.anchorPoint) // out: (0, 0)
+print(layer.anchorPoint) // (0, 0)
 
 layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-print(layer.anchorPoint) // out: (0.5, 0.5)
+print(layer.anchorPoint) // (0.5, 0.5)
 
 imageView.animator().frameCenterRotation += 90
 
-print(layer.anchorPoint) // out: (0, 0)
+print(layer.anchorPoint) // (0, 0)
 ```
-It changes it back to `0`.
+It was changed back to `0`.
 
 This lead us to a conclusion:
 
-> The Cake Is a Lie
+> The cake is a lie. 
 
-The best guess is that when calling `frameCenterRotation`, `NSView` first move the anchorPoint to the center, then it do the rotation, and move anchorPoint back to where it was.
+The best guess is that in the setter of `frameCenterRotation`, it first set its layer’s a anchor point to center, then it do the rotation, and finally set the anchor point back to zero.
+
+But when setting it through an animator proxy, it animates everything. What it really should be is to set the anchor point with animation disabled, then animates the rotation, and then finally, in the animation completion, set anchor point back to what it was with, of course, animation disabled. 
 
 ## The Workaround
 
 Calling `frameCenterRotation` is a death end, now we need to find a way to rotate it on our own.
 
-Luckily, we can do this by setting layer's transform property:
+Other than firing a bug report that most likely won’t be fixed, luckily, we can modify layer properties directly:
 
 ```swift
-let rotation = CATransform3DMakeRotation(n * CGFloat.pi / 2, 0, 0, 1) // `n` is a `CGFloat` value of `1`
+let rotation = CATransform3DMakeRotation(n * CGFloat.pi / 2, 0, 0, 1) // n is a CGFloat with an initial value of 0. 
 imageView.animator().layer?.transform = rotation
 n += 1
 ```
+
+The above code rotate the layer 90 degrees counterclockwise every time it gets runs. 
 
 ![Rotate but without animation](/assets/img/2017-12-21-rotating-a-view-is-not-easy-03.gif)
 
