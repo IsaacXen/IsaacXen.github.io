@@ -12,6 +12,9 @@ layout: default
 
   <div class="posts">
     {% for post in paginator.posts %}
+      {% if post.hidden %}
+        {% continue %}
+      {% endif %}
     <div class="post-teaser">
       <header>
         <!-- Series Header -->

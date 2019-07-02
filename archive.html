@@ -6,6 +6,10 @@ layout: page
 
   {% for post in site.posts %}
 
+    {% if post.hidden %}
+      {% continue %}
+    {% endif %}
+
     {% unless post.next %}
       <h2 class="tag-title">{{ post.date | date: '%Y' }}</h2>
     {% else %}
