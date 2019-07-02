@@ -1,0 +1,34 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="640px" height="160px" viewBox="0 0 640 160">
+
+    <g transform="translate(230, 0)">
+        <rect x="0" y="0" width="180" height="60" rx="5" ry="5" fill-opacity="0.2" fill="#b7c2dd"/>
+        <text x="90" y="24" fill="#B7C2DD" text-anchor="middle" font-size="14px" font-family="Helvetica">Launch Agent</text>
+        <text x="90" y="44" fill="#B7C2DD" text-anchor="middle" font-size="14px" font-family="Helvetica">(as XPC Service)</text>
+    </g>
+
+    <g transform="translate(0, 120)">
+        <rect x="0" y="0" width="180" height="40" rx="5" ry="5" fill-opacity="0.2" fill="#b7c2dd"/>
+        <text x="90" y="25" fill="#B7C2DD" text-anchor="middle" font-size="14px" font-family="Helvetica">Application A</text>
+    </g>
+
+    <g transform="translate(460, 120)">
+        <rect x="0" y="0" width="180" height="40" rx="5" ry="5" fill-opacity="0.2" fill="#b7c2dd"/>
+        <text x="90" y="25" fill="#B7C2DD" text-anchor="middle" font-size="14px" font-family="Helvetica">Application B</text>
+    </g>
+
+    <g transform="translate(90, 120) rotate(-33)">
+        <path d="M 0 0 L 166 0" fill="none" stroke="#b7c2dd" stroke-miterlimit="10"/>
+        <path d="M 0 0 L 8 4 L 6 0 L 8 -4 Z" fill="#b7c2dd" stroke="#b7c2dd" stroke-miterlimit="10"/>
+        <path d="M 166 0 L 158 4 L 160 0 L 158 -4 Z" fill="#b7c2dd" stroke="#b7c2dd" stroke-miterlimit="10"/>    
+        <text transform="rotate(33)" x="0" y="-50" fill="#B7C2DD" text-anchor="middle" font-size="14px" font-family="Helvetica">NSXPCConnection</text>
+    </g>
+
+    <g transform="translate(410, 30) rotate(33)">
+        <path d="M 0 0 L 166 0" fill="none" stroke="#b7c2dd" stroke-miterlimit="10"/>
+        <path d="M 0 0 L 8 4 L 6 0 L 8 -4 Z" fill="#b7c2dd" stroke="#b7c2dd" stroke-miterlimit="10"/>
+        <path d="M 166 0 L 158 4 L 160 0 L 158 -4 Z" fill="#b7c2dd" stroke="#b7c2dd" stroke-miterlimit="10"/>    
+        <text transform="rotate(-33)" x="140" y="40" fill="#B7C2DD" text-anchor="middle" font-size="14px" font-family="Helvetica">NSXPCConnection</text>
+    </g>
+    
+</svg>
