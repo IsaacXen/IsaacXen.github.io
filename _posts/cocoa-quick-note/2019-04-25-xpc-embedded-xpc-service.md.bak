@@ -1,0 +1,417 @@
+---
+hidden: true
+---
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>XPC - 常规 XPC 服务 | ix4n33's Blog</title>
+	<meta name="description" content="一个常规的 XPC 服务存在于你的程序 Bundle 下，它只能与 Bundle 内的程序建立连接，对 Bundle 外的程序是不可见的。">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="/2019/04/25/xpc-embedded-xpc-service.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="ix4n33's Blog" href="/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> -->
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Inconsolata|Noto+Sans+SC:300,400,700|Open+Sans:300,400,400i,700,700i&display=swap&subset=chinese-simplified" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.js" integrity="sha384-y6SGsNt7yZECc4Pf86XmQhC4hG2wxL6Upkt9N1efhFxfh6wlxBH0mJiTE8XYclC1" crossorigin="anonymous"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/assets/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">ix4n33's Blog</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			<li>
+				<a class="page-link" href="/archive.html">
+					Archives
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/tags.html">
+					Tags
+				</a>
+			</li>
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled  -->
+			
+<li>
+	<a href="/feed.xml" title="订阅 RSS">
+		<i class="fas fa-fw fa-rss"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            <!-- Search bar -->
+            
+            <li>
+            <form action="/search.html" method="get">
+                <input type="text" id="search-box" name="query" placeholder="Search" class="">
+                <button type="submit" class="">
+                    <i class="fa fa-fw fa-search"></i>
+                </button>
+            </form>
+            </li>
+            
+		</ul>
+	</nav>
+    
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <!-- Series Header -->
+    
+    <h4 class="series">Cocoa 速记 </h4>
+    
+
+    <!-- Post Header -->
+    <h1 class="title">XPC - 常规 XPC 服务</h1>
+    
+    <p class="meta">
+      April 25, 2019
+      
+    </p>
+  </header>
+  <section class="post-content"><p>一个常规的 XPC 服务存在于你的程序 Bundle 下，它只能与 Bundle 内的程序建立连接，对 Bundle 外的程序是不可见的。</p>
+
+<p><img src="/assets/img/19042501.svg" alt="" /></p>
+
+<p>从 Xcode 创建一个 XPC 服务时，它会以包的形式存放在程序的 <code class="highlighter-rouge">Contents/XPCServices/</code> 下。每个服务的包里包含了该服务的可执行二进制文件、Info.plist，以及运行这个服务所需要的资源文件。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MyFancyApp.app                              // Main Application
++ Contents/XPCServices/                     // Location to store all XPC services
+  + com.example.MyFancyApp.uploader.xpc
+  + com.example.MyFancyApp.decoader.xpc
+    + com.example.MyFancyApp.decoder        // Executable binary
+    + Info.plist                            // Info plist
+    + Resources/                            // Resources to use in this XPC service
+</code></pre></div></div>
+
+<h2 id="xpc-连接的过程">XPC 连接的过程</h2>
+
+<p>一个普通的 XPC 连接流程有下面几步:</p>
+
+<p><img src="/assets/img/19042502.svg" alt="" /></p>
+
+<ol>
+  <li>使用 <code class="highlighter-rouge">NSXPCConnection(serviceName:)</code> 创建一个连接对象</li>
+  <li>通过 <code class="highlighter-rouge">remoteObjectInterface</code> 设置连接允许的通讯协议</li>
+  <li>调用 <code class="highlighter-rouge">resume()</code> 开始连接</li>
+  <li>程序连接到 launchd</li>
+  <li>launchd 唤醒 XPC 服务</li>
+  <li>监听器调用 <code class="highlighter-rouge">listener(_:shouldAcceptNewConnection:)</code> 代理方法</li>
+  <li>通过 <code class="highlighter-rouge">exportedObject</code> 设置出口对象</li>
+  <li>通过 <code class="highlighter-rouge">exportedInterface</code> 设置出口协议</li>
+  <li>调用 <code class="highlighter-rouge">resume()</code> 允许接收信息</li>
+  <li>返回 <code class="highlighter-rouge">true</code> 表示连接已被接受</li>
+</ol>
+
+<p>这时，XPC 连接已建立，在主程序中，你可以通过 <code class="highlighter-rouge">remoteObjectProxyWithErrorHandler(_:)</code> 获取 XPC 服务的远程对象代理。调用这个代理的方法时，XPC 服务中对应的对象会调用相应的方法。</p>
+
+<h2 id="创建并使用-xpc-服务">创建并使用 XPC 服务</h2>
+
+<p>在 Xcode 中，新建一个 <em>XPC Service</em> Target。Xcode 会为你创建一系列使用 NSXPCConnection API 的模板文件。</p>
+
+<blockquote>
+  <details>
+    <summary>创建 <em>XPC Service</em> Target 时，Xcode 还会帮你做一些额外的事情。</summary>
+
+    <p>它会:</p>
+
+    <ul>
+      <li>将这个 XPC 服务添加到宿主程序的 <em>Build Phases</em> ➔ <em>Embed XPC Services (Copy Files)</em> 中，<em>Destination</em> 为 <em>XPC Services (Contents/XPCServices)</em>。</li>
+      <li>将这个 XPC 服务添加到宿主程序的 <em>Build Phases</em> ➔ <em>Target Dependencies</em> 中。</li>
+      <li>将这个 XPC 服务添加到宿主程序的 <em>General</em> ➔ <em>Embedded Binaries</em> 中。</li>
+    </ul>
+
+  </details>
+</blockquote>
+
+<blockquote>
+  <details>
+    <summary>Xcode 创建的模板是基于 Objective - C 语言的，即便你使用的是 Swift。如果你想使用 Swift 来进行开发，你将需要进行一些额外的操作。</summary>
+
+    <p>你需要将 <code class="highlighter-rouge">.h</code> 以及 <code class="highlighter-rouge">.m</code> 文件删除，并手动创建与它们对应的 <code class="highlighter-rouge">.swift</code> 文件。此外，你还需要在这个 Target 的 <em>Build Settings</em> 中:</p>
+
+    <ul>
+      <li>配置 <em>Linking</em> ➔ <em>Runpath Search Paths</em> 为 <code class="highlighter-rouge">@loader_path/../../../../Frameworks</code>。</li>
+      <li>配置 <em>Swift Compiler</em> - <em>General</em> ➔ <em>Install Objective-C Compatibility Header</em> 为 <code class="highlighter-rouge">No</code>。</li>
+      <li>配置 <em>Swift Compiler - General</em> ➔ <em>Objective-C Generated Interface Header Name</em> 为空。</li>
+      <li>配置 <em>Swift Compiler - Language</em> ➔ <em>Swift Language Version</em> 为你偏好的 Swift 版本。</li>
+    </ul>
+
+    <p>在这个 Target 中创建的 <code class="highlighter-rouge">.swift</code> 文件，你需要在 <em>Build Phases</em> ➔ <em>Compile Sources</em> 中添加它们。</p>
+
+  </details>
+</blockquote>
+
+<p>请注意这个 Target 的 Bundle Identifier，它将是我们建立到这个 XPC 服务的连接时所需要的的标识。</p>
+
+<h3 id="配置-infoplist">配置 Info.plist</h3>
+
+<h3 id="声明协议">声明协议</h3>
+
+<p>首先，我们需要创建一个协议。这个协议声明了这个 XPC 服务对外所能进行的操作，这里声明的方法允许被 XPC 连接的另一方所调用。</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">protocol</span> <span class="kt">XPCServiceProtocol</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">_</span> <span class="nv">lhs</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">withReply</span> <span class="nv">reply</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>在创建这个协议时，有一些地方需要你的注意:</p>
+
+<ul>
+  <li>由于 NSXPCConnection API 是基于 XPC Service API 的一层封装，为了让连接能够使用这一协议，你必须使用 <code class="highlighter-rouge">@objc</code> 来将其暴露给 Objective - C。</li>
+  <li>XPC 通讯是异步进行的，因此你的方法不应该有返回值。如果你的函数需要返回结果，你应该使用一个回复闭包来返回这些结果。但是请注意，您的函数最多只能包含一个回复闭包。</li>
+  <li>XPC 对于协议中出现的数据类型有严格的限制。你只能使用下列数据类型:
+    <ul>
+      <li>数字 (<code class="highlighter-rouge">Int</code>, <code class="highlighter-rouge">CChar</code>, <code class="highlighter-rouge">Float</code>, <code class="highlighter-rouge">Double</code>, <code class="highlighter-rouge">NSNumber</code>…)</li>
+      <li>布尔 (<code class="highlighter-rouge">Bool</code>, <code class="highlighter-rouge">CBool</code>…)</li>
+      <li>字符串 (<code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">NSString</code>…)</li>
+      <li>数据 (<code class="highlighter-rouge">Data</code>, <code class="highlighter-rouge">NSData</code>…)</li>
+      <li>集合 (数组、字典、结构体等元素都为上述类型的集合类型)</li>
+      <li>其他实现了 <code class="highlighter-rouge">NSSecureCoding</code> 的对象 (<code class="highlighter-rouge">NSColor</code>, <code class="highlighter-rouge">NSRect</code>…)
+        <blockquote>
+          <details>
+            <summary>如果你需要在协议中使用你的自定义类型，你的自定义类型必须实现 <code class="highlighter-rouge">NSSecureCoding</code> 协议。</summary>
+
+            <blockquote>
+              <p>Note: Before you read this section, you should read the chapters Serializations and Serializing Property Lists in Archives and Serializations Programming Guide to learn the basics of object serialization in Mac OS X.</p>
+            </blockquote>
+
+            <p>The <code class="highlighter-rouge">NSXPCConnection</code> class limits what objects can be passed over a connection. By default, it allows only known-safe classes—Foundation collection classes, <code class="highlighter-rouge">NSString</code>, and so on. You can identify these classes by whether they conform to the <code class="highlighter-rouge">NSSecureCoding</code> protocol.</p>
+
+            <p>Only classes that conform to this protocol can be sent to an <code class="highlighter-rouge">NSXPCConnection</code>-based helper. If you need to pass your own classes as parameters, you must ensure that they conform to the <code class="highlighter-rouge">NSSecureCoding</code> protocol, as described below.</p>
+
+            <p>However, this is not always sufficient. You need to do extra work in two situations:</p>
+
+            <ul>
+              <li>If you are passing the object inside a collection (dictionary, array, and so on).</li>
+              <li>If you need to pass the object by proxy instead of copying the object.</li>
+            </ul>
+
+            <p>All three cases are described in the sections that follow.</p>
+
+            <p><strong>Conforming to NSSecureCoding</strong></p>
+
+            <p>All objects passed over an NSXPC connection must conform to <code class="highlighter-rouge">NSSecureCoding</code>. to do this, your class must do the following:</p>
+
+            <ul>
+              <li><strong>Declare support for secure coding.</strong> Override the <code class="highlighter-rouge">supportsSecureCoding</code> method, and make it return <code class="highlighter-rouge">YES</code>.</li>
+              <li><strong>Decode singleton class instances safely.</strong> If the class overrides its <code class="highlighter-rouge">initWithCoder:</code> method, when decoding any instance variable, property, or other value that contains an object of a non-collection class (including custom classes) always use <code class="highlighter-rouge">decodeObjectOfClass:forKey:</code> to ensure that the data is of the expected type.</li>
+              <li><strong>Decode collection classes safely.</strong> Any non-collection class that contains instances of collection classes must override the <strong>initWithCoder:</strong> method. In that method, when decoding the collection object or objects, always use <strong>decodeObjectOfClasses:forKey:</strong> and provide a list of any objects that can appear within the collection.</li>
+            </ul>
+
+            <p>When generating the list of classes to allow within a decoded collection class, you should be aware of two things.</p>
+
+            <p>First, Apple collection classes are not automatically whitelisted by the <code class="highlighter-rouge">decodeObjectOfClasses:forKey:</code> method, so you must include them explicitly in the array of class types.</p>
+
+            <p>Second, you should list only classes that are direct members of the collection object graph that you are decoding without any intervening non-collection classes.</p>
+
+            <p>For example, if you have an array of dictionaries, and one of those dictionaries might contain an instance of a custom class called <code class="highlighter-rouge">OuterClass</code>, and <code class="highlighter-rouge">OuterClass</code> has an instance variable of type <code class="highlighter-rouge">InnerClass</code>, you must include <code class="highlighter-rouge">OuterClass</code> in the list of classes because it is a direct member of the collection tree. However, you do not need to list <code class="highlighter-rouge">InnerClass</code> because there is a non-collection object between it and the collection tree.</p>
+
+            <p>Figure 4-3 shows some examples of when whitelisting is required and shows when classes must provide overridden <code class="highlighter-rouge">initWithCoder:</code> methods.</p>
+
+            <p><strong>Whitelisting a Class for Use Inside Containers</strong></p>
+
+          </details>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>这个协议将被 XPC 连接的双方所使用，因此，您需要将该协议暴露给双方。你可以选中声明的文件，在 <em>File Inspectors</em> ➔ <em>Target Membership</em> 中勾选你需要暴露给的 Target。</li>
+</ul>
+
+<h3 id="创建监听服务">创建监听服务</h3>
+
+<p>在 <code class="highlighter-rouge">main.swift</code> 中:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">listener</span> <span class="o">=</span> <span class="kt">NSXPCListener</span><span class="o">.</span><span class="nf">service</span><span class="p">()</span> <span class="c1">// Create listener object from `NSXPCListener` service method.</span>
+<span class="k">let</span> <span class="nv">delegate</span> <span class="o">=</span> <span class="kt">XPCService</span><span class="p">()</span>            <span class="c1">// Create a delegate class that conforms to `NSXPCConnectionDelegate`.</span>
+<span class="n">listener</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">delegate</span>           <span class="c1">// Configure listener's delegate to our own delegate class.</span>
+<span class="n">listener</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>                      <span class="c1">// Begin listening. This function never return.</span>
+</code></pre></div></div>
+
+<p>首先，我们通过 <code class="highlighter-rouge">NSXPCListener</code> 的 <code class="highlighter-rouge">service()</code> 方法获取一个监听器单例。</p>
+
+<p>然后，我们创建一个 <code class="highlighter-rouge">XPCService</code> 对象，并设置其为 <code class="highlighter-rouge">listener</code> 的代理。<code class="highlighter-rouge">XPCService</code> 是实现了 <code class="highlighter-rouge">NSXPCListenerDelegate</code> 的类，我们会在稍后创建它。</p>
+
+<p>最后，我们调用 <code class="highlighter-rouge">listener</code> 的 <code class="highlighter-rouge">resume()</code> 方法来开始 XPC 服务并监听。在这里，由于我们获取的是单例监听器，这个情况下 <code class="highlighter-rouge">resume()</code> 函数永远不会返回。</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">XPCService</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSXPCListenerDelegate</span><span class="p">,</span> <span class="kt">XPCServiceProtocol</span> <span class="p">{</span>
+  <span class="c1">// Accept or reject a new connection to the listener.</span>
+  <span class="kd">func</span> <span class="nf">listener</span><span class="p">(</span><span class="n">_</span> <span class="nv">listener</span><span class="p">:</span> <span class="kt">NSXPCListener</span><span class="p">,</span> <span class="n">shouldAcceptNewConnection</span> <span class="nv">newConnection</span><span class="p">:</span> <span class="kt">NSXPCConnection</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="n">newConnection</span><span class="o">.</span><span class="n">exportedInterface</span> <span class="o">=</span> <span class="kt">NSXPCInterface</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="kt">StringCasterProtocol</span><span class="o">.</span><span class="k">self</span><span class="p">)</span>
+    <span class="n">newConnection</span><span class="o">.</span><span class="n">exportedObject</span> <span class="o">=</span> <span class="kt">StringCaster</span><span class="p">()</span>
+    <span class="n">newConnection</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+    <span class="k">return</span> <span class="kc">true</span>
+  <span class="p">}</span>
+
+  <span class="c1">// implementing `XPCServiceProtocol`.</span>
+  <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">_</span> <span class="nv">lhs</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">withReply</span> <span class="nv">reply</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="p">{</span>
+    <span class="nf">reply</span><span class="p">(</span><span class="n">lhs</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="在主程序中连接到-xpc-服务">在主程序中连接到 XPC 服务</h3>
+
+<p>现在，我们可以在主程序中发起连接请求了。</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">connection</span> <span class="o">=</span> <span class="kt">NSXPCConnection</span><span class="p">(</span><span class="nv">serviceName</span><span class="p">:</span> <span class="s">"com.example.XPCService"</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">remoteObjectInterface</span> <span class="o">=</span> <span class="kt">NSXPCInterface</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="kt">XPCServiceProtocol</span><span class="o">.</span><span class="k">self</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+
+<span class="k">let</span> <span class="nv">remoteObjectProxy</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">remoteObjectProxyWithErrorHandler</span> <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">as?</span> <span class="kt">ImageDownloaderDelegate</span>
+
+<span class="n">remoteObjectProxy</span><span class="p">?</span><span class="o">.</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">// result is 3</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</section>
+  
+<footer class="post-footer">
+  <div class="tags">
+    
+    <a class="tag" href="/tags#cocoa">#cocoa</a>
+    
+    <a class="tag" href="/tags#macos">#macos</a>
+    
+    <a class="tag" href="/tags#swift">#swift</a>
+    
+    <a class="tag" href="/tags#xpc">#xpc</a>
+    
+  </div>
+</footer>
+
+
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+
+    </div>
+    
+<script src="/assets/js/katex_init.js"></script>
+
+
+<footer class="site-footer">
+	
+	
+	<p class="text">(˶‾᷄ ⁻̫ ‾᷅˵)</p>
+	
+
+</footer>
+
+
+  </body>
+</html>
