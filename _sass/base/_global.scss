@@ -292,9 +292,9 @@ details.standalone > summary::before {
   content: "";
 }
 
-details.standalone > p:last-child，
-details.standalone > ol:last-child，
-details.standalone > ul:last-child，
+details.standalone > p:last-child,
+details.standalone > ol:last-child,
+details.standalone > ul:last-child,
 details.standalone > blockquote:last-child {
   margin-bottom: 0;
 }
