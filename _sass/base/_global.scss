@@ -224,6 +224,92 @@ blockquote.error {
 a:hover {
   color: $link-color;
 }
+
+// Details
+
 details, details[open] summary {
   margin-bottom: 1em;
+}
+
+// Details Standaloned
+
+details.standalone {
+  margin-bottom: 1em;
+}
+
+details.standalone[open] summary {
+  margin-bottom: 0.1em;
+}
+
+details.standalone[open] {
+  padding-bottom: 0.8em;
+}
+
+details.standalone {
+  background-color: darken($background-color, 2%);
+  color: rgba($standalone-details-text-color, 0.9);
+  font-size: 0.8em;
+  padding: 0.2em 1em;
+  border-radius: 0.8em;
+  border: 1px solid lighten($background-color, 8%);;
+  pointer-events: none;
+  transition: background-color 0.3s ease-in-out;
+  -webkit-transition: background-color 0.3s ease-in-out;
+}
+
+details.standalone:hover {
+  background-color: darken($background-color, 4%);
+}
+
+details.standalone[open]:hover {
+  background-color: darken($background-color, 2%);
+}
+
+details.standalone > summary {
+  color: rgba($standalone-details-text-color, 0.8);
+  font-size: 0.76em;
+  text-align: center;
+  pointer-events: auto;
+  list-style: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  -webkit-transition: color 0.3s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+details.standalone[open] > summary {
+  color: rgba($standalone-details-text-color, 0.5);
+}
+
+details.standalone > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.standalone > summary::before {
+  content: "";
+}
+
+details.standalone > p:last-child {
+  margin-bottom: 0;
+}
+
+// Footnote
+
+div.footnotes {
+  ol, ul {
+    list-style-position: outside;
+  }
+}
+
+div.footnotes::before {
+  content: " ";
+  display: inline-block;
+  margin: 2em 0;
+  height: 0.5px;
+  text-shadow: none;
+  background-color: $border-color;
+  width: 100%;
 }
