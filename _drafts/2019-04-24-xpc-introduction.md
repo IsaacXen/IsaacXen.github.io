@@ -1,42 +1,35 @@
 ---
 layout: post
 series: Cocoa 速记
-title: XPC 简介
+title: XPC - 简介
 tags: [cocoa, macos, swift, nstextfield, appkit]
-hidden: true
+hidden: false
+excerpt: This is my post description
 ---
+
+<details class="standalone"><summary markdown="span">系列文章</summary>
+
+➔ XPC - 简介 <br>
+[XPC - 包服务](#) <br>
+[XPC - launchd 服务](#) <br>
+[XPC - 匿名连接](#)
+
+</details>
 
 IPC (Inter-process Communication) 是一系列在一个或多个进程中的多个线程之间交换数据的技术。
 
-借助 IPC，我们可以让我们的程序做到 **错误隔离 (Fault Isolation)** 以及 **权限隔离 (Privilege Separation)**。
+借助 IPC，我们可以让我们的程序做到 **错误隔离[^fi]** 以及 **权限隔离[^ps]**。
 
-- **权限隔离** 指通过对程序进行某种设计，以至于当意料之外的事情发生时，它所带来的负面结果是有限且可控的操作。
-
-通过把程序拆分成多个进程来执行不同的工作，当某个进程的工作出现致命错误以导致崩溃时，不会导致整个程序都崩溃。我们甚至可以弹出信息框告知用户，然后重启这个进程。错误隔离降低了发生问题时的潜在伤害，并且使得我们的程序维护起来更加容易。
-
-- **权限隔离** 指的是把程序拆分成多个进程来执行不同的工作，每个进程只赋予完成它们工作所需的最低权限。
-  
-  这样即便其中某个进程存在一些潜在的漏洞，受限于进程的权限，攻击者也很难访问其他数据。权限隔离让在我们的程序中寻找安全漏洞更加困难，同时这也极大的降低了程序被攻击时可能给用户带来的潜在伤害。
-
-在过去的这么多年里，我们有了很多进程间通信的方法。从 POSIX 的 pipe、socket，到 Mach 的 mach_msg，再到 Foundation 的 NSConnection 等，但是使用这些却可以用痛苦来形容。
+在过去的这么多年里，我们有很多进程间通信的方法。从 POSIX 的 `pipe`、`socket`，到 Mach 的 `mach_msg`，再到 Foundation 的 `NSConnection` 等。这些技术允许我们开发更加优秀的程序，但是，使用这些技术却可以用痛苦来形容。
 
 XPC 属于 IPC 的一种，它结合了 GCD 和 launchd，提供了一种轻量级的进程间通讯的机制。我们可以使用 XPC 轻松地创建轻量级的 XPC 服务，来将原本需要在主程序中进行的工作分离出来。
 
 ## XPC 服务
 
-XPC 服务以包的形式存放在我们程序的 `Contents/XPCServices/` 下。每个 XPC 服务的包里包含了 XPC 服务的可执行二进制文件、Info.plist，以及运行这个服务所需要的资源文件。
+在 XPC 中，与你的主程序进行协作的这些进程称为 **XPC 服务**。
 
-```
-MyFancyApp.app                              // Main Application
-+ Contents/XPCServices/                     // Location to store all XPC services
-  + com.example.MyFancyApp.uploader.xpc
-  + com.example.MyFancyApp.decoader.xpc
-    + com.example.MyFancyApp.decoder        // Executable binary
-    + Info.plist                            // Info plist
-    + Resources/                            // Resources to use in this XPC service
-```
-
-系统通过 Bundle Identifier 来识别 XPC 服务。一般情况下，我们会将 XPC 服务的 Bundle Identifier 设置为主程序的子域。如 com.example.MyApp 程序的 XPC 服务是 com.example.MyApp.MyService。这样做的好处在于我们可以很快地知道这个服务属于哪一个程序，并且知道这个服务是干什么的。
+- **包服务 (Bundled Service)**
+- **launchd 服务 (launchd Service)**
 
 XPC 服务的生命周期由 launchd 进行管理。它会:
 
@@ -44,9 +37,9 @@ XPC 服务的生命周期由 launchd 进行管理。它会:
   - 在崩溃的时候自动重启
   - 在空闲的时候自动停止
 
-> 使用着这个 XPC 服务的程序是知晓 XPC 服务的状态的，除了 XPC 在处理某个信息时被终止 (如崩溃)。这个时候，XPC 连接会变成不可用状态，直到 XPC 服务被 launchd 重启。
+> 使用这个 XPC 服务的程序是知晓该 XPC 服务的状态的，除了 XPC 在处理某个信息时被终止 (如崩溃)。这个时候，XPC 连接会变成不可用状态，直到 XPC 服务被 launchd 重启。
 
-XPC 服务可以在任何时候被终止 (有意的或无意的)，为了适应这个，XPC 服务应该是尽可能的设计成 **响应式** 和 **无状态** 的。
+XPC 服务可以在任何时候被终止 (有意的或无意的)，为了适应这个，XPC 服务应该是尽可能的设计成 **响应式**[^responsive] 和 **无状态** 的。
 
 > 对于沙盒程序而言，XPC 是实现权限分离的唯一办法。
 
@@ -102,3 +95,11 @@ XPC 是允许双向通讯的，在这种情况下，App 与 XPC Service 互相�
 如果需要兼容 Mac OS X 10.7 Lion，又或者需要对事件流进行操作 (如在某个 IOKit Events 发生时启动 XPC 服务)，那么，你应该选用 XPC Services API。
 
 > 更多关于 XPC Services API 与事件流的信息，请参阅 `xpc_event(3)` 的 man page。
+
+[^fi]: **错误隔离 (Fault Isolation)** 指通过对程序进行某种设计，以至于当意料之外的事情发生时，它所带来的负面结果是有限且可控的操作。
+    
+    通过把程序拆分成多个进程来执行不同的工作，当某个进程的工作出现致命错误甚至导致崩溃时，程序的其他部分不受影响，甚至可以用户无感知的情况下重启崩溃的进程。错误隔离降低了发生问题时的潜在伤害，并且使得我们的程序维护起来更加容易。
+
+[^ps]: **权限隔离 (Privilege Separation)** 指的是把程序拆分成多个进程来执行不同的工作，每个进程只赋予完成它们工作所需的最低权限。
+
+    这样即便其中某个进程存在一些潜在的漏洞，受限于该进程的最低权限，攻击者也很难访问其他数据。权限隔离让在我们的程序中寻找安全漏洞更加困难，同时这也极大的降低了程序被攻击时可能给用户带来的潜在伤害。

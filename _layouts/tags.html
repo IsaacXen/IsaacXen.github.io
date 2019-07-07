@@ -11,18 +11,12 @@ hide: true
   {% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
 
-    {% assign tags = site.tags[this_word] | where_exp:"item", "item.hidden != true" %}
-    {% if tags.size > 0 %}
     <h2 id="{{ this_word | cgi_escape }}" class="tag-title">
       #{{ this_word }}
     </h2>
-    {% endif %}
     
     <!-- lists all posts corresponding to specific tag -->
     {% for post in site.tags[this_word] %}
-      {% if post.hidden %}
-        {% continue %}
-      {% endif %}
       {% if post.title != null %}
         <div class="tagged-post">
 

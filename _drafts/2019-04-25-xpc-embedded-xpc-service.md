@@ -3,7 +3,6 @@ layout: post
 series: Cocoa 速记
 title: XPC - 常规 XPC 服务
 tags: [cocoa, macos, swift, xpc]
-hidden: true
 ---
 
 一个常规的 XPC 服务存在于你的程序 Bundle 下，它只能与 Bundle 内的程序建立连接，对 Bundle 外的程序是不可见的。
@@ -21,6 +20,8 @@ MyFancyApp.app                              // Main Application
     + Info.plist                            // Info plist
     + Resources/                            // Resources to use in this XPC service
 ```
+
+系统通过 Bundle Identifier 来识别 XPC 服务。一般情况下，我们会将 XPC 服务的 Bundle Identifier 设置为主程序的子域。如 com.example.MyApp 程序的 XPC 服务是 com.example.MyApp.MyService。这样做的好处在于我们可以很快地知道这个服务属于哪一个程序，并且知道这个服务是干什么的。
 
 ## XPC 连接的过程
 

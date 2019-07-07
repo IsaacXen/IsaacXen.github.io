@@ -3,7 +3,6 @@ layout: post
 series: Cocoa 速记
 title: XPC - Mach Service
 tags: [cocoa, macos, swift, xpc]
-hidden: true
 ---
 
 你可以通过 `NSXPCLisnener(machServiceName:)` 创建一个用于在 `launchd.plist` 中宣传的后台驻留程序的 XPC 监听器。这个 Mach Service 存在于你的 App Bundle 以外，在用户会话或者系统会话中由 launchd 启动 (取决于使用的是 launch agent 还是 launch daemon)。同一个会话中的不同程序可以通过 `NSXPCConnection(machServiceName:)`  与这个 Mach Service 建立 XPC 连接。
