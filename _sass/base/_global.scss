@@ -11,7 +11,8 @@ figure {
   box-sizing: content-box;
 }
 html {
-  background: $background-color;
+  // background: $background-color;
+  background-image: -webkit-linear-gradient(30deg, #788aff, #a883f3, #e279d9);
 }
 
 // Typography
@@ -22,6 +23,7 @@ html {
   background: $selection-color;
 }
 body {
+  background: $background-color;
   color: $text-color;
   font-family: $font-family-main;
   font-size: $font-size;
