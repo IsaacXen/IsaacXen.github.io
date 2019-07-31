@@ -341,3 +341,13 @@ div.footnotes {
   }
 
 }
+
+// MARK: - Image Caption
+
+img + em {
+  display: block;
+  text-align: center;
+  font-size: 80%;
+  margin-top: 0.36em;
+  color: rgba($text-color, 0.6);
+}
