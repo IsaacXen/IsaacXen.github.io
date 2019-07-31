@@ -11,8 +11,9 @@ figure {
   box-sizing: content-box;
 }
 html {
-  // background: $background-color;
-  background-image: -webkit-linear-gradient(30deg, #788aff, #a883f3, #e279d9);
+  // Do not works on chrome :(
+  // background-image: -webkit-linear-gradient(30deg, #788aff, #a883f3, #e279d9);
+  background: $background-color;
 }
 
 // Typography
