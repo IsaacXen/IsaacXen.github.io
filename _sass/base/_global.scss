@@ -354,3 +354,18 @@ img + em {
   margin-top: 0.36em;
   color: rgba($text-color, 0.6);
 }
+
+li > blockquote {
+  margin-left: 1em;
+}
+
+blockquote.indent {
+  background-color: transparent;
+  border-left: none;
+  padding: 0;
+  margin-left: 1em;
+}
+
+.small {
+  font-size: 80%;
+}
