@@ -72,8 +72,10 @@ textField.isSelectable = true
 textField.cell?.isScrollable = true
 ```
 
+> 上面展示的是纯代码替换 cell。如果你使用的是 Interface Builder，你只需要将 text field 下的 cell 类改成我们重写的这个类即可。
+
 ![image](/assets/img/72ACFBB8-9025-4911-ABED-B94524F406BE.png)
 
-我们通过这样的方法将文本进行垂直居中。实际上，对上面的代码稍加修改，我们可以让文本显示在任何地方，从而实现如下对齐这样的效果。
+我们通过这样的方法将文本进行垂直居中。实际上，对上面的代码稍加修改，我们可以让文本显示在任何地方，从而实现如上对齐、下对齐等效果。
 
 > 这一方法同样适用于 `NSSecureTextField`，你只需要重写 `NSSecureTextFieldCell` 即可。
