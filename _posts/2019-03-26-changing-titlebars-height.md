@@ -3,6 +3,8 @@ layout: post
 series: Cocoa 速记
 title: 修改标题栏高度的几种方法
 tags: [cocoa, macos, swift, nswindow, appkit]
+
+lang: zh
 ---
 
 为了实现一些界面，我们经常会想要修改标题栏的高度 (确切的说是修改窗口控制按钮的位置)，来实现一些比较特殊的界面，如 Notes、Chrome、或者 QQ。

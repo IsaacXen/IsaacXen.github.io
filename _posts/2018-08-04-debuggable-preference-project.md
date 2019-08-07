@@ -3,6 +3,7 @@ layout: post
 series: Cocoa 速记
 title: 配置一个可调试的偏好设置面板项目
 tags: [cocoa, macos, swift, preferencepanel, appkit, xcode]
+lang: zh
 ---
 
 在 Xcode 中创建一个偏好设置面板项目时，你会发现这个项目时无法运行的。你虽然可以使用 Console.app 来显示你的 NSLog 输出，但这失去了 Xcode 实时调试的优势。

@@ -3,6 +3,7 @@ layout: post
 series: Cocoa 速记
 title: 使 NSTextField 的文本垂直居中
 tags: [cocoa, macos, swift, nstextfield, appkit]
+lang: zh
 ---
 
 在进行界面开发的时候，很多时候我们都会想要制作一个看起来更加现代的输入框，而这往往需要修改输入框的高度。最后，你会发现，输入框的文字是上对齐的。并且，NSTextField 没有提供现成的方法来修改文本在垂直方向上的对齐位置。

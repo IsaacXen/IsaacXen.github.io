@@ -3,6 +3,7 @@ layout: post
 series: 生命、宇宙，以及一切
 title: 然后我就病了
 tags: [life]
+lang: zh
 ---
 
 嗯，就在我写完上一篇开篇，还没来得及准备下一篇博文写什么的时候，我病了。

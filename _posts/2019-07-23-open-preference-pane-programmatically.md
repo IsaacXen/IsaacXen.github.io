@@ -3,6 +3,7 @@ layout: post
 series: Cocoa 速记 
 title: 使用代码打开指定偏好设置面板
 tags: [cocoa, macos, swift, appkit, applescript, urlscheme]
+lang: zh
 ---
 
 有些时候，我们的程序会需要向用户请求权限。与 iOS 不同，在 macOS 上往往不会弹出确认框来向用户请求权限，而是需要用户前往系统偏好设置来开启权限。这时，我们往往会需要使用代码打开指定偏好设置面板，来引导用户进行授权操作。

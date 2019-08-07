@@ -1,8 +1,9 @@
 ---
 layout: post
-series: Cocoa Quicknote
+series: Cocoa Quick Note
 title: Rotating a View Is Simple Not Easy
 tags: [cocoa, macos, swift, nsview, appkit]
+lang: en
 ---
 
 So I was asked to do a easy feature recently, provide two button to rotate a image view 90 degree clockwise or counterclockwise with animation. How hard could it be?

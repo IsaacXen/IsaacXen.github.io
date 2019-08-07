@@ -3,6 +3,7 @@ layout: post
 series: Cocoa Touch 速记
 title: 为 UISearchController 添加额外的按钮
 tags: [ios, swift, cocoatouch, uikit, uisearchcontroller]
+lang: zh
 ---
 
 如果你在 iPad 中使用过新的 App Store，那么你应该会发现在搜索页中的搜索栏与其他搜索栏有些不同: 在你点击搜索栏后，搜索栏会收缩到中间，而左右两边出现了筛选和取消按钮。怎样才能实现这样的效果呢?

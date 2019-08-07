@@ -3,6 +3,7 @@ layout: post
 series: Cocoa 速记
 title: 为 NSVisualEffectView 设定自定义颜色
 tags: [cocoa, macos, swift, nsvisualeffect, appkit]
+lang: zh
 ---
 
 作为一种设计语言，macOS 在 Yosemite 开始提供了 NSVisualEffectView 来允许我们方便的实现毛玻璃效果。但是，就算是到了 5 年后的现在，除了黑白两色，苹果都没有为 NSVisualEffectView 提供更多的颜色方案。当我们出于设计需要，要求对 NSVisualEffectView 进行着色时，我们就必须自己动手了。
