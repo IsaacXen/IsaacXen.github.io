@@ -68,6 +68,13 @@ NSTextField 已经有一个代理对象引用可以使用，我们不需要再�
 
 ```swift
 class TextField: NSTextField {
+    private var become: Bool = false
+
+    override func becomeFirstResponder() -> Bool {
+        become = super.becomeFirstResponder()
+        return become
+    }
+
     override func resignFirstResponder() -> Bool {
         let resign = super.resignFirstResponder()
         
@@ -75,6 +82,7 @@ class TextField: NSTextField {
             (delegate as? TextFieldFocusDelegate)?.textFieldDidGainFocus?(self)
         }
         
+        become = false
         return resign
     }
     
@@ -84,6 +92,8 @@ class TextField: NSTextField {
     }
 }
 ```
+
+在 `becomeFirstResponder()` 中存储结果并在 `resignFirstResponder()` 中判断是这个值是必要的，这可以过滤掉重复的调用。
 
 这样，在使用的时候，只要设置了代理对象，并且这个对象同时还实现了我们的 `TextFieldFocusDelegate`，那么，这个对象的方法便会被调用：
 
