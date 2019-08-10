@@ -102,5 +102,5 @@ lang: zh
 
 写完这篇以后有了个骚想法，感觉可以把 0.9005.4778s 的固件拷贝到 RecoveryTool 去，直接用 RecoveryTool 直接刷进去。不过我已经懒得试了，小白鼠就换你来当吧。
 
-[^1]: 适用于 HC5661, HC6361, HC5361 以及其他型号的恢复工具: [小极修砖神器](/assets/attachment/hiwifi-recovery-tool-1.0.3.zip).
-[^2]: 适用于 HC5661 的 0.9005.4778s 固件: [hc5661-0.9005.4778s-recovery.bin](/assets/attachment/hc5661-0.9005.4778s-recovery.bin).
+[^1]: 适用于 HC5661, HC6361, HC5361 以及其他型号的恢复工具: [小极修砖神器](https://mega.nz/#!uMQHQARb!4_aNr4FWUyPy_qqSU9CoewEgmhb2WJtX6SfihPcnhAA).
+[^2]: 适用于 HC5661 的 0.9005.4778s 固件: [hc5661-0.9005.4778s-recovery.bin](https://mega.nz/#!DAZTzQJK!kcLTPFJyCe5PvRDiX3fz28u9vrdzdYgWyoEh-15PeWw).
