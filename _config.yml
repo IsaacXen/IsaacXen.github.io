@@ -66,7 +66,7 @@ theme_settings:
   post_navigation: false
 
 # PAGINATION
-paginate: 5
+paginate: 8
 paginate_path: "blog/page:num"
 
 # BUILD SETTINGS
