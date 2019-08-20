@@ -78,7 +78,7 @@ class TextField: NSTextField {
     override func resignFirstResponder() -> Bool {
         let resign = super.resignFirstResponder()
         
-        if resign, let _ = currentEditor() {
+        if become, resign, let _ = currentEditor() {
             (delegate as? TextFieldFocusDelegate)?.textFieldDidGainFocus?(self)
         }
         
