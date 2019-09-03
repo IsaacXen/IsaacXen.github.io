@@ -1,7 +1,7 @@
 ---
 layout: post
 series: Cocoa 速记
-title: 实现程序的开机自启动 - 最佳实践
+title: 实现程序自启动的最佳实践
 tags: [macos, swift, appkit, servicemanagement, launchd, loginitem]
 lang: zh
 ---
