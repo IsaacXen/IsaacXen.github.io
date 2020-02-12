@@ -46,12 +46,20 @@ var windowController: NSWindowController?
 
 ## 通过纯代码创建的窗口
 
-如果您是通过纯代码来创建一个没有控制器的窗口，那您可以使用窗口的 `isReleasedWhenClosed` 属性来快速控制窗口关闭时要不要释放。
+如果您是通过纯代码来创建一个没有控制器的窗口，与上一节类似，你可以使用同样的方法来释放该窗口对象：
 
-> 在使用窗口控制器时，窗口的生命周期由窗口控制器进行管理，窗口的 `isReleasedWhenClosed` 属性会被忽略。
-
-> 在将 `isReleasedWhenClosed` 设为 `true` 时，您应该确保窗口对象的变量是一个可选型，从而避免野指针的产生。
-
-您也可以用传统一点的方法，监听 `NSWindow.willCloseNotification` 事件或者在窗口对象的代理方法 `windowShouldClose(:)` 中将窗口对象变量设置为 `nil`。
+使用可选性变量，监听 `NSWindow.willCloseNotification` 事件或者在窗口对象的代理方法 `windowShouldClose(:)` 中将窗口对象变量设置为 `nil`。
 
 > 在使用监听或代理方法释放窗口时，您应该确保监听该事件的对象或者代理对象不是需要被释放的窗口对象本身。
+
+## Sidenote: 关于 `isReleasedWhenClosed`
+
+在 `isReleasedWhenClosed` 为 `true` 的场合下，`NSWindow` 并不遵循普通的内存管理策略。这使得 `isReleasedWhenClosed` 这一属性在使用 ARC 的现代 Cocoa 开发中变得特别尴尬。
+
+当它释放时，它并没有非常干净的释放，而是留下了个空的 `NSMapTable`。也就是说，就算它释放了，它也不是 `nil`。
+
+即使是从苹果自家的开发者邮箱列表中，你也只能找到将 `isReleaseWhenClosed` 设置为 `false` 的答复。并且在 `NSWindowController` 出现后，`isReleasedWhenClosed` 属性甚至被直接忽略。但是直到今日，`isReleaseWhenClosed` 仍然存在，没有过期。
+
+就目前来说，我觉得 `isReleasedWhenClosed` 这个属性没有任何意义。
+
+我的建议是：用 `NSWindowController` 来管理窗口，避免单独使用 `NSWindow`。如果你要单独使用 `NSWindow`，请务必将 `isReleasedWhenClosed` 属性设置为 `false`。
