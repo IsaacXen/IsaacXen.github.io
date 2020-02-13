@@ -52,3 +52,43 @@ var positioningView: NSView?
     positioningView?.frame = NSMakeRect(0, -200, 10, 10)
 }
 ```
+
+## Bonus: Popover on Statusbar
+
+This trick also works if you want to use a popover as a statusbar menu.
+
+In your status item button's action callback method, simply add a positioning view as a subview of the status item button:
+
+```swift
+@IBAction func statusItemButtonDidPushed(_ sender: NSButton) {
+    // add positioning view as a suview of sender, that is, `statusItem.button`.
+    let positioningView = NSView(frame: sender.bounds)
+    // set an identifier for positioning view, so we can easily remove it later.
+    positioningView.identifier = NSUserInterfaceItemIdentifier(rawValue: "positioningView")
+    sender.addSubview(positioningView)
+
+    // show popover
+    popover.show(relaticeTo: posotioningView.bounds, of: positioningView, preferredEdge: .maxY)
+    // move positioning view away
+    sender.bounds = sender.bounds.offsetBy(dx: 0, dy: sender.bounds.height)
+}
+```
+
+Later, when the popover is closed, we can remove the positioning view from view hierarchy. This is often done in popover's deelgate method `popoverDidClose(_:)`:
+
+```swift
+func popoverDidClose(_ notification: Notification) {
+    let positioningView = statusItem.button?.subviews.first { 
+        $0.identifier == NSUserInterfaceItemIdnetifier(rawValue: "positioningView") 
+    }
+    positioningView?.removeFromSuperview()
+}
+```
+
+You may find the gap between the statusbar and the popover is a bit large. In this case, you can also move the popover up a bit by setting its window's frame:
+
+```swift
+if let popoverWindow = popover.contentViewController?.view.window {
+    popoverWindow.setFrame(popoverWindow.frame.offsetBy(dx: 0, dy: 10), display: false)
+}
+```
