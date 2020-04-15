@@ -195,7 +195,7 @@ zoomButton.leadingAnchor.constraint(equalTo: miniaturizeButton.trailingAnchor, c
 
 在这个基础上，我们还可以做到更多。为了视觉美观起见，我们可以将窗口控制按钮稍微往右移一点，来给按钮更多的呼吸空间，就像系统实现一体式工具栏时那样。
 
-默认情况下，关闭按钮距离窗口左边界的距离是 7 点，而在启用一体式工具栏时是 12 点。我们可以做一些小计算，让控制按钮根据垂直方向上与标题栏的间隙让它离左边界的距离在 7 到 12 点之间浮动。
+默认情况下，关闭按钮距离窗口左边界的距离是 7 点，而在启用一体式工具栏时是 12 点。我们可以做一些小计算，让控制按钮根据垂直方向上与标题栏边缘的距离来让它离左边界的距离在 7 到 12 点之间浮动。
 
 ```swift
 let barHeight = window.styleMask.contains(.fullScreen) ? 22 : titlebarHeight
@@ -274,7 +274,7 @@ func windowDidResize(_ notification: Notification) {
 
 ### 更新按钮的追踪区域
 
-最后，有一个小问题需要解决，那就是按钮的最终区域。我们修改了按钮的位置，但是，用来实现鼠标悬浮效果的追踪区域还没有改变。
+最后，有一个小问题需要解决，那就是按钮的追踪区域。我们修改了按钮的位置，但是，用来实现鼠标悬浮效果的追踪区域还没有改变。
 
 这个最终区域存放在 theme frame (也就是 titlebar 的父视图) 的 `trackingAreas` 里，并且，它是在数组内唯一一个包含 `NSTrackingArea.Options.activeAlways` 的元素。 所以，我们可以获取到这个追踪区域，移除它，然后添加一个新的追踪区域。我们同样编写一个方法：
 
