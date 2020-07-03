@@ -12,6 +12,9 @@ lang: zh
 
 本文我们就来用一个例子，讲讲另一种使用分栏视图控制器的思路。
 
+> 从 iOS 14 / iPadOS 14 起，苹果介绍了新的 `UISplitViewController` API，您应该查看新的设计规范来进行设计与实现。
+{:.info}
+
 ## 概念
 
 ![](/assets/img/20062701.svg)
