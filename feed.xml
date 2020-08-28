@@ -5,17 +5,17 @@ layout: null
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ site.theme_settings.title | xml_escape }}</title>
-    <atom:link href="{{ "/feed.xml" | relative_url }}" rel="self" type="application/rss+xml"/>
+    <atom:link href="{{ site.url }}{{ site.baseurl }}{{ "/feed.xml" | relative_url }}" rel="self" type="application/rss+xml"/>
     <link>{{ site.url }}{{ site.baseurl }}{{ "/feed.xml" | relative_url }}</link>
-    <description>{{ site.theme_settings.description | xml_escape }}</description>
+    <description>{{ site.theme_settings.description | xml_escape | markdownify }}</description>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     {% assign posts = site.posts | where_exp:"item", "item.hidden != true" %}
-    {% for post in posts limit:15 %}
+    {% for post in posts limit:30 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <link>{{ site.url }}{{ site.baseurl }}{{ post.url | relative_url }}</link>
         <guid isPermaLink="false">{{ site.url }}{{ site.baseurl }}{{ post.url | relative_url }}</guid>
-        <description>{{ post.content | xml_escape }}</description>
+        <description>{{ post.content | xml_escape | markdownify }}</description>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
       </item>
     {% endfor %}
