@@ -24,7 +24,7 @@ let saveItem = NSMenuItem(title: "Save", action: #selector(save:), keyEquivalent
 let saveAsItem = NSMenuItem(title: "Save As...", action: #selector(saveAs:), keyEquivalent: "S")
 ```
 
-*Save* 的快捷键为 `⌘`{:.keycap} + `S`{:.keycap}，而 *Save As...* 的快捷键为 `⌥`{:.keycap} + `⌘`{:.keycap} + `S`{:.keycap}。
+*Save* 的快捷键为 `⌘`{:.keycap} + `S`{:.keycap}，而 *Save As...* 的快捷键为 `⌥`{:.keycap} + `⌘`{:.keycap} + `S`{:.keycap}。
 
 现在，如果你将 `saveAsItem` 菜单项的 `isAlternate` 设置为 `true`:
 
