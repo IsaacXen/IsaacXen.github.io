@@ -386,3 +386,7 @@ code.keycap {
 li > p {
   display: contents;
 }
+
+video + p {
+  margin-top: 1em;
+}
