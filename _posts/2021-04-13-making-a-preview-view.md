@@ -28,7 +28,7 @@ Scroll view
 
 我们将视图视作摄像机跟监视器的组合，那么，摄像机捕获到的画面就是视图的界限。摄像机的平移、拉近拉远，带来最直观的变化就是捕捉到的画面位置以及画面远近的变化。而连接到摄像机的外部监视器 (框架) 是不会随着摄像机的移动而移动的，改变的只是它显示的内容。监视器的位置只取决于现实中你怎么摆放它，跟摄像机的移动毫无关系。
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/fb639c2b-e6ae-4f95-a26b-a9bc5a9a2253.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -61,7 +61,7 @@ class MyDocumentView: NSView {
 
 在默认情况下，文件视图在裁剪视图内是紧靠左下角放置的（也就是视图原点）。在进行缩放时，裁剪视图的 `constrainBoundsRect(_:)` 方法会被不断调用，用来将文件视图限制在裁剪视图的视野中：
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/7aa64e00-c3a1-4142-a185-f910e8744f0d.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -123,7 +123,7 @@ override func constrainBoundsRect(_ proposedBounds: NSRect) -> NSRect {
 
 这样，我们的文件视图就能够居中于裁剪视图了：
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/349677d7-2cc4-4170-aab7-2b50272b1d67.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -134,7 +134,7 @@ override func constrainBoundsRect(_ proposedBounds: NSRect) -> NSRect {
 
 在向上或向左滑动的时候，视图的位置会在一开始出现明显的跳动，而非平滑过度。这看似好像是滑动事件的前几个事件没有调用裁剪视图的 `scroll(to:)` 方法：
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/2f52564a-b911-42c4-b2e4-6eb6a4290ff5.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -151,7 +151,7 @@ override func scrollWhell(with event: NSEvent) {
 
 你可能跟我想的一样，重写一个方法却只调用它的 `super` 方法跟不重写没有什么区别。但这看似无用的三行代码却能让滑动变得顺滑起来：
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/f5dcd805-097d-44b2-82fd-81773fcd52c5.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -249,7 +249,7 @@ func zoomIn() {
 let zoomScale = availableZoomScales.filter({ $0 < scrollView.magnification }).max()
 ```
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/144af05e-f83f-432f-b1c6-591fa964c7ca.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -265,7 +265,7 @@ func zoomToFit() {
 }
 ```
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/9865807d-82c8-46f3-ba72-678d5ffca8d8.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -303,7 +303,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(clipViewFrameDi
 }
 ```
 
-<video autoplay muted loop>
+<video autoplay playsinline muted loop>
   <source src="/assets/mov/5e7f3f1e-3dbc-41dc-86df-b8f4d475a45d.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
